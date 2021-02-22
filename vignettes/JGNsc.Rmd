@@ -1,0 +1,39 @@
+---
+title: "JGNsc"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{JGNsc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+theme: cerulean
+---
+
+# *Joint Gene Network Construction by Single Cell RNA Sequencing Data under Multiple Conditions*
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Overview of JGNsc framework: <br />
+![JGNsc Overview](Figureoverview.JPG){width=90%}
+
+
+## Installation
+```{r setup}
+# github pending...
+library(JGNsc)
+```
+
+## Data Input
+Raw count data from more than one condition......
+
+## Framework
+We use the function ......
+
+## Results and Visualiztion
+We provide the function xxxx for visualizing joint networks.
+We provide the function xxxx for the Gene Set Enrichment analysis.
+
