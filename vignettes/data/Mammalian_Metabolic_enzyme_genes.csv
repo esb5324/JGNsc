@@ -1,0 +1,905 @@
+GeneSymbol,Annotation,SigmaMiniMap Term
+Mdh1,"malate dehydrogenase, cytoplasmic",Anaplerotic Reactions of the TCA Cycle; Deamination of Amino Acids: The Urea Cycle; Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; Lipid Metabolism; 
+Mdh2,"malate dehydrogenase, mitochondrial precursor",Anaplerotic Reactions of the TCA Cycle; Deamination of Amino Acids: The Urea Cycle; Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; Lipid Metabolism; 
+Olah,"S-acyl fatty acid synthase thioesterase, medium chain",Anaplerotic Reactions of the TCA Cycle; Deamination of Amino Acids: The Urea Cycle; Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; Lipid Metabolism; 
+Pck1,"phosphoenolpyruvate carboxykinase, cytosolic [GTP]",Anaplerotic Reactions of the TCA Cycle; Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; 
+Pck2,phosphoenolpyruvate carboxykinase 2 (mitochondrial),Anaplerotic Reactions of the TCA Cycle; Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; 
+Pklr,pyruvate kinase PKLR,Anaplerotic Reactions of the TCA Cycle; Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; 
+Pkm,pyruvate kinase PKM,Anaplerotic Reactions of the TCA Cycle; Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; 
+Pc,"pyruvate carboxylase, mitochondrial precursor",Anaplerotic Reactions of the TCA Cycle; Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Lipid Metabolism; 
+Acly,ATP-citrate synthase isoform 1,Anaplerotic Reactions of the TCA Cycle; Lipid Metabolism; 
+Me1,NADP-dependent malic enzyme,Anaplerotic Reactions of the TCA Cycle; Lipid Metabolism; 
+Me2,"NAD-dependent malic enzyme, mitochondrial",Anaplerotic Reactions of the TCA Cycle; Lipid Metabolism; 
+Me3,"NADP-dependent malic enzyme, mitochondrial",Anaplerotic Reactions of the TCA Cycle; Lipid Metabolism; 
+Asl,argininosuccinate lyase,Deamination of Amino Acids: The Urea Cycle; 
+Ass1,argininosuccinate synthase,Deamination of Amino Acids: The Urea Cycle; 
+Bcat1,"branched-chain-amino-acid aminotransferase, cytosolic",Deamination of Amino Acids: The Urea Cycle; 
+Bcat2,"branched-chain-amino-acid aminotransferase, mitochondrial precursor",Deamination of Amino Acids: The Urea Cycle; 
+Cps1,"carbamoyl-phosphate synthase [ammonia], mitochondrial precursor",Deamination of Amino Acids: The Urea Cycle; 
+Gls,"glutaminase kidney isoform, mitochondrial isoform a",Deamination of Amino Acids: The Urea Cycle; 
+Gls2,"glutaminase liver isoform, mitochondrial isoform 2",Deamination of Amino Acids: The Urea Cycle; 
+Glul,glutamine synthetase,Deamination of Amino Acids: The Urea Cycle; 
+Got1,"aspartate aminotransferase, cytoplasmic",Deamination of Amino Acids: The Urea Cycle; 
+Got1l1,"putative aspartate aminotransferase, cytoplasmic 2",Deamination of Amino Acids: The Urea Cycle; 
+Got2,"aspartate aminotransferase, mitochondrial",Deamination of Amino Acids: The Urea Cycle; 
+Gpt,alanine aminotransferase 1,Deamination of Amino Acids: The Urea Cycle; 
+Gpt2,alanine aminotransferase 2,Deamination of Amino Acids: The Urea Cycle; 
+Nos1,"nitric oxide synthase, brain",Deamination of Amino Acids: The Urea Cycle; 
+Nos2,"nitric oxide synthase, inducible",Deamination of Amino Acids: The Urea Cycle; 
+Nos3,"nitric oxide synthase, endothelial",Deamination of Amino Acids: The Urea Cycle; 
+Otc,"ornithine carbamoyltransferase, mitochondrial precursor",Deamination of Amino Acids: The Urea Cycle; 
+Fh,"fumarate hydratase, mitochondrial precursor",Deamination of Amino Acids: The Urea Cycle; Glycolysis and TCA Cycle; 
+Glud1,"glutamate dehydrogenase 1, mitochondrial precursor",Deamination of Amino Acids: The Urea Cycle; Isoprene Metabolism; 
+Glud2,"glutamate dehydrogenase 2, mitochondrial precursor",Deamination of Amino Acids: The Urea Cycle; Isoprene Metabolism; 
+Dhfr,dihydrofolate reductase,Folic Acid Metabolism; 
+Dhfrl1,"dihydrofolate reductase, mitochondrial",Folic Acid Metabolism; 
+Mthfd1,"C-1-tetrahydrofolate synthase, cytoplasmic",Folic Acid Metabolism; 
+Mthfd1l,"monofunctional C1-tetrahydrofolate synthase, mitochondrial",Folic Acid Metabolism; 
+Mthfd2,"bifunctional methylenetetrahydrofolate dehydrogenase/cyclohydrolase, mitochondrial",Folic Acid Metabolism; 
+Mthfd2l,bifunctional methylenetetrahydrofolate dehydrogenase/cyclohydrolase 2,Folic Acid Metabolism; 
+Mthfr,methylenetetrahydrofolate reductase isoform X6,Folic Acid Metabolism; 
+Mthfs,5-formyltetrahydrofolate cyclo-ligase,Folic Acid Metabolism; 
+Amt,"aminomethyltransferase, mitochondrial",Folic Acid Metabolism; Folic Acid Reactions; 
+Ftcd,formimidoyltransferase-cyclodeaminase,Folic Acid Metabolism; Folic Acid Reactions; 
+Gal3st1,galactosylceramide sulfotransferase isoform X3,Folic Acid Metabolism; Folic Acid Reactions; 
+Gal3st2,galactose-3-O-sulfotransferase 2-like,Folic Acid Metabolism; Folic Acid Reactions; 
+Gal3st3,galactose-3-O-sulfotransferase 3,Folic Acid Metabolism; Folic Acid Reactions; 
+Gal3st4,galactose-3-O-sulfotransferase 4,Folic Acid Metabolism; Folic Acid Reactions; 
+Gldc,"glycine dehydrogenase [decarboxylating], mitochondrial",Folic Acid Metabolism; Folic Acid Reactions; 
+Mtr,methionine synthase,Folic Acid Metabolism; Folic Acid Reactions; 
+Shmt1,"serine hydroxymethyltransferase, cytosolic",Folic Acid Metabolism; Folic Acid Reactions; 
+Shmt2,"serine hydroxymethyltransferase, mitochondrial",Folic Acid Metabolism; Folic Acid Reactions; 
+Atic,phosphoribosylaminoimidazolecarboxamide formyltransferase,Folic Acid Metabolism; Folic Acid Reactions; Purine Metabolism; 
+Gart,phosphoribosylamine--glycine ligase,Folic Acid Metabolism; Folic Acid Reactions; Purine Metabolism; 
+Tyms,thymidylate synthase,Folic Acid Metabolism; Folic Acid Reactions; Pyrimidine Metabolism; 
+Gk,glycerol kinase,Gluconeogenesis and Glycolysis; 
+Gk2,glycerol kinase 2,Gluconeogenesis and Glycolysis; 
+Gk3p,putative glycerol kinase 3,Gluconeogenesis and Glycolysis; 
+Gk5,putative glycerol kinase 5-like isoform X3,Gluconeogenesis and Glycolysis; 
+Ldha,L-lactate dehydrogenase A chain,Gluconeogenesis and Glycolysis; 
+Ldhal6a,L-lactate dehydrogenase A-like 6A,Gluconeogenesis and Glycolysis; 
+Ldhal6b,L-lactate dehydrogenase A-like 6B,Gluconeogenesis and Glycolysis; 
+Ldhb,L-lactate dehydrogenase B chain,Gluconeogenesis and Glycolysis; 
+Ldhc,L-lactate dehydrogenase C chain,Gluconeogenesis and Glycolysis; 
+Ldhd,"D-lactate dehydrogenase, mitochondrial isoform X1",Gluconeogenesis and Glycolysis; 
+Mcee,"methylmalonyl-CoA epimerase, mitochondrial",Gluconeogenesis and Glycolysis; 
+Mut,"methylmalonyl-CoA mutase, mitochondrial isoform X2",Gluconeogenesis and Glycolysis; 
+Pcca,"propionyl-CoA carboxylase alpha chain, mitochondrial",Gluconeogenesis and Glycolysis; 
+Pccb,"propionyl-CoA carboxylase beta chain, mitochondrial precursor",Gluconeogenesis and Glycolysis; 
+G6pc,glucose-6-phosphatase,Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; 
+G6pc2,glucose-6-phosphatase 2 isoform 3,Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; 
+G6pc3,glucose-6-phosphatase 3,Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; 
+Hk1,hexokinase-1,Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; 
+Hk2,hexokinase-2,Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; 
+Hk3,hexokinase-3,Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; 
+Hkdc1,putative hexokinase HKDC1,Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; 
+Pfkl,"ATP-dependent 6-phosphofructokinase, liver type",Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; Pentose Phosphate Pathways; 
+Pfkm,"ATP-dependent 6-phosphofructokinase, muscle type",Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; Pentose Phosphate Pathways; 
+Pfkp,"ATP-dependent 6-phosphofructokinase, platelet type",Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Glycolysis and TCA Cycle; Pentose Phosphate Pathways; 
+Fbp1,"fructose-1,6-bisphosphatase 1",Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Pentose Phosphate Pathways; 
+Fbp2,"fructose-1,6-bisphosphatase isozyme 2",Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Pentose Phosphate Pathways; 
+Fbp3,"fructose-1,6-bisphosphatase 1",Gluconeogenesis and Glycolysis; Gluconeogenesis and Glycolysis: Regulation; Pentose Phosphate Pathways; 
+Eno1,alpha-enolase,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Eno2,gamma-enolase,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Eno3,beta-enolase,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Eno4,enolase-like protein ENO4,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Gapdh,glyceraldehyde-3-phosphate dehydrogenase,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Gapdhs,"glyceraldehyde-3-phosphate dehydrogenase, testis-specific",Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Pgk1,phosphoglycerate kinase 1,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Pgk2,phosphoglycerate kinase 2,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Vps4a,vacuolar protein sorting-associated protein 4A,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Vps4b,vacuolar protein sorting-associated protein 4B,Gluconeogenesis and Glycolysis; Glycolysis and TCA Cycle; 
+Tpi1,triosephosphate isomerase,Gluconeogenesis and Glycolysis; Pentose Phosphate Pathways; 
+Aco1,cytoplasmic aconitate hydratase,Glycolysis and TCA Cycle; 
+Aco2,"aconitate hydratase, mitochondrial precursor",Glycolysis and TCA Cycle; 
+Dhtkd1,"2-oxoglutarate dehydrogenase E1 component DHKTD1, mitochondrial",Glycolysis and TCA Cycle; 
+Idh3a,"isocitrate dehydrogenase [NAD] subunit alpha, mitochondrial precursor",Glycolysis and TCA Cycle; 
+Idh3B,"isocitrate dehydrogenase [NAD] subunit beta, mitochondrial precursor",Glycolysis and TCA Cycle; 
+Idh3g,"isocitrate dehydrogenase [NAD] subunit gamma 1, mitochondrial precursor",Glycolysis and TCA Cycle; 
+Ogdh,"2-oxoglutarate dehydrogenase, mitochondrial precursor",Glycolysis and TCA Cycle; 
+Ogdhl,"2-oxoglutarate dehydrogenase-like, mitochondrial",Glycolysis and TCA Cycle; 
+Sdha,"succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial precursor",Glycolysis and TCA Cycle; 
+Sdhb,"succinate dehydrogenase [ubiquinone] iron-sulfur subunit, mitochondrial precursor",Glycolysis and TCA Cycle; 
+Sds,L-serine dehydratase/L-threonine deaminase,Glycolysis and TCA Cycle; 
+Suclg1,"succinyl-CoA ligase [ADP/GDP-forming] subunit alpha, mitochondrial precursor",Glycolysis and TCA Cycle; 
+Suclg2,"succinyl-CoA ligase [GDP-forming] subunit beta, mitochondrial",Glycolysis and TCA Cycle; 
+Aldoc,fructose-bisphosphate aldolase C,Glycolysis and TCA Cycle; Isoprene Metabolism; Pentose Phosphate Pathways; Products of Isoprene Metabolism; 
+Cs,"citrate synthase, mitochondrial precursor",Glycolysis and TCA Cycle; Lipid Metabolism; 
+Pdha1,"pyruvate dehydrogenase E1 component subunit alpha, somatic form, mitochondrial precursor",Glycolysis and TCA Cycle; Lipid Metabolism; 
+Pdha2,"pyruvate dehydrogenase E1 component subunit alpha, testis-specific form, mitochondrial precursor",Glycolysis and TCA Cycle; Lipid Metabolism; 
+Pdhb,"pyruvate dehydrogenase E1 component subunit beta, mitochondrial precursor",Glycolysis and TCA Cycle; Lipid Metabolism; 
+Aldoa,fructose-bisphosphate aldolase A,Glycolysis and TCA Cycle; Pentose Phosphate Pathways; 
+Aldoart1,aldolase 1 A retrogene 1,Glycolysis and TCA Cycle; Pentose Phosphate Pathways; 
+Aldoart2,fructose-bisphosphate aldolase,Glycolysis and TCA Cycle; Pentose Phosphate Pathways; 
+Aldob,fructose-bisphosphate aldolase B,Glycolysis and TCA Cycle; Pentose Phosphate Pathways; 
+Gpi,glucose-6-phosphate isomerase,Glycolysis and TCA Cycle; Pentose Phosphate Pathways; 
+Alad,delta-aminolevulinic acid dehydratase,Heme Metabolism; 
+Alas1,"5-aminolevulinate synthase, nonspecific, mitochondrial precursor",Heme Metabolism; 
+Alas2,"5-aminolevulinate synthase, erythroid-specific, mitochondrial",Heme Metabolism; 
+Arsa,arylsulfatase A precursor,Heme Metabolism; 
+Arsb,arylsulfatase B precursor,Heme Metabolism; 
+Arsd,arylsulfatase D precursor,Heme Metabolism; 
+Arse,arylsulfatase E precursor,Heme Metabolism; 
+Arsf,arylsulfatase F precursor,Heme Metabolism; 
+Arsg,arylsulfatase G precursor,Heme Metabolism; 
+Arsh,arylsulfatase H,Heme Metabolism; 
+Arsi,arylsulfatase I precursor,Heme Metabolism; 
+Arsj,arylsulfatase J,Heme Metabolism; 
+Arsk,arylsulfatase K precursor,Heme Metabolism; 
+Cpox,"oxygen-dependent coproporphyrinogen-III oxidase, mitochondrial precursor",Heme Metabolism; 
+Fech,"ferrochelatase, mitochondrial",Heme Metabolism; 
+Hmbs,porphobilinogen deaminase,Heme Metabolism; 
+Ppox,protoporphyrinogen oxidase,Heme Metabolism; 
+Urod,uroporphyrinogen decarboxylase,Heme Metabolism; 
+Uros,uroporphyrinogen-III synthase,Heme Metabolism; 
+Cyp11a1,cholesterol desmolase,Isoprene Metabolism; 
+Cyp11b1,steroid 11-beta-hydroxylase,Isoprene Metabolism; 
+Cyp11b2,steroid 11-beta-hydroxylase,Isoprene Metabolism; 
+Cyp11b3,steroid 11-beta-hydroxylase,Isoprene Metabolism; 
+Cyp17a1,"steroid 17-alpha-hydroxylase/17,20 lyase precursor",Isoprene Metabolism; 
+Cyp21,steroid 21-hydroxylase,Isoprene Metabolism; 
+Cyp21a1,steroid 21-hydroxylase,Isoprene Metabolism; 
+Cyp21a2,steroid 21-hydroxylase isoform b,Isoprene Metabolism; 
+H6pd,glucose 1-dehydrogenase,Isoprene Metabolism; 
+Hsd3b,3 beta-hydroxysteroid dehydrogenase/Delta 5-->4-isomerase type 2,Isoprene Metabolism; 
+Hsd3b1,3 beta-hydroxysteroid dehydrogenase/Delta 5-->4-isomerase type 1,Isoprene Metabolism; 
+Hsd3b2,3 beta-hydroxysteroid dehydrogenase/Delta 5-->4-isomerase type 2,Isoprene Metabolism; 
+Hsd3b3,3 beta-hydroxysteroid dehydrogenase/Delta 5-->4-isomerase type 3 isoform 1,Isoprene Metabolism; 
+Hsd3b4,3 beta-hydroxysteroid dehydrogenase type 4,Isoprene Metabolism; 
+Hsd3b5,3 beta-hydroxysteroid dehydrogenase type 5,Isoprene Metabolism; 
+Hsd3b6,3 beta-hydroxysteroid dehydrogenase/Delta 5-->4-isomerase type 4,Isoprene Metabolism; 
+Hsd3b7,3 beta-hydroxysteroid dehydrogenase type 7,Isoprene Metabolism; 
+Pgls,6-phosphogluconolactonase,Isoprene Metabolism; 
+Srd5a1,3-oxo-5-alpha-steroid 4-dehydrogenase 1,Isoprene Metabolism; 
+Srd5a2,3-oxo-5-alpha-steroid 4-dehydrogenase 2,Isoprene Metabolism; 
+Srd5a3,polyprenol reductase,Isoprene Metabolism; 
+Hmgcr,3-hydroxy-3-methylglutaryl-coenzyme A reductase,Isoprene Metabolism; Lipid Metabolism; 
+Hmgcs1,"hydroxymethylglutaryl-CoA synthase, cytoplasmic",Isoprene Metabolism; Lipid Metabolism; 
+Hmgcs2,"hydroxymethylglutaryl-CoA synthase, mitochondrial precursor",Isoprene Metabolism; Lipid Metabolism; 
+Dgat1,diacylglycerol O-acyltransferase 1,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Dgat2,diacylglycerol O-acyltransferase 2,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b1,estradiol 17-beta-dehydrogenase 1,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b10,3-hydroxyacyl-CoA dehydrogenase type-2,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b11,estradiol 17-beta-dehydrogenase 11 precursor,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b12,estradiol 17-beta-dehydrogenase 12,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b13,17-beta-hydroxysteroid dehydrogenase 13 precursor,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b14,17-beta-hydroxysteroid dehydrogenase 14,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b2,estradiol 17-beta-dehydrogenase 2,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b3,testosterone 17-beta-dehydrogenase 3,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b4,17-beta-hydroxysteroid dehydrogenase 4,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b5,"aldo-keto reductase family 1, member C1",Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b6,17-beta-hydroxysteroid dehydrogenase type 6,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b7,3-keto-steroid reductase,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Hsd17b8,estradiol 17-beta-dehydrogenase 8,Isoprene Metabolism; Lipid Metabolism; Products of Isoprene Metabolism; 
+Awat1,acyl-CoA wax alcohol acyltransferase 1,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Awat2,acyl-CoA wax alcohol acyltransferase 2,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Bcmo1,"beta,beta-carotene 15,15'-monooxygenase isoform 2",Isoprene Metabolism; Products of Isoprene Metabolism; 
+Dhrs1,dehydrogenase/reductase SDR family member 1,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Dhrs2,"dehydrogenase/reductase SDR family member 2, mitochondrial",Isoprene Metabolism; Products of Isoprene Metabolism; 
+Dhrs3,short-chain dehydrogenase/reductase 3,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Dhrs4,dehydrogenase/reductase SDR family member 4,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Fdps,farnesyl pyrophosphate synthase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Ggps1,geranylgeranyl pyrophosphate synthase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Lrat,lecithin retinol acyltransferase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Lss,lanosterol synthase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Mvd,diphosphomevalonate decarboxylase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Mvk,mevalonate kinase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Pmvk,phosphomevalonate kinase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh1,retinol dehydrogenase 1 (all trans) precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh10,retinol dehydrogenase 10,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh11,retinol dehydrogenase 11 precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh12,retinol dehydrogenase 12 precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh13,retinol dehydrogenase 13 precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh14,retinol dehydrogenase 14,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh16,retinol dehydrogenase 2 precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh19,retinol dehydrogenase similar protein 2 precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh2,retinol dehydrogenase 2 precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh5,11-cis retinol dehydrogenase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh7,retinol dehydrogenase 7 precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh8,retinol dehydrogenase 8,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rdh9,retinol dehydrogenase 9 precursor,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Rpe65,retinoid isomerohydrolase,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Sdr16c5,epidermal retinol dehydrogenase 2,Isoprene Metabolism; Products of Isoprene Metabolism; 
+Aldh18a1,delta-1-pyrroline-5-carboxylate synthase,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh1a1,retinal dehydrogenase 1,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh1a2,retinal dehydrogenase 2,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh1a3,aldehyde dehydrogenase family 1 member A3,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh1a7,"aldehyde dehydrogenase, cytosolic 1",Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh1b1,"aldehyde dehydrogenase X, mitochondrial precursor",Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh1l1,cytosolic 10-formyltetrahydrofolate dehydrogenase,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh1l2,10-formyltetrahydrofolate dehydrogenase ALDH1L2,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh2,"aldehyde dehydrogenase, mitochondrial precursor",Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh3a1,"aldehyde dehydrogenase, dimeric NADP-preferring",Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh3a2,fatty aldehyde dehydrogenase,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh3b1,aldehyde dehydrogenase family 3 member B1,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh3b2,aldehyde dehydrogenase family 3 member B1,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh4a1,"delta-1-pyrroline-5-carboxylate dehydrogenase, mitochondrial",Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh5a1,"succinate-semialdehyde dehydrogenase, mitochondrial precursor",Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh6a1,"methylmalonate-semialdehyde dehydrogenase [acylating], mitochondrial precursor",Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh7a1,alpha-aminoadipic semialdehyde dehydrogenase,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Aldh9a1,4-trimethylaminobutyraldehyde dehydrogenase,Isoprene Metabolism; Products of Isoprene Metabolism; Pyrimidine Metabolism; 
+Abhd1,abhydrolase domain-containing protein 1,Lipid Metabolism; 
+Abhd10,"mycophenolic acid acyl-glucuronide esterase, mitochondrial precursor",Lipid Metabolism; 
+Abhd11,abhydrolase domain containing 11,Lipid Metabolism; 
+Abhd12,monoacylglycerol lipase ABHD12,Lipid Metabolism; 
+Abhd12b,abhydrolase domain-containing protein 12B,Lipid Metabolism; 
+Abhd13,abhydrolase domain-containing protein 13,Lipid Metabolism; 
+Abhd14a,alpha/beta hydrolase domain-containing protein 14A precursor,Lipid Metabolism; 
+Abhd14b,alpha/beta hydrolase domain-containing protein 14B,Lipid Metabolism; 
+Abhd15,abhydrolase domain-containing protein 15 precursor,Lipid Metabolism; 
+Abhd16a,abhydrolase domain-containing protein 16A,Lipid Metabolism; 
+Abhd16b,abhydrolase domain-containing protein 16B,Lipid Metabolism; 
+Abhd17a,alpha/beta hydrolase domain-containing protein 17A precursor,Lipid Metabolism; 
+Abhd17b,alpha/beta hydrolase domain-containing protein 17B precursor,Lipid Metabolism; 
+Abhd17c,abhydrolase domain-containing protein FAM108C1,Lipid Metabolism; 
+Abhd2,abhydrolase domain-containing protein 2,Lipid Metabolism; 
+Abhd3,abhydrolase domain-containing protein 3,Lipid Metabolism; 
+Abhd4,abhydrolase domain-containing protein 4,Lipid Metabolism; 
+Abhd5,1-acylglycerol-3-phosphate O-acyltransferase ABHD5,Lipid Metabolism; 
+Abhd6,monoacylglycerol lipase ABHD6,Lipid Metabolism; 
+Abhd8,abhydrolase domain-containing protein 8,Lipid Metabolism; 
+Acaa1a,"3-ketoacyl-CoA thiolase A, peroxisomal",Lipid Metabolism; 
+Acaa1b,"3-ketoacyl-CoA thiolase B, peroxisomal precursor",Lipid Metabolism; 
+Acaa2,"3-ketoacyl-CoA thiolase, mitochondrial",Lipid Metabolism; 
+Acaca,acetyl-CoA carboxylase 1,Lipid Metabolism; 
+Acacb,acetyl-CoA carboxylase 2,Lipid Metabolism; 
+Acadl,"long-chain specific acyl-CoA dehydrogenase, mitochondrial precursor",Lipid Metabolism; 
+Acadm,"medium-chain specific acyl-CoA dehydrogenase, mitochondrial precursor",Lipid Metabolism; 
+Acads,"short-chain specific acyl-CoA dehydrogenase, mitochondrial precursor",Lipid Metabolism; 
+Acadvl,"very long-chain specific acyl-CoA dehydrogenase, mitochondrial precursor",Lipid Metabolism; 
+Acat1,"acetyl-CoA acetyltransferase, mitochondrial precursor",Lipid Metabolism; 
+Acat2,"acetyl-CoA acetyltransferase, cytosolic",Lipid Metabolism; 
+Acat3,acetyl-Coenzyme A acetyltransferase 3,Lipid Metabolism; 
+Acsbg1,long-chain-fatty-acid--CoA ligase ACSBG1,Lipid Metabolism; 
+Acsbg2,long-chain-fatty-acid--CoA ligase ACSBG2,Lipid Metabolism; 
+Acsl1,long-chain-fatty-acid--CoA ligase 1,Lipid Metabolism; 
+Acsl2,long-chain-fatty-acid--CoA ligase 1,Lipid Metabolism; 
+Acsl3,long-chain-fatty-acid--CoA ligase 3,Lipid Metabolism; 
+Acsl4,long-chain-fatty-acid--CoA ligase 4,Lipid Metabolism; 
+Acsl5,long-chain-fatty-acid--CoA ligase 5,Lipid Metabolism; 
+Acsl6,long-chain-fatty-acid--CoA ligase 6,Lipid Metabolism; 
+Acss2,"acetyl-coenzyme A synthetase, cytoplasmic",Lipid Metabolism; 
+Agpat1,1-acyl-sn-glycerol-3-phosphate acyltransferase alpha,Lipid Metabolism; 
+Agpat2,1-acyl-sn-glycerol-3-phosphate acyltransferase beta precursor,Lipid Metabolism; 
+Agpat3,1-acyl-sn-glycerol-3-phosphate acyltransferase gamma,Lipid Metabolism; 
+Agpat4,1-acyl-sn-glycerol-3-phosphate acyltransferase delta,Lipid Metabolism; 
+Agpat5,1-acyl-sn-glycerol-3-phosphate acyltransferase epsilon,Lipid Metabolism; 
+Agpat6,glycerol-3-phosphate acyltransferase 6,Lipid Metabolism; 
+Agpat9,glycerol-3-phosphate acyltransferase 3,Lipid Metabolism; 
+Crat,carnitine O-acetyltransferase,Lipid Metabolism; 
+Echs1,"enoyl-CoA hydratase, mitochondrial precursor",Lipid Metabolism; 
+Ehhadh,"enoyl-CoA hydratase/3,2-trans-enoyl-CoA isomerase",Lipid Metabolism; 
+Fasn,fatty acid synthase,Lipid Metabolism; 
+Gpat2,"glycerol-3-phosphate acyltransferase 2, mitochondrial",Lipid Metabolism; 
+Gpd1,"glycerol-3-phosphate dehydrogenase [NAD(+)], cytoplasmic",Lipid Metabolism; 
+Gpd1l,glycerol-3-phosphate dehydrogenase 1-like protein,Lipid Metabolism; 
+Gpd2,"glycerol-3-phosphate dehydrogenase, mitochondrial precursor",Lipid Metabolism; 
+Hadh,"hydroxyacyl-coenzyme A dehydrogenase, mitochondrial precursor",Lipid Metabolism; 
+Hadha,long-chain enoyl-CoA hydratase,Lipid Metabolism; 
+Hadhb,3-ketoacyl-CoA thiolase,Lipid Metabolism; 
+Hmgcl,"hydroxymethylglutaryl-CoA lyase, mitochondrial precursor",Lipid Metabolism; 
+Hmgcll1,"3-hydroxymethyl-3-methylglutaryl-CoA lyase, cytoplasmic",Lipid Metabolism; 
+Lclat1,lysocardiolipin acyltransferase 1,Lipid Metabolism; 
+Lpcat1,lysophosphatidylcholine acyltransferase 1,Lipid Metabolism; 
+Lpcat2,lysophosphatidylcholine acyltransferase 2,Lipid Metabolism; 
+Lpcat3,lysophospholipid acyltransferase 5,Lipid Metabolism; 
+Lpcat4,lysophospholipid acyltransferase LPCAT4,Lipid Metabolism; 
+Lpin1,phosphatidate phosphatase LPIN1,Lipid Metabolism; 
+Lpin2,phosphatidate phosphatase LPIN2,Lipid Metabolism; 
+Lpin3,phosphatidate phosphatase LPIN3,Lipid Metabolism; 
+Lpl,lipoprotein lipase precursor,Lipid Metabolism; 
+Mboat1,lysophospholipid acyltransferase 1,Lipid Metabolism; 
+Mboat2,membrane-bound O-acyltransferase domain-containing protein 2,Lipid Metabolism; 
+Mcat,"malonyl-CoA-acyl carrier protein transacylase, mitochondrial",Lipid Metabolism; 
+Mgll,monoglyceride lipase,Lipid Metabolism; 
+Mlycd,"malonyl-CoA decarboxylase, mitochondrial",Lipid Metabolism; 
+Mogat1,2-acylglycerol O-acyltransferase 1,Lipid Metabolism; 
+Mogat2,2-acylglycerol O-acyltransferase 2,Lipid Metabolism; 
+Mogat3,2-acylglycerol O-acyltransferase 3 isoform a,Lipid Metabolism; 
+Ppap2a,lipid phosphate phosphohydrolase 1,Lipid Metabolism; 
+Ppap2b,lipid phosphate phosphohydrolase 3,Lipid Metabolism; 
+Ppap2c,lipid phosphate phosphohydrolase 2,Lipid Metabolism; 
+Ppapdc1a,phosphatidate phosphatase PPAPDC1A,Lipid Metabolism; 
+Ppapdc1b,phosphatidate phosphatase PPAPDC1B,Lipid Metabolism; 
+Prg1,lipid phosphate phosphatase-related protein type 4,Lipid Metabolism; 
+Prg2,lipid phosphate phosphatase-related protein type 3,Lipid Metabolism; 
+Prg3,lipid phosphate phosphatase-related protein type 1,Lipid Metabolism; 
+Prg4,lipid phosphate phosphatase-related protein type 2,Lipid Metabolism; 
+Vps29,vacuolar protein sorting-associated protein 29,Lipid Metabolism; 
+Aadac,arylacetamide deacetylase,Lipid Metabolism; Products of Isoprene Metabolism; 
+Cel,bile salt-activated lipase precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2,carboxylesterase 2 precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2a,pyrethroid hydrolase Ces2a,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2b,carboxyesterase 2B precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2c,carboxylesterase 2C precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2e,carboxylesterase 5 precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2f,carboxylesterase 2F precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2g,carboxylesterase 2G precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2h,carboxylesterase 2 isoform 2 precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2i,pyrethroid hydrolase Ces2a-like isoform X5,Lipid Metabolism; Products of Isoprene Metabolism; 
+Ces2j,carboxylesterase 2J precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Lipa,lysosomal acid lipase/cholesteryl ester hydrolase precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Lipc,hepatic triacylglycerol lipase precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Lipf,gastric triacylglycerol lipase precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Lipg,endothelial lipase precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnlip,pancreatic triacylglycerol lipase precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnliprp1,inactive pancreatic lipase-related protein 1 precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnliprp2,pancreatic lipase-related protein 2 precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnliprp3,pancreatic lipase-related protein 3 precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnpla1,patatin-like phospholipase domain-containing protein 1,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnpla2,patatin-like phospholipase domain-containing protein 2,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnpla3,patatin-like phospholipase domain containing 3,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnpla4,patatin-like phospholipase domain-containing protein 4 isoform 1 precursor,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnpla5,patatin-like phospholipase domain-containing protein 5,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnpla6,neuropathy target esterase,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnpla7,patatin-like phospholipase domain-containing protein 7,Lipid Metabolism; Products of Isoprene Metabolism; 
+Pnpla8,calcium-independent phospholipase A2-gamma,Lipid Metabolism; Products of Isoprene Metabolism; 
+Gpam,"glycerol-3-phosphate acyltransferase 1, mitochondrial",Lipid Metabolism; Purine Metabolism; 
+Mat1a,S-adenosylmethionine synthase isoform type-1,Lipid Metabolism; Purine Metabolism; Pyrimidine Metabolism; 
+Mat2a,S-adenosylmethionine synthase isoform type-2,Lipid Metabolism; Purine Metabolism; Pyrimidine Metabolism; 
+Mat2b,methionine adenosyltransferase 2 subunit beta,Lipid Metabolism; Purine Metabolism; Pyrimidine Metabolism; 
+G6pd,glucose-6-phosphate 1-dehydrogenase,Pentose Phosphate Pathways; 
+G6pd2,glucose-6-phosphate 1-dehydrogenase 2,Pentose Phosphate Pathways; 
+G6pdx,glucose-6-phosphate 1-dehydrogenase X,Pentose Phosphate Pathways; 
+Pgd,"6-phosphogluconate dehydrogenase, decarboxylating",Pentose Phosphate Pathways; 
+Phgdh,D-3-phosphoglycerate dehydrogenase,Pentose Phosphate Pathways; 
+Pigz,GPI mannosyltransferase 4,Pentose Phosphate Pathways; 
+Rpe,ribulose-phosphate 3-epimerase,Pentose Phosphate Pathways; 
+Rpia,ribose-5-phosphate isomerase,Pentose Phosphate Pathways; 
+Taldo1,transaldolase,Pentose Phosphate Pathways; 
+Tktl1,transketolase-like protein 1,Pentose Phosphate Pathways; 
+Tktl2,transketolase-like 2 isoform X1,Pentose Phosphate Pathways; 
+Akr1a1,alcohol dehydrogenase [NADP(+)],Products of Isoprene Metabolism; 
+Akr1b1,aldose reductase,Products of Isoprene Metabolism; 
+Akr1b10,aldo-keto reductase family 1 member B10,Products of Isoprene Metabolism; 
+Akr1b3,aldose reductase,Products of Isoprene Metabolism; 
+Akr1b7,aldose reductase-related protein 1,Products of Isoprene Metabolism; 
+Akr1b8,aldose reductase-related protein 2,Products of Isoprene Metabolism; 
+Akr1c1,"aldo-keto reductase family 1, member C1",Products of Isoprene Metabolism; 
+Akr1c2,aldo-keto reductase family 1 member C21,Products of Isoprene Metabolism; 
+Akr1c3,aldo-keto reductase family 1 member C18,Products of Isoprene Metabolism; 
+Akr1d1,3-oxo-5-beta-steroid 4-dehydrogenase,Products of Isoprene Metabolism; 
+Akr1e2,"1,5-anhydro-D-fructose reductase",Products of Isoprene Metabolism; 
+Ces1a,carboxylesterase 1-like precursor,Products of Isoprene Metabolism; 
+Ces1b,carboxylesterase 1B precursor,Products of Isoprene Metabolism; 
+Ces1c,carboxylesterase 1C precursor,Products of Isoprene Metabolism; 
+Ces1d,carboxylesterase 1D precursor,Products of Isoprene Metabolism; 
+Ces1e,carboxylesterase 1E precursor,Products of Isoprene Metabolism; 
+Ces1f,liver carboxylesterase 4 precursor,Products of Isoprene Metabolism; 
+Ces1g,liver carboxylesterase 1 precursor,Products of Isoprene Metabolism; 
+Ces1h,carboxylesterase 1E isoform X2,Products of Isoprene Metabolism; 
+Ces3,carboxylesterase 3 isoform 2 precursor,Products of Isoprene Metabolism; 
+Ces3a,carboxylesterase 3B-like,Products of Isoprene Metabolism; 
+Ces3b,carboxylesterase 3B isoform 2 precursor,Products of Isoprene Metabolism; 
+Ces5a,carboxylesterase 5A precursor,Products of Isoprene Metabolism; 
+Cesl1,liver carboxylesterase B-1 precursor,Products of Isoprene Metabolism; 
+Fdft1,squalene synthase,Products of Isoprene Metabolism; 
+Idi1,isopentenyl-diphosphate Delta-isomerase 1,Products of Isoprene Metabolism; 
+Idi2,isopentenyl-diphosphate delta isomerase 2,Products of Isoprene Metabolism; 
+Alox15,arachidonate 15-lipoxygenase,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Alox15b,arachidonate 15-lipoxygenase B,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Jmjd4,jmjC domain-containing protein 4,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Jmjd6,bifunctional arginine demethylase and lysyl-hydroxylase JMJD6,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Jmjd7,jmjC domain-containing protein 7,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Jmjd8,jmjC domain-containing protein 8 precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g10,group 10 secretory phospholipase A2 precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g12a,group XIIA secretory phospholipase A2 isoform X2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g12b,"phospholipase A2, group XIIB isoform X1","Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g15,group XV phospholipase A2 precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g16,group XVI phospholipase A1/A2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g1b,phospholipase A2 precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g2a,"phospholipase A2, membrane associated precursor","Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g2c,group IIC secretory phospholipase A2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g2d,group IID secretory phospholipase A2 precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g2e,group IIE secretory phospholipase A2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g2f,group IIF secretory phospholipase A2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g3,group 3 secretory phospholipase A2 precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g4a,cytosolic phospholipase A2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g4b,cytosolic phospholipase A2 beta,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g4c,"phospholipase A2, group IVC","Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g4d,cytosolic phospholipase A2 delta-like,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g4e,cytosolic phospholipase A2 epsilon isoform X5,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g4f,cytosolic phospholipase A2 zeta-like isoform X2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g5,calcium-dependent phospholipase A2 precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g6,85/88 kDa calcium-independent phospholipase A2 isoform 2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Pla2g7,platelet-activating factor acetylhydrolase precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Plb1,"phospholipase B1, membrane-associated precursor","Prostaglandins, Thromboxanes, and Leucotrienes; "
+Ptges,prostaglandin E synthase,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Ptges1,prostaglandin E synthase,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Ptges2,prostaglandin E synthase 2,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Ptges3,prostaglandin E synthase 3,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Ptges3l1,prostaglandin E synthase 3,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Ptgis,prostacyclin synthase precursor,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Tbxas1,thromboxane-A synthase,"Prostaglandins, Thromboxanes, and Leucotrienes; "
+Acpp,prostatic acid phosphatase long isoform precursor,Purine Metabolism; 
+Ada,adenosine deaminase,Purine Metabolism; 
+Adsl,adenylosuccinate lyase,Purine Metabolism; 
+Allc,allantoicase,Purine Metabolism; 
+Ampd1,AMP deaminase 1,Purine Metabolism; 
+Ampd2,AMP deaminase 2,Purine Metabolism; 
+Ampd3,AMP deaminase 3,Purine Metabolism; 
+Aprt,adenine phosphoribosyltransferase,Purine Metabolism; 
+Gda,guanine deaminase,Purine Metabolism; 
+Gmpr,GMP reductase 1,Purine Metabolism; 
+Gmpr2,GMP reductase 2,Purine Metabolism; 
+Gmps,GMP synthase [glutamine-hydrolyzing],Purine Metabolism; 
+Guk1,guanylate kinase,Purine Metabolism; 
+Guk2,guanylate kinase 2,Purine Metabolism; 
+Hprt1,hypoxanthine-guanine phosphoribosyltransferase,Purine Metabolism; 
+Impdh1,inosine-5'-monophosphate dehydrogenase 1,Purine Metabolism; 
+Impdh2,inosine-5'-monophosphate dehydrogenase 2,Purine Metabolism; 
+Mdp1,magnesium-dependent phosphatase 1,Purine Metabolism; 
+Nt5c1a,cytosolic 5'-nucleotidase 1A,Purine Metabolism; 
+Nt5c1b,cytosolic 5'-nucleotidase 1B,Purine Metabolism; 
+Nt5c2,cytosolic purine 5'-nucleotidase isoform 3,Purine Metabolism; 
+Nt5c3a,cytosolic 5'-nucleotidase 3A,Purine Metabolism; 
+Nt5c3b,7-methylguanosine phosphate-specific 5'-nucleotidase,Purine Metabolism; 
+Nt5dc1,5'-nucleotidase domain-containing protein 1,Purine Metabolism; 
+Nt5dc2,5'-nucleotidase domain-containing protein 2,Purine Metabolism; 
+Nt5dc3,5'-nucleotidase domain-containing protein 3 isoform X2,Purine Metabolism; 
+Nt5dc4,5'-nucleotidase domain-containing protein 4,Purine Metabolism; 
+Nt5e,5'-nucleotidase precursor,Purine Metabolism; 
+Nt5m,"5'(3')-deoxyribonucleotidase, mitochondrial",Purine Metabolism; 
+Paics,phosphoribosylaminoimidazole-succinocarboxamide synthase,Purine Metabolism; 
+Papd4,poly(A) RNA polymerase GLD2,Purine Metabolism; 
+Papd5,non-canonical poly(A) RNA polymerase PAPD5,Purine Metabolism; 
+Papd7,DNA polymerase sigma,Purine Metabolism; 
+Pfas,phosphoribosylformylglycinamidine synthase,Purine Metabolism; 
+Pnp,purine nucleoside phosphorylase,Purine Metabolism; 
+Pola1,DNA polymerase alpha catalytic subunit,Purine Metabolism; 
+Pola2,DNA polymerase alpha subunit B,Purine Metabolism; 
+Polb,DNA polymerase beta,Purine Metabolism; 
+Pold1,DNA polymerase delta catalytic subunit,Purine Metabolism; 
+Pold2,DNA polymerase delta subunit 2,Purine Metabolism; 
+Pold3,DNA polymerase delta subunit 3,Purine Metabolism; 
+Pold4,DNA polymerase delta subunit 4,Purine Metabolism; 
+Pole,DNA polymerase epsilon catalytic subunit A,Purine Metabolism; 
+Pole2,"polymerase (DNA directed), epsilon 2",Purine Metabolism; 
+Pole3,DNA polymerase epsilon subunit 3,Purine Metabolism; 
+Pole4,DNA polymerase epsilon subunit 4,Purine Metabolism; 
+Polg,DNA polymerase subunit gamma-1,Purine Metabolism; 
+Polg2,"DNA polymerase subunit gamma-2, mitochondrial",Purine Metabolism; 
+Polh,DNA polymerase eta,Purine Metabolism; 
+Poli,DNA polymerase iota,Purine Metabolism; 
+Polk,DNA polymerase kappa,Purine Metabolism; 
+Poll,DNA polymerase lambda,Purine Metabolism; 
+Polm,DNA polymerase mu,Purine Metabolism; 
+Poln,DNA polymerase nu isoform 3,Purine Metabolism; 
+Polq,DNA polymerase theta,Purine Metabolism; 
+Polr1a,DNA-directed RNA polymerase I subunit RPA1,Purine Metabolism; 
+Polr1b,DNA-directed RNA polymerase I subunit RPA2,Purine Metabolism; 
+Polr1c,DNA-directed RNA polymerases I and III subunit RPAC1,Purine Metabolism; 
+Polr1d,DNA-directed RNA polymerases I and III subunit RPAC2 isoform 2,Purine Metabolism; 
+Polr1e,DNA-directed RNA polymerase I subunit RPA49,Purine Metabolism; 
+Polr2a,DNA-directed RNA polymerase II subunit RPB1 isoform 1,Purine Metabolism; 
+Polr2b,DNA-directed RNA polymerase II subunit RPB2,Purine Metabolism; 
+Polr2c,DNA-directed RNA polymerase II subunit RPB3,Purine Metabolism; 
+Polr2d,DNA-directed RNA polymerase II subunit RPB4,Purine Metabolism; 
+Polr2e,"DNA-directed RNA polymerases I, II, and III subunit RPABC1",Purine Metabolism; 
+Polr2f,"DNA-directed RNA polymerases I, II, and III subunit RPABC2",Purine Metabolism; 
+Polr2g,DNA-directed RNA polymerase II subunit RPB7,Purine Metabolism; 
+Polr2h,polymerase (RNA) II (DNA directed) polypeptide H,Purine Metabolism; 
+Polr2i,DNA-directed RNA polymerase II subunit RPB9,Purine Metabolism; 
+Polr2j,polymerase (RNA) II (DNA directed) polypeptide J,Purine Metabolism; 
+Polr2k,polymerase (RNA) II (DNA directed) polypeptide K,Purine Metabolism; 
+Polr2l,polymerase (RNA) II (DNA directed) polypeptide L,Purine Metabolism; 
+Polr2m,DNA-directed RNA polymerase II subunit GRINL1A,Purine Metabolism; 
+Polr3a,DNA-directed RNA polymerase III subunit RPC1,Purine Metabolism; 
+Polr3b,DNA-directed RNA polymerase III subunit RPC2,Purine Metabolism; 
+Polr3c,DNA-directed RNA polymerase III subunit RPC3,Purine Metabolism; 
+Polr3d,DNA-directed RNA polymerase III subunit RPC4,Purine Metabolism; 
+Polr3e,DNA-directed RNA polymerase III subunit RPC5,Purine Metabolism; 
+Polr3f,DNA-directed RNA polymerase III subunit RPC6,Purine Metabolism; 
+Polr3g,DNA-directed RNA polymerase III subunit RPC7,Purine Metabolism; 
+Polr3h,DNA-directed RNA polymerase III subunit RPC8,Purine Metabolism; 
+Polrmt,"DNA-directed RNA polymerase, mitochondrial",Purine Metabolism; 
+Ppat,amidophosphoribosyltransferase precursor,Purine Metabolism; 
+Prim1,"primase, DNA, polypeptide 1",Purine Metabolism; 
+Prim2,DNA primase large subunit,Purine Metabolism; 
+Prps1,ribose-phosphate pyrophosphokinase 1,Purine Metabolism; 
+Prps1l1,phosphoribosyl pyrophosphate synthetase 1-like 1,Purine Metabolism; 
+Prps2,ribose-phosphate pyrophosphokinase 2,Purine Metabolism; 
+Prtfdc1,phosphoribosyltransferase domain-containing protein 1,Purine Metabolism; 
+Rev3l,DNA polymerase zeta catalytic subunit,Purine Metabolism; 
+Rpa1,DNA-directed RNA polymerase I subunit RPA1,Purine Metabolism; 
+Rpa2,DNA-directed RNA polymerase I subunit RPA2,Purine Metabolism; 
+Uox,uricase,Purine Metabolism; 
+Xdh,xanthine dehydrogenase/oxidase,Purine Metabolism; 
+Xylb,xylulose kinase,Purine Metabolism; 
+Znrd1,DNA-directed RNA polymerase I subunit RPA12,Purine Metabolism; 
+Ak1,adenylate kinase isoenzyme 1,Purine Metabolism; Pyrimidine Metabolism; 
+Ak2,"adenylate kinase 2, mitochondrial isoform a",Purine Metabolism; Pyrimidine Metabolism; 
+Ak3,"GTP:AMP phosphotransferase AK3, mitochondrial",Purine Metabolism; Pyrimidine Metabolism; 
+Ak4,"adenylate kinase 4, mitochondrial",Purine Metabolism; Pyrimidine Metabolism; 
+Ak5,adenylate kinase isoenzyme 5 isoform X7,Purine Metabolism; Pyrimidine Metabolism; 
+Ak6,adenylate kinase isoenzyme 6,Purine Metabolism; Pyrimidine Metabolism; 
+Ak7,putative adenylate kinase 7,Purine Metabolism; Pyrimidine Metabolism; 
+Ak8,adenylate kinase 8,Purine Metabolism; Pyrimidine Metabolism; 
+Ak9,adenylate kinase 9 isoform X7,Purine Metabolism; Pyrimidine Metabolism; 
+Akd1,adenylate kinase 9,Purine Metabolism; Pyrimidine Metabolism; 
+Akd2,adenylate kinase 9-like isoform X3,Purine Metabolism; Pyrimidine Metabolism; 
+Cmpk1,UMP-CMP kinase,Purine Metabolism; Pyrimidine Metabolism; 
+Cmpk2,"UMP-CMP kinase 2, mitochondrial",Purine Metabolism; Pyrimidine Metabolism; 
+Nme1,nucleoside diphosphate kinase A,Purine Metabolism; Pyrimidine Metabolism; 
+Nme2,nucleoside diphosphate kinase B,Purine Metabolism; Pyrimidine Metabolism; 
+Nme2p1,putative nucleoside diphosphate kinase,Purine Metabolism; Pyrimidine Metabolism; 
+Nme3,nucleoside diphosphate kinase 3 precursor,Purine Metabolism; Pyrimidine Metabolism; 
+Nme4,"nucleoside diphosphate kinase, mitochondrial",Purine Metabolism; Pyrimidine Metabolism; 
+Nme5,nucleoside diphosphate kinase homolog 5-like,Purine Metabolism; Pyrimidine Metabolism; 
+Nme6,nucleoside diphosphate kinase 6,Purine Metabolism; Pyrimidine Metabolism; 
+Nme7,nucleoside diphosphate kinase 7,Purine Metabolism; Pyrimidine Metabolism; 
+Rrm1,ribonucleoside-diphosphate reductase large subunit,Purine Metabolism; Pyrimidine Metabolism; 
+Rrm2,ribonucleoside-diphosphate reductase subunit M2,Purine Metabolism; Pyrimidine Metabolism; 
+Rrm2b,ribonucleoside-diphosphate reductase subunit M2 B,Purine Metabolism; Pyrimidine Metabolism; 
+Txnrd1,"thioredoxin reductase 1, cytoplasmic",Purine Metabolism; Pyrimidine Metabolism; 
+Txnrd2,"thioredoxin reductase 2, mitochondrial precursor",Purine Metabolism; Pyrimidine Metabolism; 
+Txnrd3,thioredoxin reductase 3 isoform 1,Purine Metabolism; Pyrimidine Metabolism; 
+Uck1,uridine-cytidine kinase 1,Purine Metabolism; Pyrimidine Metabolism; 
+Uck1l,uridine-cytidine kinase-like 1 isoform 2,Purine Metabolism; Pyrimidine Metabolism; 
+Uck2,uridine-cytidine kinase 2,Purine Metabolism; Pyrimidine Metabolism; 
+Uckl1,uridine-cytidine kinase-like 1,Purine Metabolism; Pyrimidine Metabolism; 
+Abat,"4-aminobutyrate aminotransferase, mitochondrial",Pyrimidine Metabolism; 
+Agxt2,"alanine--glyoxylate aminotransferase 2, mitochondrial",Pyrimidine Metabolism; 
+Aicda,activation-induced cytidine deaminase,Pyrimidine Metabolism; 
+Apobec1,C->U-editing enzyme APOBEC-1,Pyrimidine Metabolism; 
+Apobec2,C->U-editing enzyme APOBEC-2,Pyrimidine Metabolism; 
+Apobec3,DNA dC->dU-editing enzyme APOBEC-3 isoform 1,Pyrimidine Metabolism; 
+Apobec4,putative C->U-editing enzyme APOBEC-4,Pyrimidine Metabolism; 
+Cad,caspase-activated deoxyribonuclease,Pyrimidine Metabolism; 
+Cant1,soluble calcium-activated nucleotidase 1,Pyrimidine Metabolism; 
+Cda,cytidine deaminase,Pyrimidine Metabolism; 
+Ctps1,CTP synthase 1,Pyrimidine Metabolism; 
+Ctps2,CTP synthase 2,Pyrimidine Metabolism; 
+Dck,deoxycytidine kinase,Pyrimidine Metabolism; 
+Dctd,deoxycytidylate deaminase isoform 2,Pyrimidine Metabolism; 
+Dpyd,dihydropyrimidine dehydrogenase [NADP(+)],Pyrimidine Metabolism; 
+Dpys,dihydropyrimidinase,Pyrimidine Metabolism; 
+Entpd1,ectonucleoside triphosphate diphosphohydrolase 1,Pyrimidine Metabolism; 
+Entpd2,ectonucleoside triphosphate diphosphohydrolase 2 precursor,Pyrimidine Metabolism; 
+Entpd3,ectonucleoside triphosphate diphosphohydrolase 3,Pyrimidine Metabolism; 
+Entpd4,ectonucleoside triphosphate diphosphohydrolase 4,Pyrimidine Metabolism; 
+Entpd5,ectonucleoside triphosphate diphosphohydrolase 5 precursor,Pyrimidine Metabolism; 
+Entpd6,ectonucleoside triphosphate diphosphohydrolase 6,Pyrimidine Metabolism; 
+Entpd7,ectonucleoside triphosphate diphosphohydrolase 7,Pyrimidine Metabolism; 
+Entpd8,ectonucleoside triphosphate diphosphohydrolase 8,Pyrimidine Metabolism; 
+Ntpcr,nucleoside-triphosphatase C1orf57 homolog,Pyrimidine Metabolism; 
+Tk1,"thymidine kinase, cytosolic",Pyrimidine Metabolism; 
+Tk2,"thymidine kinase 2, mitochondrial",Pyrimidine Metabolism; 
+Tymp,thymidine phosphorylase,Pyrimidine Metabolism; 
+Umps,uridine 5'-monophosphate synthase,Pyrimidine Metabolism; 
+Upb1,beta-ureidopropionase,Pyrimidine Metabolism; 
+Upp1,uridine phosphorylase 1,Pyrimidine Metabolism; 
+Upp2,uridine phosphorylase 2,Pyrimidine Metabolism; 
+Aars2,"alanine--tRNA ligase, mitochondrial *",
+Acad10,acyl-CoA dehydrogenase family member 10*,
+Acad11,acyl-CoA dehydrogenase family member 11*,
+Acad12,"acyl-Coenzyme A dehydrogenase family, member 10-like *",
+Acad8,"isobutyryl-CoA dehydrogenase, mitochondrial *",
+Acad9,"acyl-CoA dehydrogenase family member 9, mitochondrial*",
+Acadsb,"short/branched chain specific acyl-CoA dehydrogenase, mitochondrial*",
+Acox1,peroxisomal acyl-coenzyme A oxidase 1 *,
+Acox2,peroxisomal acyl-coenzyme A oxidase 2 *,
+Acox3,peroxisomal acyl-coenzyme A oxidase 3 *,
+Acp1,low molecular weight phosphotyrosine protein phosphatase *,
+Acp2,lysosomal acid phosphatase *,
+Acp5,tartrate-resistant acid phosphatase type 5 *,
+Acp6,lysophosphatidic acid phosphatase type 6 *,
+Acp7,acid phosphatase type 7 *,
+Acsf2,"acyl-CoA synthetase family member 2, mitochondrial *",
+Acsf3,"acyl-CoA synthetase family member 3, mitochondrial *",
+Acsm1,"acyl-coenzyme A synthetase ACSM1, mitochondrial *",
+Acsm2,"acyl-coenzyme A synthetase ACSM2, mitochondrial *",
+Acsm3,"acyl-coenzyme A synthetase ACSM3, mitochondrial*",
+Acsm4,"acyl-coenzyme A synthetase ACSM4, mitochondrial *",
+Acsm5,"acyl-coenzyme A synthetase ACSM5, mitochondrial *",
+Acyp1,acylphosphatase-1*,
+Acyp2,acylphosphatase-2 *,
+Adhfe1,"hydroxyacid-oxoacid transhydrogenase, mitochondrial *",
+Afg3l1,AFG3-like protein 1 *,
+Afg3l2,AFG3-like protein 2 *,
+Agmat,"agmatinase, mitochondrial *",
+Aifm1,"apoptosis-inducing factor 1, mitochondrial *",
+Aifm2,apoptosis-inducing factor 2 *,
+Aifm3,apoptosis-inducing factor 3 *,
+Akr7a5,aflatoxin B1 aldehyde reductase member 2*,
+Amacr,alpha-methylacyl-CoA racemase*,
+Apoa1bp,NAD(P)H-hydrate epimerase *,
+As3mt,arsenite methyltransferase *,
+Atp5o,"ATP synthase subunit O, mitochondrial *",
+Bphl,valacyclovir hydrolase *,
+Car5a,"carbonic anhydrase 5A, mitochondrial *",
+Car5b,"carbonic anhydrase 5B, mitochondrial *",
+Cars2,"probable cysteine--tRNA ligase, mitochondrial *",
+Casp1,caspase-1*,
+Casp12,caspase-12*,
+Casp2,caspase-2 *,
+Casp3,caspase-3*,
+Casp4,caspase-4 *,
+Casp6,caspase-6 *,
+Casp7,caspase-7 *,
+Casp8,caspase-8 *,
+Casp9,caspase-9 *,
+Cat,catalase*,
+Cbr1,carbonyl reductase [NADPH] 1*,
+Cbr2,carbonyl reductase [NADPH] 2 *,
+Cbr3,carbonyl reductase [NADPH] 3*,
+Cbr4,carbonyl reductase family member 4*,
+Clybl,"citrate lyase subunit beta-like protein, mitochondrial *",
+Comtd1,catechol O-methyltransferase domain-containing protein 1*,
+Coq2,"4-hydroxybenzoate polyprenyltransferase, mitochondrial *",
+Coq3,"ubiquinone biosynthesis O-methyltransferase, mitochondrial*",
+Coq4,"ubiquinone biosynthesis protein COQ4 homolog, mitochondrial *",
+Coq5,"2-methoxy-6-polyprenyl-1,4-benzoquinol methylase, mitochondrial *",
+Coq6,"ubiquinone biosynthesis monooxygenase COQ6, mitochondrial *",
+Coq7,"5-demethoxyubiquinone hydroxylase, mitochondrial *",
+Coq8a,"atypical kinase ADCK3, mitochondrial*",
+Coq8b,aarF domain-containing protein kinase 4*,
+Coq9,"ubiquinone biosynthesis protein COQ9, mitochondrial *",
+Cox10,"protoheme IX farnesyltransferase, mitochondrial *",
+Cox11,"cytochrome c oxidase assembly protein COX11, mitochondrial*",
+Cox14,cytochrome c oxidase assembly protein COX14*,
+Cox15,cytochrome c oxidase assembly protein COX15 homolog*,
+Cox16,"cytochrome c oxidase assembly protein COX16 homolog, mitochondrial *",
+Cox17,cytochrome c oxidase copper chaperone*,
+Cox18,mitochondrial inner membrane protein COX18 *,
+Cox19,cytochrome c oxidase assembly protein COX19*,
+Cox20,cytochrome c oxidase protein 20 homolog*,
+Cox3,cytochrome c oxidase subunit III (mitochondrion)*,
+Cox7a1,"cytochrome c oxidase subunit 7A1, mitochondrial *",
+Crls1,cardiolipin synthase (CMP-forming) *,
+Crot,peroxisomal carnitine O-octanoyltransferase *,
+Ctu1,cytoplasmic tRNA 2-thiolation protein 1 *,
+Ctu2,cytoplasmic tRNA 2-thiolation protein 2 *,
+Cyp24a1,"1,25-dihydroxyvitamin D(3) 24-hydroxylase, mitochondrial *",
+Cyp27b1,"25-hydroxyvitamin D-1 alpha hydroxylase, mitochondrial *",
+D2hgdh,"D-2-hydroxyglutarate dehydrogenase, mitochondrial *",
+Dars2,"aspartate--tRNA ligase, mitochondrial *",
+Dbt,"lipoamide acyltransferase component of branched-chain alpha-keto acid dehydrogenase complex, mitochondrial*",
+Ddah1,"N(G),N(G)-dimethylarginine dimethylaminohydrolase 1*",
+Ddah2,"N(G),N(G)-dimethylarginine dimethylaminohydrolase 2 *",
+Decr1,"2,4-dienoyl-CoA reductase, mitochondrial *",
+Decr2,"peroxisomal 2,4-dienoyl-CoA reductase*",
+Dguok,"deoxyguanosine kinase, mitochondrial *",
+Dhrs7b,dehydrogenase/reductase SDR family member 7B *,
+Dus2,tRNA-dihydrouridine(20) synthase [NAD(P)+]-like *,
+Ech1,"delta(3,5)-Delta(2,4)-dienoyl-CoA isomerase, mitochondrial *",
+Eci1,"enoyl-CoA delta isomerase 1, mitochondrial *",
+Eci2,"enoyl-CoA delta isomerase 2, mitochondrial *",
+Eci3,"enoyl-CoA delta isomerase 3, peroxisomal *",
+Elac1,zinc phosphodiesterase ELAC protein 1*,
+Elac2,zinc phosphodiesterase ELAC protein 2 *,
+Endog,"endonuclease G, mitochondrial *",
+Ephx1,epoxide hydrolase 1  *,
+Ephx2,bifunctional epoxide hydrolase 2 isoform d*,
+Ephx3,epoxide hydrolase 3 *,
+Ephx4,epoxide hydrolase 4 *,
+Eri1,3'-5' exoribonuclease 1*,
+Eri2,ERI1 exoribonuclease 2 *,
+Eri3,ERI1 exoribonuclease 3 1*,
+Etfa,"electron transfer flavoprotein subunit alpha, mitochondrial*",
+Ethe1,"persulfide dioxygenase ETHE1, mitochondrial *",
+Exog,"nuclease EXOG, mitochondrial *",
+Fahd1,"acylpyruvase FAHD1, mitochondrial*",
+Fahd2a,fumarylacetoacetate hydrolase domain-containing protein 2A *,
+Fars2,"phenylalanine--tRNA ligase, mitochondrial *",
+Fdxr,"NADPH:adrenodoxin oxidoreductase, mitochondrial *",
+Fh1,"fumarate hydratase, mitochondrial *",
+Fhit,bis(5'-adenosyl)-triphosphatase *,
+Fkbp10,peptidyl-prolyl cis-trans isomerase FKBP10  *,
+Fkbp11,peptidyl-prolyl cis-trans isomerase FKBP11 *,
+Fkbp14,peptidyl-prolyl cis-trans isomerase FKBP14 *,
+Fkbp15,FK506-binding protein 15*,
+Fkbp2,peptidyl-prolyl cis-trans isomerase FKBP2 *,
+Fkbp3,peptidyl-prolyl cis-trans isomerase FKBP3*,
+Fkbp4,peptidyl-prolyl cis-trans isomerase FKBP4*,
+Fkbp5,peptidyl-prolyl cis-trans isomerase FKBP5*,
+Fkbp6,inactive peptidyl-prolyl cis-trans isomerase FKBP6 *,
+Fkbp7,peptidyl-prolyl cis-trans isomerase FKBP7 *,
+Fkbp8,peptidyl-prolyl cis-trans isomerase FKBP8 *,
+Fkbp9,peptidyl-prolyl cis-trans isomerase FKBP9 *,
+Flad1,FAD synthase*,
+Foxred1,FAD-dependent oxidoreductase domain-containing protein 1 *,
+Foxred2,FAD-dependent oxidoreductase domain-containing protein 2 *,
+Fpgs,"folylpolyglutamate synthase, mitochondrial *",
+Gatc,"glutamyl-tRNA(Gln) amidotransferase subunit C, mitochondrial*",
+Gcsh,"glycine cleavage system H protein, mitochondrial *",
+Glyat,glycine N-acyltransferase*,
+Gpi1,glucose-6-phosphate isomerase*,
+Gpx1,glutathione peroxidase 1 isoform 3*,
+Gpx2,glutathione peroxidase 2*,
+Gpx3,glutathione peroxidase 3  *,
+Gpx4,"phospholipid hydroperoxide glutathione peroxidase, mitochondrial  *",
+Gpx5,epididymal secretory glutathione peroxidase *,
+Gpx6,glutathione peroxidase 6 *,
+Gpx7,glutathione peroxidase 7 *,
+Gpx8,probable glutathione peroxidase 8*,
+Hars2,"probable histidine--tRNA ligase, mitochondrial *",
+Hdhd2,haloacid dehalogenase-like hydrolase domain-containing protein 2 *,
+Hdhd3,haloacid dehalogenase-like hydrolase domain-containing protein 3*,
+Hemk1,hemK methyltransferase family member 1 *,
+Hsdl1,inactive hydroxysteroid dehydrogenase-like protein 1 *,
+Hsdl2,hydroxysteroid dehydrogenase-like protein 2 *,
+Htatip2,oxidoreductase HTATIP2 *,
+Ide,insulin-degrading enzyme*,
+Isoc2a,isochorismatase domain-containing protein 2A *,
+Lactb,"serine beta-lactamase-like protein LACTB, mitochondrial *",
+Lactb2,endoribonuclease LACTB2*,
+Lias,"lipoyl synthase, mitochondrial *",
+Lipt1,"lipoyltransferase 1, mitochondrial *",
+Lipt2,"putative lipoyltransferase 2, mitochondrial*",
+Lyplal1,lysophospholipase-like protein 1 *,
+Macrod1,O-acetyl-ADP-ribose deacetylase MACROD1*,
+Macrod2,O-acetyl-ADP-ribose deacetylase MACROD2 0*,
+Marc1,mitochondrial amidoxime reducing component 2 *,
+Marc2,mitochondrial amidoxime-reducing component 1 *,
+Mecr,"trans-2-enoyl-CoA reductase, mitochondrial *",
+Metap1d,"methionine aminopeptidase 1D, mitochondrial *",
+Mettl1,tRNA (guanine-N(7)-)-methyltransferase*,
+Mettl10,protein-lysine N-methyltransferase Mettl10 *,
+Mettl13,methyltransferase-like protein 13 *,
+Mettl14,N6-adenosine-methyltransferase subunit METTL14*,
+Mettl15,probable methyltransferase-like protein 15 *,
+Mettl16,methyltransferase-like protein 16 *,
+Mettl17,"methyltransferase-like protein 17, mitochondrial *",
+Mettl18,histidine protein methyltransferase 1 homolog *,
+Mettl2,methyltransferase-like protein 2 *,
+Mettl20,electron transfer flavoprotein beta subunit lysine methyltransferase *,
+Mettl3,N6-adenosine-methyltransferase subunit METTL3*,
+Mettl4,methyltransferase-like protein 4 *,
+Mettl5,methyltransferase-like protein 5 *,
+Mettl6,methyltransferase-like protein 6 *,
+Mettl8,methyltransferase-like protein 8 *,
+Mettl9,methyltransferase-like protein 9 *,
+Mgme1,mitochondrial genome maintenance exonuclease 1 *,
+Mmab,"cob(I)yrinic acid a,c-diamide adenosyltransferase, mitochondrial *",
+Mmachc,methylmalonic aciduria and homocystinuria type C protein homolog*,
+Mocs1,molybdenum cofactor biosynthesis protein 1 *,
+Mocs2,molybdopterin synthase sulfur carrier subunit isoform Mocs2B2*,
+Mocs3,adenylyltransferase and sulfurtransferase MOCS3*,
+Mrm1,"rRNA methyltransferase 1, mitochondrial *",
+Mrm2,"rRNA methyltransferase 2, mitochondrial*",
+Msra,mitochondrial peptide methionine sulfoxide reductase *,
+Msrb1,methionine-R-sulfoxide reductase B1*,
+Msrb2,"methionine-R-sulfoxide reductase B2, mitochondrial *",
+Msrb3,"methionine-R-sulfoxide reductase B3, mitochondrial *",
+Mto1,"protein MTO1 homolog, mitochondrial *",
+Mutyh,adenine DNA glycosylase *,
+Nags,"N-acetylglutamate synthase, mitochondrial *",
+Nars2,"probable asparagine--tRNA ligase, mitochondrial *",
+Naxd,ATP-dependent (S)-NAD(P)H-hydrate dehydratase isoform 3*,
+Ndor1,NADPH-dependent diflavin oxidoreductase 1 isoform 3*,
+Ndufaf1,"complex I intermediate-associated protein 30, mitochondrial*",
+Ndufaf2,"mimitin, mitochondrial *",
+Ndufaf3,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex assembly factor 3*,
+Ndufaf4,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex assembly factor 4*,
+Ndufaf5,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex assembly factor 5 *,
+Ndufaf6,"NADH dehydrogenase (ubiquinone) complex I, assembly factor 6 *",
+Ndufaf7,"NADH dehydrogenase [ubiquinone] complex I, assembly factor 7 *",
+Ndufaf8,uncharacterized protein C17orf89 homolog*,
+Ndufc1,"NADH dehydrogenase [ubiquinone] 1 subunit C1, mitochondrial *",
+Ndufc2,NADH dehydrogenase [ubiquinone] 1 subunit C2*,
+Neu1,sialidase-1 *,
+Neu2,sialidase-2 *,
+Neu3,sialidase-3*,
+Neu4,sialidase-4 *,
+Nfs1,"cysteine desulfurase, mitochondrial *",
+Nit1,nitrilase homolog 1 *,
+Nit2,omega-amidase NIT2*,
+Nrd1,nardilysin *,
+Nsun2,tRNA (cytosine(34)-C(5))-methyltransferase*,
+Nsun3,putative methyltransferase NSUN3 *,
+Nsun4,putative methyltransferase NSUN4*,
+Nsun5,probable 28S rRNA (cytosine-C(5))-methyltransferase*,
+Nsun6,putative methyltransferase NSUN6 isoform c*,
+Nsun7,putative methyltransferase NSUN7 *,
+Nt5c,"5'(3')-deoxyribonucleotidase, cytosolic type *",
+Nthl1,endonuclease III-like protein 1 *,
+Nudt1,"7,8-dihydro-8-oxoguanine triphosphatase *",
+Nudt10,diphosphoinositol polyphosphate phosphohydrolase 3-alpha*,
+Nudt11,diphosphoinositol polyphosphate phosphohydrolase 3-beta*,
+Nudt12,peroxisomal NADH pyrophosphatase NUDT12 *,
+Nudt13,nucleoside diphosphate-linked moiety X motif 13 *,
+Nudt14,uridine diphosphate glucose pyrophosphatase *,
+Nudt15,probable 8-oxo-dGTP diphosphatase NUDT15*,
+Nudt16,U8 snoRNA-decapping enzyme *,
+Nudt17,nucleoside diphosphate-linked moiety X motif 17 *,
+Nudt18,8-oxo-dGDP phosphatase NUDT18 *,
+Nudt19,nucleoside diphosphate-linked moiety X motif 19 *,
+Nudt2,bis(5'-nucleosyl)-tetraphosphatase [asymmetrical] *,
+Nudt3,diphosphoinositol polyphosphate phosphohydrolase 1 *,
+Nudt4,diphosphoinositol polyphosphate phosphohydrolase 2 *,
+Nudt5,ADP-sugar pyrophosphatase*,
+Nudt6,nucleoside diphosphate-linked moiety X motif 6 *,
+Nudt7,peroxisomal coenzyme A diphosphatase NUDT7 *,
+Nudt8,nucleoside diphosphate-linked moiety X motif 8*,
+Nudt9,"ADP-ribose pyrophosphatase, mitochondrial *",
+Obscn,obscurin *,
+Ogg1,N-glycosylase/DNA lyase*,
+Oxnad1,oxidoreductase NAD-binding domain-containing protein 1 *,
+P4hb,protein disulfide-isomerase *,
+Park2,E3 ubiquitin-protein ligase parkin *,
+Park7,protein DJ-1*,
+Pars2,"probable proline--tRNA ligase, mitochondrial *",
+Pcbd1,pterin-4-alpha-carbinolamine dehydratase*,
+Pcbd2,pterin-4-alpha-carbinolamine dehydratase 2 *,
+Pcx,"pyruvate carboxylase, mitochondrial *",
+Pdhx,"pyruvate dehydrogenase protein X component, mitochondrial*",
+Peo1,"twinkle protein, mitochondrial *",
+Phyh,"phytanoyl-CoA dioxygenase, peroxisomal *",
+Pnpo,pyridoxine-5'-phosphate oxidase*,
+Ppif,"peptidyl-prolyl cis-trans isomerase F, mitochondrial *",
+Prdx1,peroxiredoxin-1*,
+Prdx2,peroxiredoxin-2*,
+Prdx3,"thioredoxin-dependent peroxide reductase, mitochondrial *",
+Prdx4,peroxiredoxin-4  *,
+Prdx5,"peroxiredoxin-5, mitochondrial *",
+Prdx6,peroxiredoxin-6 *,
+Pstk,L-seryl-tRNA(Sec) kinase *,
+Pus1,"tRNA pseudouridine synthase A, mitochondrial *",
+Pus10,putative tRNA pseudouridine synthase Pus10*,
+Pus3,tRNA pseudouridine(38/39) synthase *,
+Pus7,pseudouridylate synthase 7 homolog *,
+Pusl1,tRNA pseudouridine synthase-like 1 *,
+Qrsl1,"glutamyl-tRNA(Gln) amidotransferase subunit A, mitochondrial*",
+Qtrt1,queuine tRNA-ribosyltransferase *,
+Rexo1,RNA exonuclease 1 homolog*,
+Rexo2,"oligoribonuclease, mitochondrial *",
+Rexo4,RNA exonuclease 4 *,
+Rfk,riboflavin kinase*,
+Rnaseh1,ribonuclease H1 *,
+Rsad1,"radical S-adenosyl methionine domain-containing protein 1, mitochondrial *",
+Rsad2,radical S-adenosyl methionine domain-containing protein 2*,
+Rtn4ip1,"reticulon-4-interacting protein 1, mitochondrial *",
+Sars2,"serine--tRNA ligase, mitochondrial *",
+Scp2,non-specific lipid-transfer protein *,
+Sdr39u1,epimerase family protein SDR39U1*,
+Sirt1,NAD-dependent protein deacetylase sirtuin-1 *,
+Sirt2,NAD-dependent protein deacetylase sirtuin-2 *,
+Sirt3,NAD-dependent protein deacetylase sirtuin-3 *,
+Sirt4,"NAD-dependent protein lipoamidase sirtuin-4, mitochondrial *",
+Sirt5,"NAD-dependent protein deacylase sirtuin-5, mitochondrial *",
+Sirt6,NAD-dependent protein deacetylase sirtuin-6 *,
+Sirt7,NAD-dependent protein deacetylase sirtuin-7 *,
+Sod1,superoxide dismutase [Cu-Zn]*,
+Sod2,"superoxide dismutase [Mn], mitochondrial *",
+Sod3,extracellular superoxide dismutase [Cu-Zn] *,
+Sqrdl,"sulfide:quinone oxidoreductase, mitochondrial *",
+Sucla2,"succinate--CoA ligase [ADP-forming] subunit beta, mitochondrial *",
+Sugct,succinate--hydroxymethylglutarate CoA-transferase *,
+Tars,"threonine--tRNA ligase, cytoplasmic*",
+Tars2,"threonine--tRNA ligase, mitochondrial *",
+Tfb1m,"dimethyladenosine transferase 1, mitochondrial *",
+Tfb2m,"dimethyladenosine transferase 2, mitochondrial isoform 3*",
+Them4,acyl-coenzyme A thioesterase THEM4*,
+Them5,acyl-coenzyme A thioesterase THEM5*,
+Them6,protein THEM6 *,
+Them7,uncharacterized protein LOC74088 *,
+Thg1l,probable tRNA(His) guanylyltransferase *,
+Tkt,transketolase*,
+Trit1,"tRNA dimethylallyltransferase, mitochondrial *",
+Trmt1,tRNA (guanine(26)-N(2))-dimethyltransferase *,
+Trmt10c,mitochondrial ribonuclease P protein 1 *,
+Trmt11,tRNA (guanine(10)-N2)-methyltransferase homolog *,
+Trmt12,tRNA wybutosine-synthesizing protein 2 homolog*,
+Trmt13,tRNA:m(4)X modification enzyme TRM13 homolog *,
+Trmt2a,tRNA (uracil-5-)-methyltransferase homolog A *,
+Trmt2b,tRNA (uracil(54)-C(5))-methyltransferase homolog *,
+Trmt5,tRNA (guanine(37)-N1)-methyltransferase *,
+Trmt6,tRNA (adenine(58)-N(1))-methyltransferase non-catalytic subunit TRM6*,
+Trmu,mitochondrial tRNA-specific 2-thiouridylase 1 *,
+Trnt1,"CCA tRNA nucleotidyltransferase 1, mitochondrial *",
+Trub1,probable tRNA pseudouridine synthase 1 *,
+Trub2,probable tRNA pseudouridine synthase 2 *,
+Txndc11,thioredoxin domain-containing protein 11 *,
+Txndc12,thioredoxin domain-containing protein 12 *,
+Txndc15,thioredoxin domain-containing protein 15 *,
+Txndc16,thioredoxin domain-containing protein 16 *,
+Txndc17,thioredoxin domain-containing protein 17*,
+Txndc2,thioredoxin domain-containing protein 2 *,
+Txndc5,thioredoxin domain-containing protein 5 isoform 3*,
+Txndc8,thioredoxin domain-containing protein 8 *,
+Txndc9,thioredoxin domain-containing protein 9*,
+Ung,uracil-DNA glycosylase *,
+Wars2,"tryptophan--tRNA ligase, mitochondrial *",
+Yars2,"tyrosine--tRNA ligase, mitochondrial*",
+Zadh2,zinc-binding alcohol dehydrogenase domain-containing protein 2 *,

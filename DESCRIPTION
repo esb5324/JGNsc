@@ -1,21 +1,20 @@
 Package: JGNsc
-Title: Joint Gene Network Construction using scRNA-seq data
+Title: Joint Gene Network Construction using scRNA-seq data under multiple conditions
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Meichen",
            family = "Dong",
            role = c("aut", "cre"),
            email = "meichen@live.unc.edu",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does joint graphical lasso model for single cell RNA sequencing data.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+           comment = c(ORCID = "https://orcid.org/0000-0001-9437-9290"))
+Description: Joint graphical lasso model for single cell RNA sequencing data under multiple conditions.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 LinkingTo: Rcpp, RcppArmadillo
-Imports: Rcpp, JGL, RcppArmadillo, huge, stringr, plyr, ggplot2, PRROC
+Imports: Rcpp, JGL, RcppArmadillo, huge, stringr, plyr, ggplot2, PRROC, network, ggnet, ggnetwork
 Suggests: 
     knitr,
     rmarkdown

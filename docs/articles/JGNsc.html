@@ -20,7 +20,7 @@
 </head>
 <body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -39,18 +39,36 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fas fa-home"></span>
      
   </a>
 </li>
 <li>
-  <a href="../articles/JGNsc.html">Get started</a>
+  <a href="../articles/JGNsc.html">Vignettes</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../reference/index.html">References</a>
+</li>
+<li>
+  <a href="../articles/web/JGNsc_data.html">Data</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="../reference/index.html">
+    <span class="fas fa-file-code-o"></span>
+     
+    functions
+  </a>
+</li>
+<li>
+  <a href="https://github.com/meichendong/JGNsc">
+    <span class="fas fa-github fa-lg"></span>
+     
+    github
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -77,28 +95,118 @@
 <h1 class="hasAnchor">
 <a href="#joint-gene-network-construction-by-single-cell-rna-sequencing-data-under-multiple-conditions" class="anchor"></a><em>Joint Gene Network Construction by Single Cell RNA Sequencing Data under Multiple Conditions</em>
 </h1>
-<p>Overview of JGNsc framework: <br><img src="../../../../../../OneDrive%20-%20University%20of%20North%20Carolina%20at%20Chapel%20Hill/994/JGNsc/package/JGNsc/vignettes/Figureoverview.JPG" style="width:90.0%" alt="JGNsc Overview"></p>
+<p>Overview of JGNsc framework: <br><img src="Figureoverview.JPG" style="width:90.0%" alt="JGNsc Overview"></p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># github pending...</span>
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://devtools.r-lib.org/">"devtools"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"meichendong/JGNsc"</span><span class="op">)</span>
+
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">JGNsc</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="data-input" class="section level2">
+<div id="example-simulation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#data-input" class="anchor"></a>Data Input</h2>
-<p>Raw count data from more than one condition……</p>
+<a href="#example-simulation" class="anchor"></a>Example – Simulation</h2>
+<p>The following code simulates raw count data from more than one conditions.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
+
+<span class="co"># example: the first 20 genes have different structure, the rest of genes have the same structures.</span>
+<span class="va">scenario</span> <span class="op">=</span> <span class="st">"DI20"</span> <span class="co"># can change this to DD/DI100/ID</span>
+<span class="va">nsample</span> <span class="op">=</span> <span class="fl">200</span>
+
+<span class="kw">if</span> <span class="op">(</span><span class="va">scenario</span> <span class="op">==</span> <span class="st">"DD"</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">nivec.list.diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>nivec<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">20</span>,<span class="fl">30</span>,<span class="fl">40</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span>,nivec2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">diffblk</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>
+  <span class="va">sigma.list.1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/generateSigmaList.html">generateSigmaList</a></span><span class="op">(</span>nivec.list <span class="op">=</span> <span class="va">nivec.list.diff</span>, structure <span class="op">=</span> <span class="st">"Diff S, Diff W"</span>, diffblk <span class="op">=</span> <span class="va">diffblk</span><span class="op">)</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">scenario</span> <span class="op">==</span><span class="st">"DI20"</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">nivec.list.diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>nivec<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">10</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span>,nivec2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">diffblk</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="fl">1</span><span class="op">)</span>
+  <span class="va">sigma.list.1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/generateSigmaList.html">generateSigmaList</a></span><span class="op">(</span>nivec.list <span class="op">=</span> <span class="va">nivec.list.diff</span>, structure <span class="op">=</span> <span class="st">"Diff S, Identical W"</span>, diffblk <span class="op">=</span> <span class="va">diffblk</span><span class="op">)</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">scenario</span> <span class="op">==</span><span class="st">"DI100"</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">nivec.list.diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>nivec<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">20</span>,<span class="fl">30</span>,<span class="fl">40</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span>,nivec2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">diffblk</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>
+  <span class="va">sigma.list.1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/generateSigmaList.html">generateSigmaList</a></span><span class="op">(</span>nivec.list <span class="op">=</span> <span class="va">nivec.list.diff</span>, structure <span class="op">=</span> <span class="st">"Diff S, Identical W"</span>, diffblk <span class="op">=</span> <span class="va">diffblk</span><span class="op">)</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">scenario</span> <span class="op">==</span><span class="st">"ID"</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">nivec.list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>nivec<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">10</span><span class="op">)</span>,nivec2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">sigma.list.1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/generateSigmaList.html">generateSigmaList</a></span><span class="op">(</span>nivec.list <span class="op">=</span> <span class="va">nivec.list</span>, structure <span class="op">=</span> <span class="st">"Identical S, Diff W"</span>, diffblk <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="co"># Create a list of count matrices</span>
+<span class="va">countlist.1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getCountList.html">getCountList</a></span><span class="op">(</span>sigma.list <span class="op">=</span> <span class="va">sigma.list.1</span>, nvec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">nsample</span>,<span class="fl">2</span><span class="op">)</span>, a3<span class="op">=</span><span class="fl">2.5</span>, b3<span class="op">=</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p>The network structure (simulation truth) is available at <code>countlist.1</code> above. Check the details by</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">countlist.1</span><span class="op">)</span>
+<span class="va">observed.list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">countlist.1</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">data</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">countlist.1</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">data</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Run JGNsc imputation and continuization step, and the Joint Graphical Lasso (JGL) model with AIC as tuning parameter selection criterion.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">simulation.result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/JGNsc.html">JGNsc</a></span><span class="op">(</span>observed.list <span class="op">=</span> <span class="va">observed.list</span>, min.cell <span class="op">=</span> <span class="fl">10</span>, runNetwork <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="framework" class="section level2">
+<div id="example-mb-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#framework" class="anchor"></a>Framework</h2>
-<p>We use the function ……</p>
+<a href="#example-mb-data" class="anchor"></a>Example – MB data</h2>
+<p>The data is from the <a href="https://www.nature.com/articles/s41586-019-1434-6">paper Hovestadt et al.</a>.<br>
+The data is preprocessed by <a href="https://satijalab.org/seurat/">Seurat</a>.<br>
+The processed example data is available at xxxxx.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Seurat object</span>
+<span class="va">sobj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"H0102_seuratobj_3d.rds"</span><span class="op">)</span>  
+<span class="co"># metabolism enzyme only pathway</span>
+<span class="va">meta2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"Mammalian_Metabolic_enzyme_genes.csv"</span><span class="op">)</span></code></pre></div>
+<p>Check demographic information by groups:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/getGENEbox.html">getGENEbox</a></span><span class="op">(</span>countmat <span class="op">=</span> <span class="va">sobj</span><span class="op">@</span><span class="va">assays</span><span class="op">$</span><span class="va">RNA</span><span class="op">@</span><span class="va">counts</span>, group <span class="op">=</span> <span class="va">sobj</span><span class="op">$</span><span class="va">group3</span>, gene <span class="op">=</span> <span class="st">"MYC"</span><span class="op">)</span>
+<span class="fu"><a href="../reference/getGENEhist.html">getGENEhist</a></span><span class="op">(</span>countmat <span class="op">=</span> <span class="va">sobj</span><span class="op">@</span><span class="va">assays</span><span class="op">$</span><span class="va">RNA</span><span class="op">@</span><span class="va">counts</span>, group <span class="op">=</span> <span class="va">sobj</span><span class="op">$</span><span class="va">group3</span>, gene <span class="op">=</span> <span class="st">"MYC"</span><span class="op">)</span></code></pre></div>
+<p>Create a list of raw count matrices:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">MB.3cond</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getObservedList.html">getObservedList</a></span><span class="op">(</span>mtx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">sobj</span><span class="op">@</span><span class="va">assays</span><span class="op">$</span><span class="va">RNA</span><span class="op">@</span><span class="va">counts</span><span class="op">)</span>, group <span class="op">=</span> <span class="va">sobj</span><span class="op">$</span><span class="va">group3</span>, geneSet <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">meta2</span><span class="op">$</span><span class="va">GeneSymbol</span><span class="op">)</span>, <span class="st">"MYC"</span>, <span class="st">"OTX2"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Run JGNsc imputation and continuization step. The current version may take hours or longer if the data dimension is high. Faster algorithm is in development.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">MB.3cond.continuous</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/JGNsc.html">JGNsc</a></span><span class="op">(</span>observed.list <span class="op">=</span> <span class="va">MB.3cond</span>, min.cell <span class="op">=</span> <span class="fl">10</span>, runNetwork <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
+<p>Tuning parameter selection by AIC, for JGL model:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getJGLTuningParamResult.html">getJGLTuningParamResult</a></span><span class="op">(</span>GauList <span class="op">=</span> <span class="va">MB.3cond.continuous</span><span class="op">$</span><span class="va">theta.star.npn</span><span class="op">)</span>
+<span class="co"># transform the precision matrix to partial correlation</span>
+<span class="va">partcorr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">jgl.res</span>, <span class="va">prec2partialcorr</span><span class="op">)</span></code></pre></div>
+<div id="gene-set-enrichment-analysis" class="section level3">
+<h3 class="hasAnchor">
+<a href="#gene-set-enrichment-analysis" class="anchor"></a>Gene Set Enrichment analysis</h3>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Map2Pathways.html">Map2Pathways</a></span><span class="op">(</span>partcorr.list <span class="op">=</span> <span class="va">partcorr</span>,
+                     conditions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Group 4"</span>,<span class="st">"Group 3"</span>,<span class="st">"Intermediate"</span><span class="op">)</span>,
+                     GeneInterest <span class="op">=</span> <span class="st">"MYC"</span>,
+                     pathwayRef <span class="op">=</span> <span class="va">meta2</span>,
+                     pathwayRef_geneVariable <span class="op">=</span> <span class="st">"GeneSymbol"</span>,
+                     pathwayRef_pathVariable <span class="op">=</span> <span class="st">"SigmaMiniMap.Term"</span>,
+                     threshold <span class="op">=</span><span class="fl">0</span><span class="op">)</span>
+<span class="va">GSEA.table</span> <span class="op">&lt;-</span> <span class="va">test</span><span class="op">$</span><span class="va">GSEA.table</span></code></pre></div>
 </div>
-<div id="results-and-visualiztion" class="section level2">
+<div id="visualize-joint-networks" class="section level3">
+<h3 class="hasAnchor">
+<a href="#visualize-joint-networks" class="anchor"></a>Visualize joint networks</h3>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gconnect</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">test</span><span class="op">$</span><span class="va">cond.connect</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">GeneSymbol</span><span class="op">)</span>, <span class="va">gene1</span><span class="op">)</span>
+<span class="va">highlight</span> <span class="op">=</span> <span class="va">gconnect</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">gene1</span><span class="op">)</span>
+<span class="va">net1</span> <span class="op">=</span> <span class="fu"><a href="../reference/plot_onenet.html">plot_onenet</a></span><span class="op">(</span><span class="va">partcorr</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">gconnect</span>,<span class="va">gconnect</span><span class="op">]</span>, gname <span class="op">=</span> <span class="st">"Group 4"</span>, circlenet <span class="op">=</span> <span class="cn">T</span>, nodecolor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"orange"</span>,<span class="st">"lightblue"</span><span class="op">)</span><span class="op">[</span><span class="va">highlight</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span>, family.vec <span class="op">=</span> <span class="va">highlight</span><span class="op">)</span>
+<span class="va">gconnect</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">test</span><span class="op">$</span><span class="va">cond.connect</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">GeneSymbol</span><span class="op">)</span>, <span class="va">gene1</span><span class="op">)</span>
+<span class="va">highlight</span> <span class="op">=</span> <span class="va">gconnect</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">gene1</span><span class="op">)</span>
+<span class="va">net2</span> <span class="op">=</span> <span class="fu"><a href="../reference/plot_onenet.html">plot_onenet</a></span><span class="op">(</span><span class="va">partcorr</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">gconnect</span>,<span class="va">gconnect</span><span class="op">]</span>, gname <span class="op">=</span> <span class="st">"Group 3"</span>, circlenet <span class="op">=</span> <span class="cn">T</span>, nodecolor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"orange"</span>,<span class="st">"lightblue"</span><span class="op">)</span><span class="op">[</span><span class="va">highlight</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span>, family.vec <span class="op">=</span> <span class="va">highlight</span><span class="op">)</span>
+<span class="va">gconnect</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">test</span><span class="op">$</span><span class="va">cond.connect</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">GeneSymbol</span><span class="op">)</span>, <span class="va">gene1</span><span class="op">)</span>
+<span class="va">highlight</span> <span class="op">=</span> <span class="va">gconnect</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">gene1</span><span class="op">)</span>
+<span class="va">net3</span> <span class="op">=</span> <span class="fu"><a href="../reference/plot_onenet.html">plot_onenet</a></span><span class="op">(</span><span class="va">partcorr</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">gconnect</span>,<span class="va">gconnect</span><span class="op">]</span>, gname <span class="op">=</span> <span class="st">"Intermediate"</span>, circlenet <span class="op">=</span> <span class="cn">T</span>, nodecolor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"orange"</span>,<span class="st">"lightblue"</span><span class="op">)</span><span class="op">[</span><span class="va">highlight</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span>, family.vec <span class="op">=</span> <span class="va">highlight</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span>
+<span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">net2</span>, <span class="va">net3</span>, <span class="va">net1</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="example-gbm-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#results-and-visualiztion" class="anchor"></a>Results and Visualiztion</h2>
-<p>We provide the function xxxx for visualizing joint networks. We provide the function xxxx for the Gene Set Enrichment analysis.</p>
+<a href="#example-gbm-data" class="anchor"></a>Example – GBM data</h2>
+<p>The data is from the <a href="https://www.sciencedirect.com/science/article/pii/S0092867419306877?via%3Dihub">paper Neftel et al.</a>. The processed example data is available at xxxxx.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sobj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"N0102_seuratobj_3d_malignant_adult.rds"</span><span class="op">)</span>   </code></pre></div>
+<p>To be added…</p>
 </div>
 </div>
   </div>

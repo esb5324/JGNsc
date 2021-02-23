@@ -1,4 +1,26 @@
 title: JGNsc
+url: https://github.com/meichendong/JGNsc
 template:
   params:
     bootswatch: cerulean
+
+navbar:
+  type: inverse
+  left:
+    - icon: fa-home
+      href: index.html
+    - text: "Vignettes"
+      href: articles/JGNsc.html
+    - text: "References"
+      href: reference/index.html
+    - text: "Data"
+      href: articles/web/JGNsc_data.html
+
+  right:
+    - icon: fa-file-code-o
+      text: "functions"
+      href: reference/index.html
+    - icon: fa-github fa-lg
+      text: "github"
+      href: https://github.com/meichendong/JGNsc
+

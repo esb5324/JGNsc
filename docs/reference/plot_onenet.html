@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>get the genes connected to a TARGET GENE under each condition. — getCondRelated • JGNsc</title>
+<title>plot one network — plot_onenet • JGNsc</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="get the genes connected to a TARGET GENE under each condition. — getCondRelated" />
-<meta property="og:description" content="get the genes connected to a TARGET GENE under each condition." />
+<meta property="og:title" content="plot one network — plot_onenet" />
+<meta property="og:description" content="plot one network" />
 
 
 
@@ -122,41 +122,61 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>get the genes connected to a TARGET GENE under each condition.</h1>
+    <h1>plot one network</h1>
     
-    <div class="hidden name"><code>getCondRelated.Rd</code></div>
+    <div class="hidden name"><code>plot_onenet.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>get the genes connected to a TARGET GENE under each condition.</p>
+    <p>plot one network</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getCondRelated</span><span class='op'>(</span><span class='va'>gs</span>, pcor0 <span class='op'>=</span> <span class='fl'>1e-04</span>, <span class='va'>partcorr.list</span>, conditions <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>plot_onenet</span><span class='op'>(</span>
+  <span class='va'>parcorr</span>,
+  mode <span class='op'>=</span> <span class='st'>"circle"</span>,
+  gname <span class='op'>=</span> <span class='st'>""</span>,
+  lsize <span class='op'>=</span> <span class='fl'>2.5</span>,
+  nodecolor <span class='op'>=</span> <span class='st'>"grey"</span>,
+  family.vec <span class='op'>=</span> <span class='fl'>0</span>,
+  circlenet <span class='op'>=</span> <span class='cn'>F</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>gs</th>
-      <td><p>character, 'gene selected' or 'TARGET GENE': e.g. "GAPDH", "CD4",...</p></td>
+      <th>parcorr</th>
+      <td><p>partial correlation matrix</p></td>
     </tr>
     <tr>
-      <th>pcor0</th>
-      <td><p>numeric, the threshold for partial correlations. values greater than pcor0 will be kept.</p></td>
+      <th>mode</th>
+      <td><p>ggnet2 mode, could be "circle" or "spring",...</p></td>
     </tr>
     <tr>
-      <th>partcorr.list</th>
-      <td><p>list of partial correlation matrices</p></td>
+      <th>gname</th>
+      <td><p>character, graph name.</p></td>
     </tr>
     <tr>
-      <th>conditions</th>
-      <td><p>a vector of names for each condition. e.g.: if the list has two matrices, here conditions = c("ConditionA","ConditionB")</p></td>
+      <th>lsize</th>
+      <td><p>numeric, label size</p></td>
+    </tr>
+    <tr>
+      <th>nodecolor</th>
+      <td><p>vector/character, specify the color for each node</p></td>
+    </tr>
+    <tr>
+      <th>family.vec</th>
+      <td><p>vector, assign nodes to families. In other words, it could be the classification / covariates of the nodes.</p></td>
+    </tr>
+    <tr>
+      <th>circlenet</th>
+      <td><p>logical, whether plot the network in a circle shape.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a table of partial correlations for genes connected to TARGET GENE under all conditions</p>
+    <p>a network figure</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

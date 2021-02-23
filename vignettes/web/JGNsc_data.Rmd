@@ -1,0 +1,18 @@
+---
+title: "JGNsc example data"
+author: "Meichen Dong"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+For more detailed data description and analysis, please refer to the JGNsc manuscript.
+
+MB data:  
+- Hovestadt et al. 2019: due to the size of data, it's available upon request. Please email `meichen@live.unc.edu` or `meichen5dong@gmail.com`.
+
+
+GBM data:  
+- Neftel et al. 2019: due to the size of data, it's available upon request. Please email `meichen@live.unc.edu` or `meichen5dong@gmail.com`.  
+
+
+Mammalian Metabolic enzyme genes data:  
+- [Mammalian Metabolic enzyme genes]()
