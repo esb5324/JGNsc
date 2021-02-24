@@ -137,7 +137,7 @@ plot_grid(net2, net3, net1, ncol = 3)
 
 ## Example -- GBM data
 The data is from the [paper Neftel et al.](https://www.sciencedirect.com/science/article/pii/S0092867419306877?via%3Dihub).
-The processed example data is available at xxxxx.  
+The processed example data is available upon request due to the data size.  
 ```{r, eval=F}
 sobj <- readRDS("N0102_seuratobj_3d_malignant_adult.rds")   
 ```

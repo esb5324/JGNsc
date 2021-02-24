@@ -14,18 +14,15 @@ knitr::opts_chunk$set(
 
 # JGNsc
 
-<!-- badges: start -->
-[![Travis build status](https://travis-ci.com/biodatascience/homework-meichendong.svg?branch=master)](https://travis-ci.com/biodatascience/homework-meichendong)
-[![CRAN status](https://www.r-pkg.org/badges/version/JGNsc)](https://CRAN.R-project.org/package=JGNsc)
-<!-- badges: end -->
-
 Joint Gene Network Construction by Single Cell RNA Sequencing Data under Multiple Conditions
 
-## Citation
+
+## Cite our work:
+Pending.
 
 ## Installation
 The development version from [GitHub](https://github.com/):
-```{r}
+```{r, eval=F}
 if (!require("devtools")) {
   install.packages("devtools")
 }
@@ -35,14 +32,13 @@ devtools::install_github("meichendong/JGNsc")
 The manuscript is in preparation.
 
 
-## Example
-
-```{r example}
-library(JGNsc)
-## basic example code
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+## Example & Tutorial
+Detailed tutorial is available [here](https://meichendong.github.io/JGNsc/).  
+ 
 
 ## FAQs / Notes
-......
+FAQs and solutions will be posted here.
+
+#### Please forward questions/comments to email: `meichen@live.unc.edu`
+
+Thank you!
