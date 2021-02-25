@@ -100,6 +100,7 @@ getPathFreq <- function(meta, VARPATH ="SigmaMiniMap.Term"){
 #' @param countmat raw count matrix, gene by sample
 #' @param group group identities of cells
 #' @param gene the name of a TARGET GENE. e.g.: "MYC"
+#' @import ggplot2
 #' @return A plot
 #' @export
 getGENEbox <- function(countmat, group, gene){
@@ -115,6 +116,7 @@ getGENEbox <- function(countmat, group, gene){
 #' @param group a vector of group identities for cells/samples
 #' @param gene the name of a TARGET GENE. e.g.: "MYC"
 #' @param xlabel.pos the position of samplesize/expression rate information
+#' @import ggplot2
 #' @return a plot
 #' @export
 getGENEhist <- function(countmat, group, gene, xlabel.pos = 500){
@@ -223,7 +225,9 @@ Map2Pathways <- function(partcorr.list, conditions = NULL, GeneInterest = NULL,
 #' @param nodecolor vector/character, specify the color for each node
 #' @param family.vec vector, assign nodes to families. In other words, it could be the classification / covariates of the nodes.
 #' @param circlenet logical, whether plot the network in a circle shape.
-#' @import ggnet2
+#' @import network
+#' @import ggnet
+#' @import ggplot2
 #' @return a network figure
 #' @export
 plot_onenet <- function(parcorr, mode = "circle",gname="", lsize=2.5,
@@ -248,4 +252,18 @@ plot_onenet <- function(parcorr, mode = "circle",gname="", lsize=2.5,
       theme_blank( )+ theme(legend.position = "none") + ggtitle(gname)
   }
   return(ti)
+}
+
+#' random proposal function
+#' @export
+gasdev <- function(r=1){
+  while(r>=1){
+    v1 <- runif(1)*2-1
+    v2 <- runif(1)*2-1
+    r=v1*v1 + v2*v2
+  }
+  fac <- sqrt(-2*log(r)/r)
+  gset <- v1*fac
+  out = v2*fac
+  return(out)
 }

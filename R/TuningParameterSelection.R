@@ -9,7 +9,7 @@
 #' @export
 AIC_select <- function(mat.list.t.gau, lam1 = 0.1, lam2 = 0.1, returnJGL = F){
   res.S <- lapply(mat.list.t.gau, cov)
-  res.jgl <- JGL(mat.list.t.gau, lambda1 = lam1, lambda2 = lam2, return.whole.theta = T)
+  res.jgl <- JGL::JGL(mat.list.t.gau, lambda1 = lam1, lambda2 = lam2, return.whole.theta = T)
   aic <- 0; bic <- 0; ebic <- 0
   p <- ncol(res.jgl$theta[[1]])
   for (k in 1:length(mat.list.t.gau)){
@@ -209,7 +209,7 @@ stars.select <- function(inputlist, nlamb = 15, rep.num = 15, lambvec = NULL){
                                rep.num = rep.num, stars.thresh = 0.1, lam2init = 0.05, lam1init = NULL, verbose = T)
   stars.l2 <- huge_stars_joint(inputlist, lambda = lambvec, nlambda = nlamb, lambda.min.ratio = NULL, stars.subsample.ratio.vec = NULL,
                                rep.num = rep.num, stars.thresh = 0.1, lam2init = NULL, lam1init = stars.l1$opt.lambda, verbose = T)
-  res = try(JGL(inputlist, lambda1 = stars.l1$opt.lambda , lambda2 = stars.l2$opt.lambda, return.whole.theta = T), silent = T)
+  res = try(JGL::JGL(inputlist, lambda1 = stars.l1$opt.lambda , lambda2 = stars.l2$opt.lambda, return.whole.theta = T), silent = T)
   tt1 = proc.time()
   return(list(stars.l1 = stars.l1,
               stars.l2 = stars.l2,

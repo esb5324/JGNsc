@@ -41,22 +41,9 @@ set.seed(1)
 scenario = "DI20" # can change this to DD/DI100/ID
 nsample = 200
 
-if (scenario == "DD"){
-  nivec.list.diff <- list(nivec= c(10,20,30,40, rep(20,5)),nivec2 = rep(20,10))
-  diffblk = list( 1:4,1:5)
-  sigma.list.1 <- generateSigmaList(nivec.list = nivec.list.diff, structure = "Diff S, Diff W", diffblk = diffblk)
-} else if (scenario =="DI20"){
-  nivec.list.diff <- list(nivec= c(rep(2,10), rep(20,9)),nivec2 = rep(20,10))
-  diffblk = list( 1:10,1)
-  sigma.list.1 <- generateSigmaList(nivec.list = nivec.list.diff, structure = "Diff S, Identical W", diffblk = diffblk)
-} else if (scenario =="DI100"){
-  nivec.list.diff <- list(nivec= c(10,20,30,40, rep(20,5)),nivec2 = rep(20,10))
-  diffblk = list( 1:4,1:5)
-  sigma.list.1 <- generateSigmaList(nivec.list = nivec.list.diff, structure = "Diff S, Identical W", diffblk = diffblk)
-} else if (scenario =="ID"){
-  nivec.list <- list(nivec= rep(20,10),nivec2 = rep(20,10))
-  sigma.list.1 <- generateSigmaList(nivec.list = nivec.list, structure = "Identical S, Diff W", diffblk = NULL)
-}
+nivec.list.diff <- list(nivec= c(rep(2,10), rep(20,4)),nivec2 = rep(20,5))
+diffblk = list( 1:10,1)
+sigma.list.1 <- generateSigmaList(nivec.list = nivec.list.diff, structure = "Diff S, Identical W", diffblk = diffblk)
 # Create a list of count matrices
 countlist.1 <- getCountList(sigma.list = sigma.list.1, nvec = rep(nsample,2), a3=2.5, b3=1)
 ```
@@ -67,9 +54,28 @@ str(countlist.1)
 observed.list <- list(t(countlist.1[[1]]$data), t(countlist.1[[2]]$data))
 ```
 
-Run JGNsc imputation and continuization step, and the Joint Graphical Lasso (JGL) model with AIC as tuning parameter selection criterion.
+Run JGNsc imputation and continuization step, and the Joint Graphical Lasso (JGL) model with AIC as tuning parameter selection criterion. This may take 5 to 10 minutes.
 ```{r, eval=F}
 simulation.result <- JGNsc(observed.list = observed.list, min.cell = 10, runNetwork = T)
+# check the structure of the result
+str(simulation.result)
+# check the AIC values
+library(ggplot2)
+dt <- as.data.frame(simulation.result$aic.table)
+ggplot(dt, aes(x=V1, y=V3, color = V2)) + geom_point() + xlab("lambda1") + ylab("AIC") + labs(color = "lambda2")
+```
+Visualize the estimated partial correlation matrix. In this example, the sample size is the same as the number of genes, hence the estimated matrix is more noisy.
+```{r, eval=F}
+library(pheatmap)
+# ESTIMATED
+partcorr.est1.trunc <- trunc_precision(simulation.result$partcorr[[1]], threshold = 0.0001)
+pheatmap(partcorr.est1.trunc, cluster_rows = F, cluster_cols = F)
+
+# SIMULATION TRUTH
+partcorr.true1 <- prec2partialcorr(countlist.1[[1]]$precision)
+partcorr.true1.trunc <- trunc_precision(partcorr.true1, threshold = 0.0001)
+# partcorr.true1[1:6,1:6]
+pheatmap(partcorr.true1, cluster_rows = F, cluster_cols = F)
 ```
 
 
@@ -78,13 +84,14 @@ The data is from the [paper Hovestadt et al.](https://www.nature.com/articles/s4
 The data is preprocessed by [Seurat](https://satijalab.org/seurat/).  
 The processed example data is available at xxxxx.  
 ```{r, eval=F}
+# setwd("your/data/path")
 # Seurat object
 sobj <- readRDS("H0102_seuratobj_3d.rds")  
 # metabolism enzyme only pathway
 meta2 <- read.csv("Mammalian_Metabolic_enzyme_genes.csv")
 ```
 
-Check demographic information by groups:
+Check demographic information by groups, for the gene of interest MYC:
 ```{r, eval=F}
 getGENEbox(countmat = sobj@assays$RNA@counts, group = sobj$group3, gene = "MYC")
 getGENEhist(countmat = sobj@assays$RNA@counts, group = sobj$group3, gene = "MYC")

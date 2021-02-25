@@ -55,7 +55,7 @@ JGNsc <- function(observed.list, mask.rate = 0.15, nrep = 50, warm = 100, iter =
     theta.star[[k]] <- imp.mean
   }
   theta.star.t <- lapply(theta.star, t)
-  theta.star.npn <- lapply(theta.star.t, huge.npn)
+  theta.star.npn <- lapply(theta.star.t, huge::huge.npn)
 
   # joint lasso:
   if(runNetwork){
@@ -73,7 +73,7 @@ JGNsc <- function(observed.list, mask.rate = 0.15, nrep = 50, warm = 100, iter =
         jgnsc.aic <- rbind(jgnsc.aic, tps)
       }
     }
-    JGL.res <- JGL(theta.star.npn, lambda1 = jgnsc.aic[which.min(jgnsc.aic[,3]),1],
+    JGL.res <- JGL::JGL(theta.star.npn, lambda1 = jgnsc.aic[which.min(jgnsc.aic[,3]),1],
                    lambda2 = jgnsc.aic[which.min(jgnsc.aic[,3]),2], return.whole.theta = T)
     partcorr <- lapply(JGL.res$theta, prec2partialcorr)
   } else {
