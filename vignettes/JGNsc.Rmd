@@ -39,7 +39,7 @@ set.seed(1)
 
 # example: the first 20 genes have different structure, the rest of genes have the same structures.
 scenario = "DI20" # can change this to DD/DI100/ID
-nsample = 200
+nsample = 100
 
 nivec.list.diff <- list(nivec= c(rep(2,10), rep(20,4)),nivec2 = rep(20,5))
 diffblk = list( 1:10,1)
@@ -82,7 +82,9 @@ pheatmap(partcorr.true1, cluster_rows = F, cluster_cols = F)
 ## Example -- MB data
 The data is from the [paper Hovestadt et al.](https://www.nature.com/articles/s41586-019-1434-6).  
 The data is preprocessed by [Seurat](https://satijalab.org/seurat/).  
-The processed example data is available at xxxxx.  
+The processed example data is available upon request due to the data size. 
+
+#### The most part of example below was submitted to cluster. The running time may be long (hours).
 ```{r, eval=F}
 # setwd("your/data/path")
 # Seurat object

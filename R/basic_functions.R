@@ -226,7 +226,7 @@ Map2Pathways <- function(partcorr.list, conditions = NULL, GeneInterest = NULL,
 #' @param family.vec vector, assign nodes to families. In other words, it could be the classification / covariates of the nodes.
 #' @param circlenet logical, whether plot the network in a circle shape.
 #' @import network
-#' @import ggnet
+#' @import GGally
 #' @import ggplot2
 #' @return a network figure
 #' @export

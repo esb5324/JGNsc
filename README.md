@@ -26,7 +26,7 @@ The manuscript is in preparation.
 ## Example & Tutorial
 
 Detailed tutorial is available
-[here](https://meichendong.github.io/JGNsc/).
+[here](https://meichendong.github.io/JGNsc/articles/JGNsc.html).
 
 ## FAQs / Notes
 
