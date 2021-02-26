@@ -157,7 +157,7 @@ net3 = plot_onenet(partcorr[[3]][gconnect,gconnect], gname = unique(sobj$group3)
 library(cowplot)
 plot_grid(net3, net1, net2, ncol = 3)
 ```
-![MB Joint Networks](J0001_MB_PLOTONENET.png)
+![MB Joint Networks](J0001_MB_PLOTONENET.PNG)
 
 
 ## Example -- GBM data
