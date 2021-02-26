@@ -14,7 +14,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 LinkingTo: Rcpp, RcppArmadillo
-Imports: Rcpp, JGL, RcppArmadillo, huge, stringr, plyr, ggplot2, PRROC, network, ggnet, ggnetwork
+Imports: Rcpp, JGL, RcppArmadillo, huge, stringr, plyr, ggplot2, PRROC, network, ggnet, ggnetwork, reshape2
 Suggests: 
     knitr,
     rmarkdown

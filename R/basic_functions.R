@@ -89,9 +89,9 @@ getCondRelated <- function(gs, pcor0 = 0.0001, partcorr.list, conditions = NULL)
 #'
 getPathFreq <- function(meta, VARPATH ="SigmaMiniMap.Term"){
   nn <- nrow(meta)
-  paths <- str_trim(unlist(strsplit(meta[,VARPATH], ";")), side = "both")
+  paths <- stringr::str_trim(unlist(strsplit(meta[,VARPATH], ";")), side = "both")
   paths <- paths[paths !=""]
-  paths.count <- count(paths)
+  paths.count <- plyr::count(paths)
   paths.count$pct <- paths.count$freq / nn
   return(paths.count)
 }
@@ -106,7 +106,7 @@ getPathFreq <- function(meta, VARPATH ="SigmaMiniMap.Term"){
 getGENEbox <- function(countmat, group, gene){
   data = data.frame(Gene = countmat[gene,],
                     group = group)
-  datamelt <- melt(data)
+  datamelt <- reshape2::melt(data)
   ggplot(datamelt, aes(x=group, y=value)) + geom_jitter(alpha = 0.3, color = "lightblue")+ geom_boxplot(alpha = 0.5) +
     ggtitle(gene) + xlab("") + ylab("")
 }

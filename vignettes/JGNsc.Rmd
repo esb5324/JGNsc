@@ -96,12 +96,21 @@ meta2 <- read.csv("Mammalian_Metabolic_enzyme_genes.csv")
 Check demographic information by groups, for the gene of interest MYC:
 ```{r, eval=F}
 getGENEbox(countmat = sobj@assays$RNA@counts, group = sobj$group3, gene = "MYC")
+```
+![MB demographics MYC boxplot](J0001_MB_getGENEbox.png)
+
+```{r, eval=F}
 getGENEhist(countmat = sobj@assays$RNA@counts, group = sobj$group3, gene = "MYC")
 ```
+![MB demographics MYC histogram](J0001_MB_getGENEhist.png)
+
+
 
 Create a list of raw count matrices:
 ```{r, eval=F}
 MB.3cond <- getObservedList(mtx = as.matrix(sobj@assays$RNA@counts), group = sobj$group3, geneSet = c(toupper(meta2$GeneSymbol), "MYC", "OTX2"))
+# the list of observed count matrices can be import as below
+# MB.3cond <- readRDS("J0001_MB3cond.rds")
 ```
 
 Run JGNsc imputation and continuization step. The current version may take hours or longer if the data dimension is high. Faster algorithm is in development.
@@ -114,12 +123,14 @@ Tuning parameter selection by AIC, for JGL model:
 res <- getJGLTuningParamResult(GauList = MB.3cond.continuous$theta.star.npn)
 # transform the precision matrix to partial correlation
 partcorr <- lapply(res$jgl.res, prec2partialcorr)
+# you can read in the calculated partial correlation matrices for the visualization steps
+# partcorr <- readRDS("J0001_MB_partcorr.rds")
 ```
 
 ### Gene Set Enrichment analysis
 ```{r, eval=F}
 test <- Map2Pathways(partcorr.list = partcorr,
-                     conditions = c("Group 4","Group 3","Intermediate"),
+                     conditions = unique(sobj$group3),
                      GeneInterest = "MYC",
                      pathwayRef = meta2,
                      pathwayRef_geneVariable = "GeneSymbol",
@@ -128,20 +139,25 @@ test <- Map2Pathways(partcorr.list = partcorr,
 GSEA.table <- test$GSEA.table
 ```
 
-### Visualize joint networks
+### Visualize joint networks for MYC connected genes
 ```{r, eval=F}
-gconnect = c(toupper(test$cond.connect[[3]]$GeneSymbol), gene1)
-highlight = gconnect %in% c(gene1)
-net1 = plot_onenet(partcorr[[1]][gconnect,gconnect], gname = "Group 4", circlenet = T, nodecolor = c("orange","lightblue")[highlight+1], family.vec = highlight)
+gene1 = "MYC"
 gconnect = c(toupper(test$cond.connect[[1]]$GeneSymbol), gene1)
 highlight = gconnect %in% c(gene1)
-net2 = plot_onenet(partcorr[[2]][gconnect,gconnect], gname = "Group 3", circlenet = T, nodecolor = c("orange","lightblue")[highlight+1], family.vec = highlight)
+net1 = plot_onenet(partcorr[[1]][gconnect,gconnect], gname = unique(sobj$group3)[1], circlenet = T, nodecolor = c("orange","lightblue")[highlight+1], family.vec = highlight)
+
 gconnect = c(toupper(test$cond.connect[[2]]$GeneSymbol), gene1)
 highlight = gconnect %in% c(gene1)
-net3 = plot_onenet(partcorr[[3]][gconnect,gconnect], gname = "Intermediate", circlenet = T, nodecolor = c("orange","lightblue")[highlight+1], family.vec = highlight)
+net2 = plot_onenet(partcorr[[2]][gconnect,gconnect], gname = unique(sobj$group3)[2], circlenet = T, nodecolor = c("orange","lightblue")[highlight+1], family.vec = highlight)
+
+gconnect = c(toupper(test$cond.connect[[3]]$GeneSymbol), gene1)
+highlight = gconnect %in% c(gene1)
+net3 = plot_onenet(partcorr[[3]][gconnect,gconnect], gname = unique(sobj$group3)[3], circlenet = T, nodecolor = c("orange","lightblue")[highlight+1], family.vec = highlight)
+
 library(cowplot)
-plot_grid(net2, net3, net1, ncol = 3)
+plot_grid(net3, net1, net2, ncol = 3)
 ```
+![MB Joint Networks](J0001_MB_PLOTONENET.png)
 
 
 ## Example -- GBM data
@@ -151,5 +167,10 @@ The processed example data is available upon request due to the data size.
 sobj <- readRDS("N0102_seuratobj_3d_malignant_adult.rds")   
 ```
 
-To be added...
+The workflow is similar to the MB data example.
+Below we provide the list of count matrices of the four subtypes, and the list of estimated partial correlation matrices of the GBM data.
+```{r, eval=F}
+GBM_4subtype <- readRDS("J0001_GBM_ObservedList.rds")
+GBM_partcorr <- readRDS("J0001_GBM_partcorr.rds")
+```
 
