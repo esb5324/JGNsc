@@ -18,7 +18,7 @@ Joint Gene Network Construction by Single Cell RNA Sequencing Data under Multipl
 
 
 ## Cite our work:
-Pending.
+Pending. The manuscript is in preparation.
 
 ## Installation
 The development version from [GitHub](https://github.com/):
@@ -28,8 +28,6 @@ if (!require("devtools")) {
 }
 devtools::install_github("meichendong/JGNsc")
 ```
-
-The manuscript is in preparation.
 
 
 ## Example & Tutorial

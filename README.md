@@ -8,7 +8,7 @@ Multiple Conditions
 
 ## Cite our work:
 
-Pending.
+Pending. The manuscript is in preparation.
 
 ## Installation
 
@@ -20,8 +20,6 @@ if (!require("devtools")) {
 }
 devtools::install_github("meichendong/JGNsc")
 ```
-
-The manuscript is in preparation.
 
 ## Example & Tutorial
 
