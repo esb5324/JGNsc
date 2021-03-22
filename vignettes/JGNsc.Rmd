@@ -45,24 +45,25 @@ nivec.list.diff <- list(nivec= c(rep(2,10), rep(20,4)),nivec2 = rep(20,5))
 diffblk = list( 1:10,1)
 sigma.list.1 <- generateSigmaList(nivec.list = nivec.list.diff, structure = "Diff S, Identical W", diffblk = diffblk)
 # Create a list of count matrices
-countlist.1 <- getCountList(sigma.list = sigma.list.1, nvec = rep(nsample,2), a3=2.5, b3=1)
+countlist.1 <- getCountList(sigma.list = sigma.list.1, nvec = rep(nsample,2), a3=3, b3=1)
 ```
 
 The network structure (simulation truth) is available at `countlist.1` above. Check the details by
 ```{r, eval=F}
 str(countlist.1)
-observed.list <- list(t(countlist.1[[1]]$data), t(countlist.1[[2]]$data))
+observed.list <- list(t(countlist.1[[1]]$count), t(countlist.1[[2]]$count))
 ```
 
 Run JGNsc imputation and continuization step, and the Joint Graphical Lasso (JGL) model with AIC as tuning parameter selection criterion. This may take 5 to 10 minutes.
 ```{r, eval=F}
-simulation.result <- JGNsc(observed.list = observed.list, min.cell = 10, runNetwork = T)
+simulation.result <- JGNsc(observed.list = observed.list, min.cell = 10, runNetwork = T,
+                           l1.vec = seq(1,40, by=3)/100, l2.vec = seq(1,10, by=2)/100)
 # check the structure of the result
 str(simulation.result)
 # check the AIC values
-library(ggplot2)
-dt <- as.data.frame(simulation.result$aic.table)
-ggplot(dt, aes(x=V1, y=V3, color = V2)) + geom_point() + xlab("lambda1") + ylab("AIC") + labs(color = "lambda2")
+# library(ggplot2)
+# dt <- as.data.frame(simulation.result$aic.table)
+# ggplot(dt, aes(x=V1, y=V3, color = V2)) + geom_point() + xlab("lambda1") + ylab("AIC") + labs(color = "lambda2")
 ```
 Visualize the estimated partial correlation matrix. In this example, the sample size is the same as the number of genes, hence the estimated matrix is more noisy.
 ```{r, eval=F}
@@ -113,9 +114,9 @@ MB.3cond <- getObservedList(mtx = as.matrix(sobj@assays$RNA@counts), group = sob
 # MB.3cond <- readRDS("J0001_MB3cond.rds")
 ```
 
-Run JGNsc imputation and continuization step. The current version may take hours or longer if the data dimension is high. Faster algorithm is in development.
+Run JGNsc imputation and continuization step. The current version may take hours or longer if the data dimension is high. Faster computational method is in development.
 ```{r, eval=F}
-MB.3cond.continuous <- JGNsc(observed.list = MB.3cond, min.cell = 10, runNetwork = F)
+MB.3cond.continuous <- JGNsc(observed.list = MB.3cond, min.cell = 20, runNetwork = F)
 ```
 
 Tuning parameter selection by AIC, for JGL model:

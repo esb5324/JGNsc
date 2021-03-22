@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JGNsc framework main function — JGNsc • JGNsc</title>
+<title>Map scRNA-seq counts to a known covariance structure — CountMap • JGNsc</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="JGNsc framework main function — JGNsc" />
-<meta property="og:description" content="JGNsc framework main function" />
+<meta property="og:title" content="Map scRNA-seq counts to a known covariance structure — CountMap" />
+<meta property="og:description" content="Map scRNA-seq counts to a known covariance structure" />
 
 
 
@@ -122,73 +122,61 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>JGNsc framework main function</h1>
+    <h1>Map scRNA-seq counts to a known covariance structure</h1>
     
-    <div class="hidden name"><code>JGNsc.Rd</code></div>
+    <div class="hidden name"><code>CountMap.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>JGNsc framework main function</p>
+    <p>Map scRNA-seq counts to a known covariance structure</p>
     </div>
 
-    <pre class="usage"><span class='fu'>JGNsc</span><span class='op'>(</span>
-  <span class='va'>observed.list</span>,
-  mask.rate <span class='op'>=</span> <span class='fl'>0.15</span>,
-  nrep <span class='op'>=</span> <span class='fl'>20</span>,
-  warm <span class='op'>=</span> <span class='fl'>100</span>,
-  iter <span class='op'>=</span> <span class='fl'>200</span>,
-  min.cell <span class='op'>=</span> <span class='fl'>3</span>,
-  runNetwork <span class='op'>=</span> <span class='cn'>F</span>,
-  l1.vec <span class='op'>=</span> <span class='cn'>NULL</span>,
-  l2.vec <span class='op'>=</span> <span class='cn'>NULL</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>CountMap</span><span class='op'>(</span><span class='va'>sigma</span>, <span class='va'>ngene</span>, <span class='va'>n</span>, a1 <span class='op'>=</span> <span class='fl'>3</span>, b1 <span class='op'>=</span> <span class='fl'>1</span>, a20 <span class='op'>=</span> <span class='fl'>2</span>, b20 <span class='op'>=</span> <span class='fl'>3</span>, a30 <span class='op'>=</span> <span class='fl'>1</span>, b30 <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>observed.list</th>
-      <td><p>the list containing the matrices of K conditions. dim: genes by samples</p></td>
+      <th>sigma</th>
+      <td><p>a covairance matrix</p></td>
     </tr>
     <tr>
-      <th>mask.rate</th>
-      <td><p>iterative imputation procedure</p></td>
+      <th>ngene</th>
+      <td><p>number of genes</p></td>
     </tr>
     <tr>
-      <th>nrep</th>
-      <td><p>number of iterations in the imputation procedure, default is 50</p></td>
+      <th>n</th>
+      <td><p>number of samples</p></td>
     </tr>
     <tr>
-      <th>warm</th>
-      <td><p>the number of warm steps in the MCMC procedure</p></td>
+      <th>a20</th>
+      <td><p>the hyperparameter for generating beta, where beta~Gamma(a20,b20)</p></td>
     </tr>
     <tr>
-      <th>iter</th>
-      <td><p>the number of iterations in the MCMC procedure</p></td>
+      <th>b20</th>
+      <td><p>the hyperparameter for generating beta, where beta~Gamma(a20,b20)</p></td>
     </tr>
     <tr>
-      <th>min.cell</th>
-      <td><p>the min number of cells that should a gene should express</p></td>
+      <th>a10</th>
+      <td><p>the hyperparameter for generating alpha, where alpha~Gamma(a10,b10)</p></td>
     </tr>
     <tr>
-      <th>runNetwork</th>
-      <td><p>logical. Run the joint graphical lasso procedure or not.</p></td>
+      <th>b10</th>
+      <td><p>the hyperparameter for generating alpha, where alpha~Gamma(a10,b10)</p></td>
     </tr>
     <tr>
-      <th>l1.vec</th>
-      <td><p>if runNetwork=T, the vector of candidate values for the tuning parameter lambda1</p></td>
+      <th>a3</th>
+      <td><p>the hyperparameter for generating pij, where pij~beta(a3, b3)</p></td>
     </tr>
     <tr>
-      <th>l2.vec</th>
-      <td><p>if runNetwork=T, the vector of candidate values for the tuning parameter lambda2</p></td>
+      <th>b3</th>
+      <td><p>the hyperparameter for generating pij, where pij~beta(a3, b3)</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>theta.star.npn: the imputed and Gaussian transformed list of matrices</p>
-<p>if runNetwork = T, then it will return the JGL results (the precision matrices can be accessed by result$JGL$theta)
-, aic.table (the AIC values with corresponding tuning parameter candidates), partcorr (the list of partial correlation matrices)</p>
+    <p>a list of i) raw count data matrix; ii) adjacency matrix; iii) the true expression mean level theta matrix; iv) zij: the dropout matrix; v) sigma: the covariance matrix; vi) precision: the precision matrix.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

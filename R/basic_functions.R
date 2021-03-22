@@ -235,7 +235,7 @@ plot_onenet <- function(parcorr, mode = "circle",gname="", lsize=2.5,
   # mode = "spring" /
   net1 <- network(parcorr, ignore.eval = F, names.eval="weights")
   set.edge.attribute(net1, "size", abs(net1 %e% "weights")*5)
-  set.edge.attribute(net1, "color", ifelse(net1 %e% "weights"> 0, "red","green"))
+  set.edge.attribute(net1, "color", ifelse(net1 %e% "weights"> 0, "#CC6677","#44AA99"))
   net1 %v% "family" <- family.vec
   net1 %v% "importance"  <- abs(rowSums(abs(parcorr)))*2
   net1 %v% "nconnect"  <- abs(rowSums(abs(parcorr)>0))/10

@@ -206,17 +206,28 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
 #' @param b3 the hyperparameter for generating pij, where pij~beta(a3, b3)
 #' @return a list of i) raw count data matrix; ii) adjacency matrix; iii) the true expression mean level theta matrix; iv) zij: the dropout matrix; v) sigma: the covariance matrix; vi) precision: the precision matrix.
 #' @export
-CountMap2 <- function(sigma, ngene, n, a10 = 3, b10=2, a20 = 1, b20 = 10, a3=2 , b3=1){
+CountMap <- function(sigma, ngene, n, a1 = 3,
+                      b1 = 1, a20 = 2,  b20 = 3, a30 = 1, b30 = 10){
+  # CountMap5()
   precision1 <- solve(sigma)
   mu <- rep(0, ngene)
   adj <- abs(sign(precision1))
   diag(adj) <- 0
   x <- mvtnorm::rmvnorm(n, mu, sigma)
   y <- x
-  theta.true <- matrix(nrow = n, ncol = ngene)
-  z.true <- matrix(nrow = n, ncol = ngene)
 
-  # ---------------------
+  # -------------------------------------------------
+  # generate count data from posterior distribution
+  # one subject at a time
+  # subject i
+  z <- matrix(1, nrow = n, ncol = ngene)
+  pij.vec <- rep(1, ngene)
+  ycomplete <- x
+
+  alphavec <- rep(0, ngene)
+  betavec <- rep(0,ngene)
+  scmeanvec <- rep(0,ngene)
+  # -----------------------------
   for (j in 1:ngene) {
     dat <- x[, j]
     mu_v <- mean(dat)
@@ -226,45 +237,50 @@ CountMap2 <- function(sigma, ngene, n, a10 = 3, b10=2, a20 = 1, b20 = 10, a3=2 ,
     # ---------------------
     # simulate sc from zip -- 1 gene
     # 3. alpha, beta, thetaij
-    alphai <- rgamma(1, shape = a10, rate = b10)
-    betai <- rgamma(1, shape = a20, rate = b20)
-    if (any(alphai / betai >=2000)){
-      alphai <- rgamma(1, shape = a10, rate = b10)
-      betai <- rgamma(1, shape = a20, rate = b20)
+    alphaj <- rgamma(1, shape = a20, rate = b20)
+    betaj <- rgamma(1, shape = a30, rate = b30)
+    scmeanj <- rgamma(1, shape = alphaj, rate = betaj)
+    if (any(scmeanj >=1000) | any(scmeanj <1) ){
+      scmeanj <- runif(1, 1,10)
     }
-    thetaij <- rgamma(n, shape = alphai, rate = betai)
+    sctemp <- rpois(n, scmeanj)
+    alphavec[j] <- alphaj
+    betavec[j] <- betaj
+    scmeanvec[j] <- scmeanj
 
-    scdat <- sapply(thetaij, rpois, n=1)
+    ytemp <- quantile(sctemp, p_v)
+    ycomplete[,j] <- ytemp
+    pij <- rbeta(1, shape1 = a1, shape2 = b1)
+    zijc <- sapply(1:n, function(x){
+      px = ifelse(scmeanvec[j] > 10, 1, 1- ((1-pij) + pij * exp(-scmeanvec[j])))
+      rbinom(1, size = 1, prob = px)
+    })
 
-    # 1. draw from pij: THE PROB OF NOT DROPOUT
-    pij <- rbeta(n, shape1 = a3 , shape2 = b3)
-    # pij <- rbeta(n, shape1 = a3 +1, shape2 = b3)
-
-    # 2. random sample zij
-    # zij <- rbinom(n,1, prob = 1-(pij*exp(-thetaij))/(pij*exp(-thetaij) + (1-pij)))
-    zij <- rbinom(n,1, prob = pij)
-    ytemp <- quantile(scdat, p_v)
-    thetatemp <- quantile(thetaij, p_v)
-    y[,j] <- ytemp*zij
-    z.true[,j] <- zij
-    theta.true[,j] <- thetatemp
+    z[,j] <- zijc
+    pij.vec[j] <- round(pij,3)
   }
-  colnames(y) <- paste("gene",1:ngene, sep = "")
-  rownames(y) <- paste("sample", 1:n, sep = "")
-  rownames(adj) <- paste("gene",1:ngene, sep = "")
-  colnames(adj) <- paste("gene",1:ngene, sep = "")
-  colnames(theta.true) <- paste("gene",1:ngene, sep = "")
-  rownames(theta.true) <- paste("sample", 1:n, sep = "")
+
+  # -------------------------------
+  yout = ycomplete*z
+
+  colnames(yout) <- paste("gene",1:ngene, sep = "")
+  rownames(yout) <-  paste("cell",1:n,sep = "")
+  colnames(ycomplete) <- paste("gene",1:ngene, sep = "")
+  rownames(ycomplete) <- paste("cell",1:n,sep = "")
+  colnames(z) <- paste("gene",1:ngene, sep = "")
+  rownames(z) <- paste("cell",1:n,sep = "")
 
   result <- list()
-  result$data = y
-  result$Adj = adj
-  result$theta = theta.true #HERE, THETA MEANS THE TRUE MEAN EXPRESSION LEVEL, NOT THE PRECISION MATRIX
-  result$zij = z.true
+  result$count <- yout
+  result$count.nodrop <- ycomplete
+  result$zijc <- z
+  result$thetaj <- round(scmeanvec,2)
+  result$pij <- pij.vec
   result$sigma <- sigma
   result$precision <- precision1
   return(result)
 }
+
 
 #' generate a list of raw count matrices based on the list of covariance matrices
 #'
@@ -281,7 +297,7 @@ getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b
   }
   count.list <- list()
   for (c in 1:length(sigma.list)){
-    counti <- CountMap2(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3)
+    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3)
     count.list[[c]] <- counti
   }
   return(count.list)

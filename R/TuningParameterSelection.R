@@ -144,7 +144,7 @@ huge_stars_joint <- function(inputlist, lambda = NULL, nlambda = 10, lambda.min.
     templist <- inputlist
     for (k in 1:length(inputlist)){
       ind.samplek = sample(c(1:nk), floor(nk*stars.subsample.ratio.vec[k]), replace=FALSE)
-      templist[[k]] <- templist[[k]][ind.samplek,]
+      templist[[k]] <- as.matrix(templist[[k]][ind.samplek,])
     }
 
     for(j in 1:nlambda){

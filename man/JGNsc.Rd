@@ -7,7 +7,7 @@
 JGNsc(
   observed.list,
   mask.rate = 0.15,
-  nrep = 50,
+  nrep = 20,
   warm = 100,
   iter = 200,
   min.cell = 3,
