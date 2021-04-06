@@ -16,9 +16,6 @@
     <loc>https://github.com/meichendong/JGNsc/reference/CountMap.html</loc>
   </url>
   <url>
-    <loc>https://github.com/meichendong/JGNsc/reference/gasdev.html</loc>
-  </url>
-  <url>
     <loc>https://github.com/meichendong/JGNsc/reference/generateBlki.html</loc>
   </url>
   <url>
@@ -49,16 +46,7 @@
     <loc>https://github.com/meichendong/JGNsc/reference/huge_stars_joint.html</loc>
   </url>
   <url>
-    <loc>https://github.com/meichendong/JGNsc/reference/JGNsc.cont.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/meichendong/JGNsc/reference/JGNsc.html</loc>
-  </url>
-  <url>
     <loc>https://github.com/meichendong/JGNsc/reference/Map2Pathways.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/meichendong/JGNsc/reference/mcImpute.R.html</loc>
   </url>
   <url>
     <loc>https://github.com/meichendong/JGNsc/reference/plot_onenet.html</loc>
@@ -70,19 +58,10 @@
     <loc>https://github.com/meichendong/JGNsc/reference/PRROC_pr.html</loc>
   </url>
   <url>
-    <loc>https://github.com/meichendong/JGNsc/reference/softThreshold.html</loc>
+    <loc>https://github.com/meichendong/JGNsc/reference/RunJGNsc.html</loc>
   </url>
   <url>
     <loc>https://github.com/meichendong/JGNsc/reference/stars.select.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/meichendong/JGNsc/reference/ThresholdPartCorr.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/meichendong/JGNsc/reference/ThresholdPartCorrList.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/meichendong/JGNsc/reference/timesTwo.html</loc>
   </url>
   <url>
     <loc>https://github.com/meichendong/JGNsc/reference/trunc_precision.html</loc>

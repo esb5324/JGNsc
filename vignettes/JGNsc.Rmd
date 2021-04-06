@@ -56,7 +56,7 @@ observed.list <- list(t(countlist.1[[1]]$count), t(countlist.1[[2]]$count))
 
 Run JGNsc imputation and continuization step, and the Joint Graphical Lasso (JGL) model with AIC as tuning parameter selection criterion. This may take 5 to 10 minutes.
 ```{r, eval=F}
-simulation.result <- JGNsc(observed.list = observed.list, min.cell = 10, runNetwork = T,
+simulation.result <- RunJGNsc(observed.list = observed.list, min.cell = 10, runNetwork = T,
                            l1.vec = seq(1,40, by=3)/100, l2.vec = seq(1,10, by=2)/100)
 # check the structure of the result
 str(simulation.result)

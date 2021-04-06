@@ -6,46 +6,173 @@
 
 using namespace Rcpp;
 
-// timesTwo
-NumericVector timesTwo(NumericVector x);
-RcppExport SEXP _JGNsc_timesTwo(SEXP xSEXP) {
+// arma_rowSums
+arma::vec arma_rowSums(const arma::mat X);
+RcppExport SEXP _JGNsc_arma_rowSums(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(timesTwo(x));
+    Rcpp::traits::input_parameter< const arma::mat >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(arma_rowSums(X));
     return rcpp_result_gen;
 END_RCPP
 }
-// ThresholdPartCorr
-double ThresholdPartCorr(NumericMatrix x, NumericMatrix y);
-RcppExport SEXP _JGNsc_ThresholdPartCorr(SEXP xSEXP, SEXP ySEXP) {
+// arma_colSums
+arma::vec arma_colSums(const arma::mat X);
+RcppExport SEXP _JGNsc_arma_colSums(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericMatrix >::type x(xSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type y(ySEXP);
-    rcpp_result_gen = Rcpp::wrap(ThresholdPartCorr(x, y));
+    Rcpp::traits::input_parameter< const arma::mat >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(arma_colSums(X));
     return rcpp_result_gen;
 END_RCPP
 }
-// ThresholdPartCorrList
-double ThresholdPartCorrList(List x, List y);
-RcppExport SEXP _JGNsc_ThresholdPartCorrList(SEXP xSEXP, SEXP ySEXP) {
+// arma_rowMeans
+arma::vec arma_rowMeans(const arma::mat X);
+RcppExport SEXP _JGNsc_arma_rowMeans(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< List >::type x(xSEXP);
-    Rcpp::traits::input_parameter< List >::type y(ySEXP);
-    rcpp_result_gen = Rcpp::wrap(ThresholdPartCorrList(x, y));
+    Rcpp::traits::input_parameter< const arma::mat >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(arma_rowMeans(X));
+    return rcpp_result_gen;
+END_RCPP
+}
+// arma_colMeans
+arma::vec arma_colMeans(const arma::mat X);
+RcppExport SEXP _JGNsc_arma_colMeans(SEXP XSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::mat >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(arma_colMeans(X));
+    return rcpp_result_gen;
+END_RCPP
+}
+// BinMatrix
+arma::mat BinMatrix(arma::mat x);
+RcppExport SEXP _JGNsc_BinMatrix(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(BinMatrix(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// MaxAbsMatrix
+double MaxAbsMatrix(arma::mat x);
+RcppExport SEXP _JGNsc_MaxAbsMatrix(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(MaxAbsMatrix(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// frobeniousNorm
+double frobeniousNorm(arma::mat x);
+RcppExport SEXP _JGNsc_frobeniousNorm(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(frobeniousNorm(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// oneNorm
+double oneNorm(arma::mat x);
+RcppExport SEXP _JGNsc_oneNorm(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(oneNorm(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// softThresh_cpp
+double softThresh_cpp(double x, double threshold);
+RcppExport SEXP _JGNsc_softThresh_cpp(SEXP xSEXP, SEXP thresholdSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type threshold(thresholdSEXP);
+    rcpp_result_gen = Rcpp::wrap(softThresh_cpp(x, threshold));
+    return rcpp_result_gen;
+END_RCPP
+}
+// gasdev
+double gasdev(double r);
+RcppExport SEXP _JGNsc_gasdev(SEXP rSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type r(rSEXP);
+    rcpp_result_gen = Rcpp::wrap(gasdev(r));
+    return rcpp_result_gen;
+END_RCPP
+}
+// JGNsc_cont_cpp
+List JGNsc_cont_cpp(arma::mat y, int minCell, int iter, int warm, double stepsize, double dropThreshold, double a1, double b1, double a2, double b2, double a3, double b3);
+RcppExport SEXP _JGNsc_JGNsc_cont_cpp(SEXP ySEXP, SEXP minCellSEXP, SEXP iterSEXP, SEXP warmSEXP, SEXP stepsizeSEXP, SEXP dropThresholdSEXP, SEXP a1SEXP, SEXP b1SEXP, SEXP a2SEXP, SEXP b2SEXP, SEXP a3SEXP, SEXP b3SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type y(ySEXP);
+    Rcpp::traits::input_parameter< int >::type minCell(minCellSEXP);
+    Rcpp::traits::input_parameter< int >::type iter(iterSEXP);
+    Rcpp::traits::input_parameter< int >::type warm(warmSEXP);
+    Rcpp::traits::input_parameter< double >::type stepsize(stepsizeSEXP);
+    Rcpp::traits::input_parameter< double >::type dropThreshold(dropThresholdSEXP);
+    Rcpp::traits::input_parameter< double >::type a1(a1SEXP);
+    Rcpp::traits::input_parameter< double >::type b1(b1SEXP);
+    Rcpp::traits::input_parameter< double >::type a2(a2SEXP);
+    Rcpp::traits::input_parameter< double >::type b2(b2SEXP);
+    Rcpp::traits::input_parameter< double >::type a3(a3SEXP);
+    Rcpp::traits::input_parameter< double >::type b3(b3SEXP);
+    rcpp_result_gen = Rcpp::wrap(JGNsc_cont_cpp(y, minCell, iter, warm, stepsize, dropThreshold, a1, b1, a2, b2, a3, b3));
+    return rcpp_result_gen;
+END_RCPP
+}
+// mcImpute_cpp
+List mcImpute_cpp(arma::mat data, bool preprocess, double eps, double normfac, int insweep, double tol, double decfac, int min_count, int min_cells, bool verbose);
+RcppExport SEXP _JGNsc_mcImpute_cpp(SEXP dataSEXP, SEXP preprocessSEXP, SEXP epsSEXP, SEXP normfacSEXP, SEXP insweepSEXP, SEXP tolSEXP, SEXP decfacSEXP, SEXP min_countSEXP, SEXP min_cellsSEXP, SEXP verboseSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< bool >::type preprocess(preprocessSEXP);
+    Rcpp::traits::input_parameter< double >::type eps(epsSEXP);
+    Rcpp::traits::input_parameter< double >::type normfac(normfacSEXP);
+    Rcpp::traits::input_parameter< int >::type insweep(insweepSEXP);
+    Rcpp::traits::input_parameter< double >::type tol(tolSEXP);
+    Rcpp::traits::input_parameter< double >::type decfac(decfacSEXP);
+    Rcpp::traits::input_parameter< int >::type min_count(min_countSEXP);
+    Rcpp::traits::input_parameter< int >::type min_cells(min_cellsSEXP);
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    rcpp_result_gen = Rcpp::wrap(mcImpute_cpp(data, preprocess, eps, normfac, insweep, tol, decfac, min_count, min_cells, verbose));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_JGNsc_timesTwo", (DL_FUNC) &_JGNsc_timesTwo, 1},
-    {"_JGNsc_ThresholdPartCorr", (DL_FUNC) &_JGNsc_ThresholdPartCorr, 2},
-    {"_JGNsc_ThresholdPartCorrList", (DL_FUNC) &_JGNsc_ThresholdPartCorrList, 2},
+    {"_JGNsc_arma_rowSums", (DL_FUNC) &_JGNsc_arma_rowSums, 1},
+    {"_JGNsc_arma_colSums", (DL_FUNC) &_JGNsc_arma_colSums, 1},
+    {"_JGNsc_arma_rowMeans", (DL_FUNC) &_JGNsc_arma_rowMeans, 1},
+    {"_JGNsc_arma_colMeans", (DL_FUNC) &_JGNsc_arma_colMeans, 1},
+    {"_JGNsc_BinMatrix", (DL_FUNC) &_JGNsc_BinMatrix, 1},
+    {"_JGNsc_MaxAbsMatrix", (DL_FUNC) &_JGNsc_MaxAbsMatrix, 1},
+    {"_JGNsc_frobeniousNorm", (DL_FUNC) &_JGNsc_frobeniousNorm, 1},
+    {"_JGNsc_oneNorm", (DL_FUNC) &_JGNsc_oneNorm, 1},
+    {"_JGNsc_softThresh_cpp", (DL_FUNC) &_JGNsc_softThresh_cpp, 2},
+    {"_JGNsc_gasdev", (DL_FUNC) &_JGNsc_gasdev, 1},
+    {"_JGNsc_JGNsc_cont_cpp", (DL_FUNC) &_JGNsc_JGNsc_cont_cpp, 12},
+    {"_JGNsc_mcImpute_cpp", (DL_FUNC) &_JGNsc_mcImpute_cpp, 10},
     {NULL, NULL, 0}
 };
 

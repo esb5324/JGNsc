@@ -254,16 +254,3 @@ plot_onenet <- function(parcorr, mode = "circle",gname="", lsize=2.5,
   return(ti)
 }
 
-#' random proposal function
-#' @export
-gasdev <- function(r=1){
-  while(r>=1){
-    v1 <- runif(1)*2-1
-    v2 <- runif(1)*2-1
-    r=v1*v1 + v2*v2
-  }
-  fac <- sqrt(-2*log(r)/r)
-  gset <- v1*fac
-  out = v2*fac
-  return(out)
-}

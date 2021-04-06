@@ -129,7 +129,7 @@
 <span class="va">observed.list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">countlist.1</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">count</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">countlist.1</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">count</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Run JGNsc imputation and continuization step, and the Joint Graphical Lasso (JGL) model with AIC as tuning parameter selection criterion. This may take 5 to 10 minutes.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">simulation.result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/JGNsc.html">JGNsc</a></span><span class="op">(</span>observed.list <span class="op">=</span> <span class="va">observed.list</span>, min.cell <span class="op">=</span> <span class="fl">10</span>, runNetwork <span class="op">=</span> <span class="cn">T</span>,
+<code class="sourceCode R"><span class="va">simulation.result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RunJGNsc.html">RunJGNsc</a></span><span class="op">(</span>observed.list <span class="op">=</span> <span class="va">observed.list</span>, min.cell <span class="op">=</span> <span class="fl">10</span>, runNetwork <span class="op">=</span> <span class="cn">T</span>,
                            l1.vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">40</span>, by<span class="op">=</span><span class="fl">3</span><span class="op">)</span><span class="op">/</span><span class="fl">100</span>, l2.vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span>, by<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span><span class="fl">100</span><span class="op">)</span>
 <span class="co"># check the structure of the result</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">simulation.result</span><span class="op">)</span>
@@ -155,7 +155,7 @@
 <a href="#example-mb-data" class="anchor"></a>Example – MB data</h2>
 <p>The data is from the <a href="https://www.nature.com/articles/s41586-019-1434-6">paper Hovestadt et al.</a>.<br>
 The data is preprocessed by <a href="https://satijalab.org/seurat/">Seurat</a>.<br>
-The processed example data is available upon request due to the data size.</p>
+The processed example data is available upon request due to the data size (Please email authors).</p>
 <div id="the-most-part-of-example-below-was-submitted-to-cluster--the-running-time-may-be-long-hours-" class="section level4">
 <h4 class="hasAnchor">
 <a href="#the-most-part-of-example-below-was-submitted-to-cluster--the-running-time-may-be-long-hours-" class="anchor"></a>The most part of example below was submitted to cluster. The running time may be long (hours).</h4>
@@ -183,7 +183,7 @@ The processed example data is available upon request due to the data size.</p>
 <span class="co"># MB.3cond &lt;- readRDS("J0001_MB3cond.rds")</span></code></pre></div>
 <p>Run JGNsc imputation and continuization step. The current version may take hours or longer if the data dimension is high. Faster computational method is in development.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">MB.3cond.continuous</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/JGNsc.html">JGNsc</a></span><span class="op">(</span>observed.list <span class="op">=</span> <span class="va">MB.3cond</span>, min.cell <span class="op">=</span> <span class="fl">20</span>, runNetwork <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">MB.3cond.continuous</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/JGNsc/man/JGNsc.html">JGNsc</a></span><span class="op">(</span>observed.list <span class="op">=</span> <span class="va">MB.3cond</span>, min.cell <span class="op">=</span> <span class="fl">20</span>, runNetwork <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
 <p>Tuning parameter selection by AIC, for JGL model:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getJGLTuningParamResult.html">getJGLTuningParamResult</a></span><span class="op">(</span>GauList <span class="op">=</span> <span class="va">MB.3cond.continuous</span><span class="op">$</span><span class="va">theta.star.npn</span><span class="op">)</span>
@@ -232,7 +232,7 @@ The processed example data is available upon request due to the data size.</p>
 <div id="example-gbm-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-gbm-data" class="anchor"></a>Example – GBM data</h2>
-<p>The data is from the <a href="https://www.sciencedirect.com/science/article/pii/S0092867419306877?via%3Dihub">paper Neftel et al.</a>. The processed example data is available upon request due to the data size.</p>
+<p>The data is from the <a href="https://www.sciencedirect.com/science/article/pii/S0092867419306877?via%3Dihub">paper Neftel et al.</a>. The processed example data is available upon request due to the data size (Please email authors).</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sobj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"N0102_seuratobj_3d_malignant_adult.rds"</span><span class="op">)</span>   </code></pre></div>
 <p>The workflow is similar to the MB data example. Below we provide the list of count matrices of the four subtypes, and the list of estimated partial correlation matrices of the GBM data.</p>
