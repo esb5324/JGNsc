@@ -13,7 +13,10 @@ RunJGNsc(
   min.cell = 3,
   runNetwork = F,
   l1.vec = NULL,
-  l2.vec = NULL
+  l2.vec = NULL,
+  a1 = 3,
+  b1 = 1,
+  dropThreshold = 0.75
 )
 }
 \arguments{
@@ -34,6 +37,10 @@ RunJGNsc(
 \item{l1.vec}{if runNetwork=T, the vector of candidate values for the tuning parameter lambda1}
 
 \item{l2.vec}{if runNetwork=T, the vector of candidate values for the tuning parameter lambda2}
+
+\item{a1}{alpha parameter for Beta(alpha,beta) distribution which is the prior for non-dropouts. default is 3. The expected non-dropout rate is a1/(a1+b1) = 0.75 by default.}
+
+\item{b1}{beta parameter for Beta(alpha,beta) distribution which is the prior for non-dropouts. default is 1.}
 }
 \value{
 theta.star.npn: the imputed and Gaussian transformed list of matrices

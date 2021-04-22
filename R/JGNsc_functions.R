@@ -9,17 +9,19 @@
 #' @param runNetwork logical. Run the joint graphical lasso procedure or not.
 #' @param l1.vec if runNetwork=T, the vector of candidate values for the tuning parameter lambda1
 #' @param l2.vec if runNetwork=T, the vector of candidate values for the tuning parameter lambda2
+#' @param a1 alpha parameter for Beta(alpha,beta) distribution which is the prior for non-dropouts. default is 3. The expected non-dropout rate is a1/(a1+b1) = 0.75 by default.
+#' @param b1 beta parameter for Beta(alpha,beta) distribution which is the prior for non-dropouts. default is 1.
 #' @return theta.star.npn: the imputed and Gaussian transformed list of matrices
 #' @return if runNetwork = T, then it will return the JGL results (the precision matrices can be accessed by result$JGL$theta)
 #'         , aic.table (the AIC values with corresponding tuning parameter candidates), partcorr (the list of partial correlation matrices)
 #' @export
 RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
                      mask.rate = 0.15, nrep = 50, min.cell = 3, runNetwork = F, l1.vec = NULL,
-                     l2.vec = NULL){
+                     l2.vec = NULL, a1 = 3, b1 = 1, dropThreshold = 0.75){
   # observed.list: the list containing the matrices of K conditions. dim: genes by samples
   # mask.rate: iterative imputation procedure
   # nrep: number of iterations in the imputation procedure
-  zip.list <- lapply(observed.list, JGNsc_cont_cpp, warm = warm, iter = iter, minCell= min.cell, dropThreshold = 0.5)
+  zip.list <- lapply(observed.list, JGNsc_cont_cpp, warm = warm, iter = iter, minCell= min.cell, dropThreshold = dropThreshold, a1 = a1, b1 = b1)
   for(kk in 1:length(zip.list)){
     colnames(zip.list[[kk]]$y.impute) = colnames(observed.list[[kk]])
     gnames = rownames(observed.list[[kk]])[zip.list[[kk]]$keep.gene > min.cell]

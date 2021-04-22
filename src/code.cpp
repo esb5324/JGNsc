@@ -346,4 +346,3 @@ List mcImpute_cpp(arma::mat data, bool preprocess = true, double eps=1e-12, doub
     _["geneFilter"] = geneFilter > min_cells
   );
 };
-
