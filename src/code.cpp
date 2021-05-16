@@ -72,13 +72,14 @@ double MaxAbsMatrix(arma::mat x){
 
 // [[Rcpp::export]]
 double frobeniousNorm(arma::mat x){
-  double out = 0.0;
+  double out1 =0.0, out = 0.0;
   for (unsigned int i = 0; i < x.n_rows; i++){
     for (unsigned int j = 0; j < x.n_cols; j++){
       out += pow(x(i,j), 2);
     }
   }
-  return out;
+  out1 = sqrt(out);
+  return out1;
 };
 
 // [[Rcpp::export]]
