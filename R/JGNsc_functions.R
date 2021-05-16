@@ -48,7 +48,7 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
       rmat <- matrix(data = runif(nr*nc) > mask.rate,nrow = nr, ncol = nc) # keep 1-mask.rate,
       mask <- t((observed.list2[[k]]!=0) | rmat)
       x.mask = x*mask
-      x.mask.mcimpute = mcImpute_cpp(x.mask, preprocess = T)
+      x.mask.mcimpute = mcImpute_cpp(x.mask, preprocess = F)
       current.imp <- t(x.mask.mcimpute$data)
       x = t(current.imp)
       imp.sum <- imp.sum + current.imp
