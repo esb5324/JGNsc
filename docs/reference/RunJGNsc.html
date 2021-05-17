@@ -140,7 +140,10 @@
   min.cell <span class='op'>=</span> <span class='fl'>3</span>,
   runNetwork <span class='op'>=</span> <span class='cn'>F</span>,
   l1.vec <span class='op'>=</span> <span class='cn'>NULL</span>,
-  l2.vec <span class='op'>=</span> <span class='cn'>NULL</span>
+  l2.vec <span class='op'>=</span> <span class='cn'>NULL</span>,
+  a1 <span class='op'>=</span> <span class='fl'>3</span>,
+  b1 <span class='op'>=</span> <span class='fl'>1</span>,
+  dropThreshold <span class='op'>=</span> <span class='fl'>0.75</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -181,6 +184,14 @@
     <tr>
       <th>l2.vec</th>
       <td><p>if runNetwork=T, the vector of candidate values for the tuning parameter lambda2</p></td>
+    </tr>
+    <tr>
+      <th>a1</th>
+      <td><p>alpha parameter for Beta(alpha,beta) distribution which is the prior for non-dropouts. default is 3. The expected non-dropout rate is a1/(a1+b1) = 0.75 by default.</p></td>
+    </tr>
+    <tr>
+      <th>b1</th>
+      <td><p>beta parameter for Beta(alpha,beta) distribution which is the prior for non-dropouts. default is 1.</p></td>
     </tr>
     </table>
 

@@ -279,21 +279,21 @@ List mcImpute_cpp(arma::mat data, bool preprocess = true, double eps=1e-12, doub
                   double decfac = 0.7, int min_count=1, int min_cells =1, bool verbose = false){
   // data: samples by genes
   arma::mat y, B, U, V, X, datasub, datasubnorm, resX;
-  arma::vec geneFilter(data.n_rows), s, libsize;
+  arma::vec geneFilter(data.n_cols), s, libsize;
   double alpha = 1.1*normfac, lambdaInit, lambda, f_current, f_previous;
 
   if (preprocess){
     //Removing BAD genes, median normalization and log-transformation
-    for (unsigned int i =0; i < data.n_rows; ++i){ //genes
+    for (unsigned int i =0; i < data.n_cols; ++i){ //genes
       int ybin = 0;
-      for (unsigned int j=0; j < data.n_cols; ++j){ // cells
-        if (data(i,j) > min_count){
+      for (unsigned int j=0; j < data.n_rows; ++j){ // cells
+        if (data(j,i) >= min_count){
           ybin +=1;
         };
-        geneFilter(i) = ybin;
       };
+      geneFilter(i) = ybin;
     };
-    datasub = data.rows(find(geneFilter > min_cells));
+    datasub = data.cols(find(geneFilter > min_cells));
     libsize = arma_rowSums(datasub);
     datasubnorm = datasub;
     for (unsigned int i=0; i < datasubnorm.n_rows; i++){
@@ -317,7 +317,7 @@ List mcImpute_cpp(arma::mat data, bool preprocess = true, double eps=1e-12, doub
       B = x + (1/alpha)* ybin % (y - ybin % x);
       arma::svd(U, s, V, B);
       for (unsigned int jj = 0; jj < s.size(); jj++){
-        s(jj) = softThresh_cpp(s(jj));
+        s(jj) = softThresh_cpp(s(jj), lambda/(2*alpha));
       };
       S.diag() = s;
       X = U * S * V.t();
@@ -331,19 +331,22 @@ List mcImpute_cpp(arma::mat data, bool preprocess = true, double eps=1e-12, doub
       if ((abs(f_current - f_previous)/ abs(f_current + f_previous)) < tol){
         break;
       };
-      lambda = decfac * lambda;
-    }
+    };
+    if (frobeniousNorm(y - ybin % x) < eps){
+      break;
+    };
+    lambda = decfac * lambda;
   };
 
   if (preprocess){
     resX = round(exp2(x) - 1);
   } else {
     resX = round(x);
-  } ;
+  }
 
   //----------
   return List::create(
     _["data"] = resX,
-    _["geneFilter"] = geneFilter > min_cells
+    _["geneFilter"] = geneFilter >= min_cells
   );
 };
