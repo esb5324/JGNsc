@@ -293,7 +293,7 @@ List mcImpute_cpp(arma::mat data, bool preprocess = true, double eps=1e-12, doub
       };
       geneFilter(i) = ybin;
     };
-    datasub = data.cols(find(geneFilter > min_cells));
+    datasub = data.cols(find(geneFilter >= min_cells));
     libsize = arma_rowSums(datasub);
     datasubnorm = datasub;
     for (unsigned int i=0; i < datasubnorm.n_rows; i++){
