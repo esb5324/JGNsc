@@ -49,3 +49,19 @@ mcImpute_cpp <- function(data, preprocess = TRUE, eps = 1e-12, normfac = 1, insw
     .Call(`_JGNsc_mcImpute_cpp`, data, preprocess, eps, normfac, insweep, tol, decfac, min_count, min_cells, verbose)
 }
 
+testCov_cpp <- function(X, Y, alpha = 0.05) {
+    .Call(`_JGNsc_testCov_cpp`, X, Y, alpha)
+}
+
+CLXstatPerm <- function(X, searchx, start, nperm) {
+    .Call(`_JGNsc_CLXstatPerm`, X, searchx, start, nperm)
+}
+
+calc_ranks <- function(da_ta) {
+    .Call(`_JGNsc_calc_ranks`, da_ta)
+}
+
+CLXPermHier <- function(X, searchx, start, nt2 = 4L, minband = 20L, nperm = 100L) {
+    .Call(`_JGNsc_CLXPermHier`, X, searchx, start, nt2, minband, nperm)
+}
+

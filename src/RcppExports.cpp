@@ -159,6 +159,60 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// testCov_cpp
+List testCov_cpp(arma::mat X, arma::mat Y, double alpha);
+RcppExport SEXP _JGNsc_testCov_cpp(SEXP XSEXP, SEXP YSEXP, SEXP alphaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
+    rcpp_result_gen = Rcpp::wrap(testCov_cpp(X, Y, alpha));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CLXstatPerm
+arma::mat CLXstatPerm(arma::mat X, arma::vec searchx, int start, unsigned int nperm);
+RcppExport SEXP _JGNsc_CLXstatPerm(SEXP XSEXP, SEXP searchxSEXP, SEXP startSEXP, SEXP npermSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type searchx(searchxSEXP);
+    Rcpp::traits::input_parameter< int >::type start(startSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type nperm(npermSEXP);
+    rcpp_result_gen = Rcpp::wrap(CLXstatPerm(X, searchx, start, nperm));
+    return rcpp_result_gen;
+END_RCPP
+}
+// calc_ranks
+arma::uvec calc_ranks(const arma::vec& da_ta);
+RcppExport SEXP _JGNsc_calc_ranks(SEXP da_taSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type da_ta(da_taSEXP);
+    rcpp_result_gen = Rcpp::wrap(calc_ranks(da_ta));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CLXPermHier
+arma::mat CLXPermHier(arma::mat X, arma::vec searchx, int start, unsigned int nt2, int minband, unsigned int nperm);
+RcppExport SEXP _JGNsc_CLXPermHier(SEXP XSEXP, SEXP searchxSEXP, SEXP startSEXP, SEXP nt2SEXP, SEXP minbandSEXP, SEXP npermSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type searchx(searchxSEXP);
+    Rcpp::traits::input_parameter< int >::type start(startSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type nt2(nt2SEXP);
+    Rcpp::traits::input_parameter< int >::type minband(minbandSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type nperm(npermSEXP);
+    rcpp_result_gen = Rcpp::wrap(CLXPermHier(X, searchx, start, nt2, minband, nperm));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_JGNsc_arma_rowSums", (DL_FUNC) &_JGNsc_arma_rowSums, 1},
@@ -173,6 +227,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_JGNsc_gasdev", (DL_FUNC) &_JGNsc_gasdev, 1},
     {"_JGNsc_JGNsc_cont_cpp", (DL_FUNC) &_JGNsc_JGNsc_cont_cpp, 12},
     {"_JGNsc_mcImpute_cpp", (DL_FUNC) &_JGNsc_mcImpute_cpp, 10},
+    {"_JGNsc_testCov_cpp", (DL_FUNC) &_JGNsc_testCov_cpp, 3},
+    {"_JGNsc_CLXstatPerm", (DL_FUNC) &_JGNsc_CLXstatPerm, 4},
+    {"_JGNsc_calc_ranks", (DL_FUNC) &_JGNsc_calc_ranks, 1},
+    {"_JGNsc_CLXPermHier", (DL_FUNC) &_JGNsc_CLXPermHier, 6},
     {NULL, NULL, 0}
 };
 
