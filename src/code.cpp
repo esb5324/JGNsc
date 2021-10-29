@@ -226,7 +226,7 @@ List JGNsc_cont_cpp(arma::mat y, int minCell, int iter = 5000, int warm = 2000, 
       };
 
       // ~~~~~ 5. update p
-      temp1zy0   = sum(ysub_bin.row(gg).t() % (ones(nsample) - Z.row(gg).t()));
+      temp1zy0   = sum((ones(nsample) - ysub_bin.row(gg).t()) % (ones(nsample) - Z.row(gg).t()));
       pi_vec(gg) = R::rbeta(a1+tempzsum, b1+temp1zy0);
     };
     b2 += 1/iter;
