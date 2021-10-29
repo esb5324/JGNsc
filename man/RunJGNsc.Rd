@@ -14,9 +14,10 @@ RunJGNsc(
   runNetwork = F,
   l1.vec = NULL,
   l2.vec = NULL,
-  a1 = 3,
+  a1 = 2,
   b1 = 1,
-  dropThreshold = 0.75
+  dropThreshold = 0.75,
+  AvoidIterImp = F
 )
 }
 \arguments{
@@ -41,6 +42,10 @@ RunJGNsc(
 \item{a1}{alpha parameter for Beta(alpha,beta) distribution which is the prior for non-dropouts. default is 3. The expected non-dropout rate is a1/(a1+b1) = 0.75 by default.}
 
 \item{b1}{beta parameter for Beta(alpha,beta) distribution which is the prior for non-dropouts. default is 1.}
+
+\item{dropThreshold}{the threshold less than which we define a dropout, default is 0.75. set dropThreshold = 0 for UMI}
+
+\item{AvoidIterImp}{Defualt if F. To allow the usage for UMI data, we allow users to turn off the iterative imputation by setting AvoidIterImp = T.}
 }
 \value{
 theta.star.npn: the imputed and Gaussian transformed list of matrices
