@@ -60,7 +60,7 @@ getJGLTuningParamResult <- function(GauList, l1vec = NULL, l2vec = NULL){
 
       if (is.null(aic.vec)){
         jgl.res <- tps[[2]]
-      } else if (tps[[1]][3] < min(aic.vec)){
+      } else if (tps[[1]][3] < min(aic.vec[,3])){
         jgl.res <- tps[[2]]
       }
       aic.vec <- rbind(aic.vec, tps[[1]])
