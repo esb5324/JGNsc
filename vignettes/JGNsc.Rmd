@@ -51,7 +51,7 @@ countlist.1 <- getCountList(sigma.list = sigma.list.1, nvec = rep(nsample,2), a3
 The network structure (simulation truth) is available at `countlist.1` above. Check the details by
 ```{r, eval=F}
 str(countlist.1)
-observed.list <- list(t(countlist.1[[1]]$count), t(countlist.1[[2]]$count))
+observed.list <- list(t(countlist.1[[1]]$data), t(countlist.1[[2]]$data))
 ```
 
 Run JGNsc imputation and continuization step, and the Joint Graphical Lasso (JGL) model with AIC as tuning parameter selection criterion. This may take 5 to 10 minutes.

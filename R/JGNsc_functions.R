@@ -41,14 +41,16 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
   theta.star <- lapply(zip.list, function(x){
     y = x$y.impute[g.common,]
     return(y)
-  })
+  }) #genes by samples
   observed.list2 <- lapply(observed.list, function(x){
     y = x[g.common,]
   })
 
   if(AvoidIterImp){
     # UMI mode
-    theta.star.npn = theta.star
+    # theta.star.npn = theta.star
+    theta.star.t <- lapply(theta.star, t)
+    theta.star.npn <- lapply(theta.star.t, huge.npn)  # samples by genes
   } else {
     for (k in 1:length(zip.list)){
       nr = nrow(observed.list2[[k]])
@@ -93,6 +95,7 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
     for (lam1 in l1.vec){
       for(lam2 in l2.vec){
         cat("tuning parameter:", lam1,", ", lam2,"\n")
+        # mat.list.t.gau is: samples by genes
         tps <- AIC_select(mat.list.t.gau = theta.star.npn, lam1 = lam1, lam2 = lam2)
         jgnsc.aic <- rbind(jgnsc.aic, tps)
       }
