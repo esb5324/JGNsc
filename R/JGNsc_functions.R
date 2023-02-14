@@ -109,6 +109,7 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
     partcorr <- NULL
   }
   return(list(theta.star.npn = theta.star.npn,
+              theta.star.t = theta.star.t,
               JGL = JGL.res,
               aic.table = jgnsc.aic,
               partcorr = partcorr))
