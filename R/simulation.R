@@ -6,7 +6,7 @@
 #' @param ni the number of rows and columns in block i
 #' @param ud the range of uniform distribution that to generate the numbers in the block
 #' @export
-generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold=0.6){
+generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold){
   mati <- matrix(0, ni, ni)
   for (i in 1:ni){
     for (j in i:ni){
@@ -76,7 +76,7 @@ check_ident_list <- function(xlist){
 #' @return a list of covariance matrices
 #' @export
 generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
-                              structure = "Identical S, Identical W", diffblk = NULL, blk_runif_threshold=0.6){
+                              structure = "Identical S, Identical W", diffblk = NULL, blk_runif_threshold){
 
   sigma.list <- list()
   # check if identical structure
