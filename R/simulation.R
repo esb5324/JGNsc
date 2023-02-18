@@ -10,7 +10,7 @@ generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold){
   mati <- matrix(0, ni, ni)
   for (i in 1:ni){
     for (j in i:ni){
-      mati[i,j] <- ifelse(i!=j & runif(1) >0.6, sample(ud, 1),  #half chance: coexpression of i and j. prob in [-1,-0.6] U [0.6,1]
+      mati[i,j] <- ifelse(i!=j & runif(1) > runif_threshold, sample(ud, 1),  #half chance: coexpression of i and j. prob in [-1,-0.6] U [0.6,1]
                           ifelse(i==j,1,0))
     }
   }
