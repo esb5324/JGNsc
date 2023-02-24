@@ -6,8 +6,9 @@
 #' @param ni the number of rows and columns in block i
 #' @param ud the range of uniform distribution that to generate the numbers in the block
 #' @export
-generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold){
+generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, true_net="random"){
   mati <- matrix(0, ni, ni)
+  if(true_net="random"){
   for (i in 1:ni){
     for (j in i:ni){
       mati[i,j] <- ifelse(i!=j & runif(1) > runif_threshold, sample(ud, 1),  #half chance: coexpression of i and j. prob in [-1,-0.6] U [0.6,1]
@@ -24,7 +25,9 @@ generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold){
     } else {
       mati1 <- mati1 + diag(1, nrow = ni, ncol = ni)
     }
-  }
+  } else if (true_net=="power_law"){
+    
+    }
 
   binv = solve(mati1)
   bii <- diag(binv)
