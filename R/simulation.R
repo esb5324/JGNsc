@@ -110,8 +110,8 @@ check_ident_list <- function(xlist){
 #' @return a list of covariance matrices
 #' @export
 generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
-                              structure = "Identical S, Identical W", diffblk = NULL, blk_runif_threshold,true_net="random",pos_def="diagplus1"){
-
+                              structure = "Identical S, Identical W", diffblk = NULL, blk_runif_threshold,true_net,pos_def){
+print(true_net); print(pos_def)
   sigma.list <- list()
   # check if identical structure
   checkI <- check_ident_list(nivec.list)
