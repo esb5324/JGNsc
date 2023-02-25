@@ -36,7 +36,7 @@ generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net
     }
   }
   } else if (t_net=="power_law"){
-    pl_mat <- crt_new(nodes.n=ni, net.a=1, net.m=1)
+    pl_mat <- crt_net(nodes.n=ni, net.a=1, net.m=1)
   for (i in 1:ni){
     for (j in i:ni){
       mati[i,j] <- ifelse(i!=j & pl_mat[i,j]==1, sample(ud, 1),  #half chance: coexpression of i and j. prob in [-1,-0.6] U [0.6,1]
