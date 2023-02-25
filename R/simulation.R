@@ -35,7 +35,6 @@ generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net
                           ifelse(i==j,1,0))
     }
   }
-     }
   } else if (t_net=="power_law"){
     pl_mat <- crt_new(nodes.n=ni, net.a=1, net.m=1)
   for (i in 1:ni){
@@ -56,7 +55,7 @@ if (pd=="diagplus1"){
     } else {
       mati1 <- mati1 + diag(1, nrow = ni, ncol = ni)
    }
-    else if (pd=="eigen"){
+    } else if (pd=="eigen"){
       mati1 <- crt_mat_A1(mati1)
       }
 
