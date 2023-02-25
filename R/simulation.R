@@ -28,7 +28,7 @@ crt_mat_A1 <- function(A0,U=0){
 #' @export
 generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net="random", pd="diagplus1"){
   mati <- matrix(0, ni, ni)
-  if(t_net=="random"){
+  if (t_net=="random"){
   for (i in 1:ni){
     for (j in i:ni){
       mati[i,j] <- ifelse(i!=j & runif(1) > runif_threshold, sample(ud, 1),  #half chance: coexpression of i and j. prob in [-1,-0.6] U [0.6,1]
@@ -55,6 +55,7 @@ if (pd=="diagplus1"){
     } else {
       mati1 <- mati1 + diag(1, nrow = ni, ncol = ni)
    }
+    }
     } else if (pd=="eigen"){
       mati1 <- crt_mat_A1(mati1)
       }
