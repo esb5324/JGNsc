@@ -27,6 +27,7 @@ crt_mat_A1 <- function(A0,U=0){
 #' @param ud the range of uniform distribution that to generate the numbers in the block
 #' @export
 generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net, pd){
+  print("generateBlki"); print(t_net); print(pd)
   mati <- matrix(0, ni, ni)
   if (t_net=="random"){
   for (i in 1:ni){
@@ -111,7 +112,7 @@ check_ident_list <- function(xlist){
 #' @export
 generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
                               structure = "Identical S, Identical W", diffblk = NULL, blk_runif_threshold,true_net,pos_def){
-print(true_net); print(pos_def)
+print("generateSigmaList"); print(true_net); print(pos_def)
   sigma.list <- list()
   # check if identical structure
   checkI <- check_ident_list(nivec.list)
