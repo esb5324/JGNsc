@@ -27,7 +27,6 @@ crt_mat_A1 <- function(A0,U=0){
 #' @param ud the range of uniform distribution that to generate the numbers in the block
 #' @export
 generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net, pd){
-  print("generateBlki"); print(t_net); print(pd)
   mati <- matrix(0, ni, ni)
   if (t_net=="random"){
   for (i in 1:ni){
@@ -112,7 +111,6 @@ check_ident_list <- function(xlist){
 #' @export
 generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
                               structure = "Identical S, Identical W", diffblk = NULL, blk_runif_threshold,true_net,pos_def){
-print("generateSigmaList"); print(true_net); print(pos_def)
   sigma.list <- list()
   # check if identical structure
   checkI <- check_ident_list(nivec.list)
@@ -149,7 +147,7 @@ print("generateSigmaList"); print(true_net); print(pos_def)
         nblk <- length(nivec.list[[ss]])
         for (b in 1:nblk){
           ni <- nivec.list[[ss]][b]
-          blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold)
+          blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
           zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[ss]][0:(b-1)]))
           zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[ss]][(b+1):nblk]),0))
           temp <- blklist[[b]]$sigmam
@@ -173,7 +171,7 @@ print("generateSigmaList"); print(true_net); print(pos_def)
     nblk <- length(nivec.list[[1]])
     for (b in 1:nblk){
       ni <- nivec.list[[1]][b]
-      blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold)
+      blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
       zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
       zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
       temp <- blklist[[b]]$sigmam
@@ -211,7 +209,7 @@ print("generateSigmaList"); print(true_net); print(pos_def)
       nblk <- length(nivec.list[[ss]])
       for (b in 1:nblk){
         ni <- nivec.list[[ss]][b]
-        blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold)
+        blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[ss]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[ss]][(b+1):nblk]),0))
         temp <- blklist[[b]]$sigmam
