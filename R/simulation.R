@@ -1,3 +1,23 @@
+library(igraph)
+
+crt_net <- function(nodes.n,net.a,net.m){
+  # generate scale free net
+  nt <- sample_pa(n = nodes.n,power = net.a,m = net.m,directed = FALSE)
+  output <- get.adjacency(nt,names = FALSE,edges = FALSE, sparse = FALSE)
+  return(output) # power is the power of preferential attachment, m is the # of edges to add in each time step
+}
+
+crt_mat_A1 <- function(A0,U=0){
+  # make A pd
+  egv1 <- min(eigen(A0)$value)
+  egv2 <- NULL
+  if (is.matrix(U)) {egv2 <- min(eigen(A0+U)$value)} # if ID module, add U to A
+  delta <- abs(min(egv1,egv2))+0.05 # + 0.05 makes sure we get pd
+  # min of egv1 and egv2: based on papers
+  A1 <- A0+U+delta*diag(dim(A0)[1])
+  return(A1)
+}
+
 # -------------------------------------
 # simulation functions
 # -------------------------------------
@@ -6,17 +26,28 @@
 #' @param ni the number of rows and columns in block i
 #' @param ud the range of uniform distribution that to generate the numbers in the block
 #' @export
-generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, true_net="random"){
+generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net="random", pd="diagplus1"){
   mati <- matrix(0, ni, ni)
-  if(true_net="random"){
+  if(t_net="random"){
   for (i in 1:ni){
     for (j in i:ni){
       mati[i,j] <- ifelse(i!=j & runif(1) > runif_threshold, sample(ud, 1),  #half chance: coexpression of i and j. prob in [-1,-0.6] U [0.6,1]
                           ifelse(i==j,1,0))
     }
   }
+     }
+  } else if (t_net=="power_law"){
+    pl_mat <- crt_new(nodes.n=ni, net.a=1, net.m=1)
+  for (i in 1:ni){
+    for (j in i:ni){
+      mati[i,j] <- ifelse(i!=j & pl_mat[i,j]==1, sample(ud, 1),  #half chance: coexpression of i and j. prob in [-1,-0.6] U [0.6,1]
+                          ifelse(i==j,1,0))
+    }
+  }
+    }
   mati0 = mati + t(mati) - diag(1, nrow = ni, ncol = ni)
   mati1 <- mati0 + diag(1, nrow = ni, ncol = ni)
+if (pd="diagplus1"){
   for (i in 1:20){
     # cat(i,".. \n")
     if (matrixcalc::is.positive.definite(mati1)){
@@ -24,10 +55,10 @@ generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, true_
       break
     } else {
       mati1 <- mati1 + diag(1, nrow = ni, ncol = ni)
-    }
-  } else if (true_net=="power_law"){
-    
-    }
+   }
+    else if (pd=="eigen"){
+      mati1 <- crt_mat_A1(mati1)
+      }
 
   binv = solve(mati1)
   bii <- diag(binv)
@@ -91,7 +122,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       nblk <- length(nivec.list[[1]])
       for (b in 1:nblk){
         ni <- nivec.list[[1]][b]
-        blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold)
+        blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=="random",pd="diagplus1")
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
         temp <- blklist[[b]]$sigmam
