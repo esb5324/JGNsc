@@ -45,7 +45,9 @@ generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net
   }
     }
   mati0 = mati + t(mati) - diag(1, nrow = ni, ncol = ni)
+  print(range(diag(mati0)))
   mati1 <- mati0 + diag(1, nrow = ni, ncol = ni)
+  print(range(diag(mati1)))
 if (pd=="diagplus1"){
   for (i in 1:20){
     # cat(i,".. \n")
