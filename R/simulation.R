@@ -46,7 +46,10 @@ generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net
     }
   mati0 = mati + t(mati) - diag(2, nrow = ni, ncol = ni)
   mati1 <- mati0 + diag(1, nrow = ni, ncol = ni)
+    print(range(diag(mati0))); print(range(diag(mati1)))
 if (pd=="diagplus1"){
+  print("diag plus 1")
+
   for (i in 1:20){
     # cat(i,".. \n")
     if (matrixcalc::is.positive.definite(mati1)){
@@ -57,9 +60,10 @@ if (pd=="diagplus1"){
    }
     }
     } else if (pd=="eigen"){
+       print("eigenvalues")
       mati1 <- crt_mat_A1(mati1)
       }
-
+  print(range(diag(mati0))); print(range(diag(mati1)))
   binv = solve(mati1)
   bii <- diag(binv)
   sigmam <- binv
