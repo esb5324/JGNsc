@@ -63,7 +63,7 @@ if (pd=="diagplus1"){
        print("eigenvalues")
       mati1 <- crt_mat_A1(mati1)
       }
-  print(range(diag(mati0))); print(range(diag(mati1)))
+ 
   binv = solve(mati1)
   bii <- diag(binv)
   sigmam <- binv
@@ -72,6 +72,7 @@ if (pd=="diagplus1"){
       sigmam[i,j] <- binv[i,j]/sqrt(bii[i]*bii[j])
     }
   }
+   print(range(diag(mati0))); print(range(diag(mati1)))
   res <- list(sigmam = sigmam,
               Bm = mati1)
   return(res)
