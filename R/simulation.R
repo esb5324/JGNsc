@@ -193,7 +193,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       temps <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
       for (b in diffblk[[ss]]){
         ni <- nivec.list[[ss]][b]
-        blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold)
+        blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold, t_net=true_net,pd=pos_def)
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[ss]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[ss]][(b+1):nblk]),0))
         temp <- blklist[[b]]$sigmam
