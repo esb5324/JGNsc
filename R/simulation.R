@@ -123,6 +123,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       nblk <- length(nivec.list[[1]])
       for (b in 1:nblk){
         ni <- nivec.list[[1]][b]
+        print("block number"); print(b)
          print("true_net from generateSigmaList"); print(true_net)
         blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
