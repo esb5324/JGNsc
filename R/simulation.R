@@ -245,6 +245,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
 #' @export
 CountMap <- function(sigma, ngene, n, a1 = 3,
                       b1 = 1, a20 = 2,  b20 = 3, a30 = 1, b30 = 10){
+  set.seed(a1*b1*a20*b20*a30*b30)
   # CountMap5()
   precision1 <- solve(sigma)
   mu <- rep(0, ngene)
@@ -328,13 +329,13 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
 #' @param b3 the parameter for the non-dropout rate pij~ beta(a3, b3)
 #' @return a list of count matrices
 #' @export
-getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b3 = 1){
+getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b3 = 1, my_b20){
   if (is.null(ngene)){
     ngene = ncol(sigma.list[[1]])
   }
   count.list <- list()
   for (c in 1:length(sigma.list)){
-    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3)
+    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3, b20=my_b20)
     count.list[[c]] <- counti
   }
   return(count.list)
