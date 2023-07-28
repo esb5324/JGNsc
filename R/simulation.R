@@ -243,8 +243,8 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
 #' @param b3 the hyperparameter for generating pij, where pij~beta(a3, b3)
 #' @return a list of i) raw count data matrix; ii) adjacency matrix; iii) the true expression mean level theta matrix; iv) zij: the dropout matrix; v) sigma: the covariance matrix; vi) precision: the precision matrix.
 #' @export
-CountMap <- function(sigma, ngene, n, a1 = 3,
-                      b1 = 1, a20 = 2,  b20 = 3, a30 = 1, b30 = 10){
+CountMap <- function(sigma, ngene, n, a3 = 3,
+                      b3 = 1, a20 = 2,  b20 = 3, a30 = 1, b30 = 10){
   set.seed(a1*b1*a20*b20*a30*b30)
   # CountMap5()
   precision1 <- solve(sigma)
@@ -329,13 +329,13 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
 #' @param b3 the parameter for the non-dropout rate pij~ beta(a3, b3)
 #' @return a list of count matrices
 #' @export
-getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b3 = 1, my_a20=2, my_b20 = 3, my_a30=1, my_b30=10){
+getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3, b3, a20, b20, a30, b30){
   if (is.null(ngene)){
     ngene = ncol(sigma.list[[1]])
   }
   count.list <- list()
   for (c in 1:length(sigma.list)){
-    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3, a20=my_a20, b20=my_b20, a30=my_a30, b30=my_a30)
+    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3, a20 = a20, b20 = b20, a30 = a30, b30 = a30)
     count.list[[c]] <- counti
   }
   return(count.list)
