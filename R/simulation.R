@@ -236,23 +236,6 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
   # CountMap5()
   precision1 <- solve(sigma)
   mu <- rep(0, ngene)
-
-    
-          
-            
-    
-
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -328,13 +329,13 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
-  
   adj <- abs(sign(precision1))
   diag(adj) <- 0
   x <- mvtnorm::rmvnorm(n, mu, sigma)
@@ -333,17 +316,6 @@ getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b
     count.list[[c]] <- counti
   }
   return(count.list)
-
-    
-          
-            
-    
-
-          
-          Expand Down
-    
-    
-  
 }
 #' calculate area under ROC curve
 #' @param score a score (here we use partial correlation values) for each edge
