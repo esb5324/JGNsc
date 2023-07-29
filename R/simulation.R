@@ -271,7 +271,7 @@ CountMap <- function(sigma, ngene, n, a3 = 3,
     scmeanvec[j] <- scmeanj
     ytemp <- quantile(sctemp, p_v)
     ycomplete[,j] <- ytemp
-    pij <- rbeta(1, shape1 = a1, shape2 = b1)
+    pij <- rbeta(1, shape1 = a3, shape2 = b3)
     zijc <- sapply(1:n, function(x){
       px = ifelse(scmeanvec[j] > 10, 1, 1- ((1-pij) + pij * exp(-scmeanvec[j])))
       rbinom(1, size = 1, prob = px)
