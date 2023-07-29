@@ -1,12 +1,10 @@
 library(igraph)
-
 crt_net <- function(nodes.n,net.a,net.m){
   # generate scale free net
   nt <- sample_pa(n = nodes.n,power = net.a,m = net.m,directed = FALSE)
   output <- get.adjacency(nt,names = FALSE,edges = FALSE, sparse = FALSE)
   return(output) # power is the power of preferential attachment, m is the # of edges to add in each time step
 }
-
 crt_mat_A1 <- function(A0,U=0){
   # make A pd
   egv1 <- min(eigen(A0)$value)
@@ -17,11 +15,9 @@ crt_mat_A1 <- function(A0,U=0){
   A1 <- A0+U+delta*diag(dim(A0)[1])
   return(A1)
 }
-
 # -------------------------------------
 # simulation functions
 # -------------------------------------
-
 #' generate the small matrix in block i
 #' @param ni the number of rows and columns in block i
 #' @param ud the range of uniform distribution that to generate the numbers in the block
@@ -48,7 +44,6 @@ generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net
   mati0 = mati + t(mati) - diag(2, nrow = ni, ncol = ni)
   mati1 <- mati0 + diag(1, nrow = ni, ncol = ni)
 if (pd=="diagplus1"){
-
   for (i in 1:20){
     # cat(i,".. \n")
     if (matrixcalc::is.positive.definite(mati1)){
@@ -74,7 +69,6 @@ if (pd=="diagplus1"){
               Bm = mati1)
   return(res)
 }
-
 #' check if the list of block dimensions are the same for the different conditions
 #' @param xlist a list of vectors
 #' @export
@@ -100,7 +94,6 @@ check_ident_list <- function(xlist){
   }
   return(y)
 }
-
 #' generate a list of covariance matrices with designed structures
 #' @param nivec.list a list of vectors. Each vector specifies the dimensions of the blocks under a condition.
 #' For example, c(20,20) means a covariance matrix is composed of two block matrices, each having 20 genes in the block.
@@ -141,7 +134,6 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       message("nivec.list and the selected network structure do NOT match ...\n")
       break()
     }
-
   } else if (structure =="Identical S, Diff W"){
     if (checkI){ #------------------------------------- if structures are identical
       for(ss in 1:length(nivec.list)){
@@ -166,7 +158,6 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       message("nivec.list and the selected network structure do NOT match ...\n")
       break()
     }
-
   } else if (structure =="Diff S, Identical W"){
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
@@ -185,7 +176,6 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     rownames(sigma) <- gnames
     colnames(sigma) <- gnames
     sigma.list[[1]] <- sigma
-
     for(ss in 2:length(nivec.list)){ # from the second matrix, only change the diffblk[[ss]] block part
       blklist <- list()
       sigma2 <- sigma
@@ -203,8 +193,6 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       }
       sigma.list[[ss]] <- sigma2
     }
-
-
   } else if (structure == "Diff S, Diff W"){
     for(ss in 1:length(nivec.list)){
       blklist <- list()
@@ -229,7 +217,6 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
   }
   return(sigma.list)
 }
-
 #' Map scRNA-seq counts to a known covariance structure
 #'
 #' @param sigma a covairance matrix
@@ -249,11 +236,27 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
   # CountMap5()
   precision1 <- solve(sigma)
   mu <- rep(0, ngene)
+
+    
+          
+            
+    
+
+          
+          Expand Down
+          
+            
+    
+
+          
+          Expand Up
+    
+    @@ -328,13 +329,13 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
+  
   adj <- abs(sign(precision1))
   diag(adj) <- 0
   x <- mvtnorm::rmvnorm(n, mu, sigma)
   y <- x
-
   # -------------------------------------------------
   # generate count data from posterior distribution
   # one subject at a time
@@ -261,7 +264,6 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
   z <- matrix(1, nrow = n, ncol = ngene)
   pij.vec <- rep(1, ngene)
   ycomplete <- x
-
   alphavec <- rep(0, ngene)
   betavec <- rep(0,ngene)
   scmeanvec <- rep(0,ngene)
@@ -271,7 +273,6 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
     mu_v <- mean(dat)
     sd_v <- sd(dat)
     p_v <- pnorm(dat, mu_v, sd_v)
-
     # ---------------------
     # simulate sc from zip -- 1 gene
     # 3. alpha, beta, thetaij
@@ -285,7 +286,6 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
     alphavec[j] <- alphaj
     betavec[j] <- betaj
     scmeanvec[j] <- scmeanj
-
     ytemp <- quantile(sctemp, p_v)
     ycomplete[,j] <- ytemp
     pij <- rbeta(1, shape1 = a1, shape2 = b1)
@@ -293,21 +293,17 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
       px = ifelse(scmeanvec[j] > 10, 1, 1- ((1-pij) + pij * exp(-scmeanvec[j])))
       rbinom(1, size = 1, prob = px)
     })
-
     z[,j] <- zijc
     pij.vec[j] <- round(pij,3)
   }
-
   # -------------------------------
   yout = ycomplete*z
-
   colnames(yout) <- paste("gene",1:ngene, sep = "")
   rownames(yout) <-  paste("cell",1:n,sep = "")
   colnames(ycomplete) <- paste("gene",1:ngene, sep = "")
   rownames(ycomplete) <- paste("cell",1:n,sep = "")
   colnames(z) <- paste("gene",1:ngene, sep = "")
   rownames(z) <- paste("cell",1:n,sep = "")
-
   result <- list()
   result$count <- yout
   result$count.nodrop <- ycomplete
@@ -318,8 +314,6 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
   result$precision <- precision1
   return(result)
 }
-
-
 #' generate a list of raw count matrices based on the list of covariance matrices
 #'
 #' @param sigma.list a list of covariance matrices. Please make sure the positive definite property.
@@ -329,18 +323,28 @@ CountMap <- function(sigma, ngene, n, a1 = 3,
 #' @param b3 the parameter for the non-dropout rate pij~ beta(a3, b3)
 #' @return a list of count matrices
 #' @export
-getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b3 = 1, my_a20=2, my_b20 = 3, my_a30=1, my_b30=10){
+getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b3 = 1, my_b20){
   if (is.null(ngene)){
     ngene = ncol(sigma.list[[1]])
   }
   count.list <- list()
   for (c in 1:length(sigma.list)){
-    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3, a20=my_a20, b20=my_b20, a30=my_a30, b30=my_a30)
+    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3, b20=my_b20)
     count.list[[c]] <- counti
   }
   return(count.list)
-}
 
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
+  
+}
 #' calculate area under ROC curve
 #' @param score a score (here we use partial correlation values) for each edge
 #' @param bool logical, indicating the existance of an edge in a network.
@@ -353,7 +357,6 @@ auroc <- function(score, bool) {
   U  <- sum(rank(score)[!bool]) - n1 * (n1 + 1) / 2
   return(1 - U / n1 / n2)
 }
-
 #' calculate area under precision-recall curve
 #' @param z a list of scores (here we use partial correlation values)
 #' @param trueadj.list a list of true adjacency matrices
