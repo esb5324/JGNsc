@@ -306,13 +306,13 @@ CountMap <- function(sigma, ngene, n, a3 = 3,
 #' @param b3 the parameter for the non-dropout rate pij~ beta(a3, b3)
 #' @return a list of count matrices
 #' @export
-getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b3 = 1){
+getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 2, b3 = 1, a20, b20, a30, b30){
   if (is.null(ngene)){
     ngene = ncol(sigma.list[[1]])
   }
   count.list <- list()
   for (c in 1:length(sigma.list)){
-    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3)
+    counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3, a20=a20, b20=b20, a30=a30, b30=b30)
     count.list[[c]] <- counti
   }
   return(count.list)
