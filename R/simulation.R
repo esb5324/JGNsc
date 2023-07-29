@@ -230,8 +230,8 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
 #' @param b3 the hyperparameter for generating pij, where pij~beta(a3, b3)
 #' @return a list of i) raw count data matrix; ii) adjacency matrix; iii) the true expression mean level theta matrix; iv) zij: the dropout matrix; v) sigma: the covariance matrix; vi) precision: the precision matrix.
 #' @export
-CountMap <- function(sigma, ngene, n, a1 = 3,
-                      b1 = 1, a20 = 2,  b20 = 3, a30 = 1, b30 = 10){
+CountMap <- function(sigma, ngene, n, a3 = 3,
+                      b3 = 1, a20 = 2,  b20 = 3, a30 = 1, b30 = 10){
   set.seed(a1*b1*a20*b20*a30*b30)
   # CountMap5()
   precision1 <- solve(sigma)
