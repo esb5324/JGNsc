@@ -32,6 +32,7 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
   print("observed.list"); print(str(observed.list))
   zip.list <- lapply(observed.list, JGNsc_cont_cpp, warm = warm, iter = iter, minCell= min.cell, dropThreshold = dropThreshold, a1 = a1, b1 = b1)
   print("zip.list"); print(str(zip.list))
+  q()
   for(kk in 1:length(zip.list)){
     colnames(zip.list[[kk]]$y.impute) = colnames(observed.list[[kk]])
     gnames = rownames(observed.list[[kk]])[zip.list[[kk]]$keep.gene > min.cell]
