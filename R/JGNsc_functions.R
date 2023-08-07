@@ -39,7 +39,7 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
   }
 
   g.common <- Reduce(intersect, lapply(zip.list, function(x){rownames(x$y.impute)}))
-  print("g.common"); print(str(g.common)
+  print("g.common"); print(str(g.common))
   theta.star <- lapply(zip.list, function(x){
     y = x$y.impute[g.common,]
     return(y)
