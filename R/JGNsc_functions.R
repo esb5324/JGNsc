@@ -31,6 +31,7 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
   }
 
   zip.list <- lapply(observed.list, JGNsc_cont_cpp, warm = warm, iter = iter, minCell= min.cell, dropThreshold = dropThreshold, a1 = a1, b1 = b1)
+  print("zip.list"); print(str(zip.list))
   for(kk in 1:length(zip.list)){
     colnames(zip.list[[kk]]$y.impute) = colnames(observed.list[[kk]])
     gnames = rownames(observed.list[[kk]])[zip.list[[kk]]$keep.gene > min.cell]
@@ -38,14 +39,16 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
   }
 
   g.common <- Reduce(intersect, lapply(zip.list, function(x){rownames(x$y.impute)}))
+  print("g.common"); print(str(g.common)
   theta.star <- lapply(zip.list, function(x){
     y = x$y.impute[g.common,]
     return(y)
   }) #genes by samples
+  print("theta.star");print(str(theta.star))
   observed.list2 <- lapply(observed.list, function(x){
     y = x[g.common,]
   })
-
+print("observed.list2"); print(str(observed.list))
   if(AvoidIterImp){
     # UMI mode
     # theta.star.npn = theta.star
@@ -80,6 +83,7 @@ RunJGNsc <- function(observed.list, warm = 1000, iter = 5000,
       theta.star[[k]] <- imp.mean
     }
     theta.star.t <- lapply(theta.star, t)
+    print("theta.star.t"); print(str(theta.star.t))
     theta.star.npn <- lapply(theta.star.t, huge.npn)
   }
 
