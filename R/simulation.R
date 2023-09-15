@@ -15,6 +15,19 @@ crt_mat_A1 <- function(A0,U=0){
   A1 <- A0+U+delta*diag(dim(A0)[1])
   return(A1)
 }
+
+
+crt_mat_U <- function(A0, edge.rng){ # orig also had argument mag
+  p <- dim(A0)[1]
+  non0.loc <- upper.tri(A0)*(abs(A0)>0)==1 # unique edges
+  edge.n <- sum(sum(non0.loc)) # num of unique edges
+  edge.v <- runif(n = edge.n,min = 0.6,max = 1) #
+  edge.v <- edge.v*sign(runif(edge.n,-1,1))
+  U <- matrix(0,nc=p,nr=p)
+  U[non0.loc] <- edge.v
+  U <- (U + t(U))
+  return(U)
+}
 # -------------------------------------
 # simulation functions
 # -------------------------------------
@@ -158,7 +171,45 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       message("nivec.list and the selected network structure do NOT match ...\n")
       break()
     }
-  } else if (structure =="Diff S, Identical W"){
+  }
+  else if ("Change Weights"){
+       blklist <- list()
+      sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
+      nblk <- length(nivec.list[[1]])
+      for (b in 1:nblk){
+        ni <- nivec.list[[1]][b]
+        print("block number"); print(b)
+         print("true_net from generateSigmaList"); print(true_net)
+        blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
+        zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
+        zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
+        temp <- blklist[[b]]$sigmam
+        sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
+      }
+      gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
+      rownames(sigma) <- gnames
+      colnames(sigma) <- gnames
+     
+    for(ss in 1:length(nivec.list)){
+    mat <- crt_mat_U(sigma) # original code has mag as an argument for crt_mat_U
+    if (pd=="diagplus1"){
+  for (i in 1:20){
+    # cat(i,".. \n")
+    if (matrixcalc::is.positive.definite(mat)){
+      mat <- mat
+      break
+    } else {
+      mat <- mat + diag(1, nrow = ni, ncol = ni)
+   }
+    }
+    } else if (pd=="eigen"){
+      mat <- crt_mat_A1(mat)
+      }
+           rownames(mat) <- gnames
+      colnames(mat) <- gnames
+      sigma.list[[ss]] <- mat
+        }
+    } else if (structure =="Diff S, Identical W"){
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
     blklist <- list()
