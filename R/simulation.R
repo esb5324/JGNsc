@@ -172,7 +172,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       break()
     }
   }
-  else if ("Change Weights"){
+  else if (structure=="Change Weights"){
        blklist <- list()
       sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
       nblk <- length(nivec.list[[1]])
