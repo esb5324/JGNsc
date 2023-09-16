@@ -197,7 +197,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       mat <- mat
       break
     } else {
-      mat <- mat + diag(1, nrow = ni, ncol = ni)
+      mat <- mat + diag(1, nrow = sum(nivec.list[[ss]]), ncol = sum(nivec.list[[ss]]))
    }
     }
     } else if (pos_def=="eigen"){
