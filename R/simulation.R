@@ -361,6 +361,7 @@ getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 3, b
   }
   count.list <- list()
   for (c in 1:length(sigma.list)){
+    set.seed(c*ngene)
     counti <- CountMap(sigma = sigma.list[[c]], ngene = ngene, n=nvec[c], a3 = a3, b3 = b3, a20=a20, b20=b20, a30=a30, b30=b30)
     count.list[[c]] <- counti
   }
