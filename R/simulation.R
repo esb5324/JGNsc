@@ -281,7 +281,6 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
 #' @export
 CountMap <- function(sigma, ngene, n, a3 = 3,
                       b3 = 1, a20 = 2,  b20 = 3, a30 = 1, b30 = 10){
-  set.seed(a3*b3*a20*b20*a30*b30)
   # CountMap5()
   precision1 <- solve(sigma)
   mu <- rep(0, ngene)
