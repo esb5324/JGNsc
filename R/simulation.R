@@ -143,6 +143,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       for(ss in 1:length(nivec.list)){
         sigma.list[[ss]] <- sigma
       }
+          print("S1"); print(sum(sigma[upper.tri(sigma)]!=0))
     } else {
       message("nivec.list and the selected network structure do NOT match ...\n")
       break()
@@ -179,8 +180,6 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       nblk <- length(nivec.list[[1]])
       for (b in 1:nblk){
         ni <- nivec.list[[1]][b]
-        print("block number"); print(b)
-         print("true_net from generateSigmaList"); print(true_net)
         blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
