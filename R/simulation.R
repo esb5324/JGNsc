@@ -190,9 +190,10 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       rownames(sigma) <- gnames
       colnames(sigma) <- gnames
+    sigma.list[[1]] <- sigma
     print("C1"); print(sum(sigma[upper.tri(sigma)]!=0))
      
-    for(ss in 1:length(nivec.list)){
+    for(ss in 2:length(nivec.list)){
     mat <- crt_mat_U(sigma) # original code has mag as an argument for crt_mat_U
           print("C+"); print(sum(sigma[upper.tri(sigma)]!=0))
     if (pos_def=="diagplus1"){
