@@ -173,6 +173,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     }
   }
   else if (structure=="Change Weights"){
+    print("change weights")
        blklist <- list()
       sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
       nblk <- length(nivec.list[[1]])
@@ -187,9 +188,11 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       rownames(sigma) <- gnames
       colnames(sigma) <- gnames
+    print("C1"); print(sum(sigma[upper.tri(sigma]!=0)))
      
     for(ss in 1:length(nivec.list)){
     mat <- crt_mat_U(sigma) # original code has mag as an argument for crt_mat_U
+          print("C+"); print(sum(sigma[upper.tri(sigma]!=0)))
     if (pos_def=="diagplus1"){
   for (i in 1:20){
     # cat(i,".. \n")
@@ -207,6 +210,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       colnames(mat) <- gnames
       sigma.list[[ss]] <- mat
         }
+                                           print("C_"); print(sum(sigma[upper.tri(mat]!=0)))
     } else if (structure =="Diff S, Identical W"){
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
