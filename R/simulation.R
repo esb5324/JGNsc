@@ -198,7 +198,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
   else if (structure=="Change Weights"){
     print("change weights")
       blklist <- lapply(1:length(nivec.list[[1]]),c)
-      sigma_list <- lapply(1:length(nivec.list[[1]], function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))))
+      sigma_list <- lapply(1:length(nivec.list[[1]]), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
       nblk <- length(nivec.list[[1]])
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       for (con in 1:length(nivec.list[[1]])){
