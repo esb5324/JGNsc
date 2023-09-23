@@ -221,6 +221,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         rownames(sigma_list[[con]]) <- gnames
         colnames(sigma_list[[con]]) <- gnames
       }
+                           sigma.list <- sigma_list
     } else if (structure =="Diff S, Identical W"){
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
@@ -370,7 +371,6 @@ CountMap <- function(sigma, ngene, n, a3 = 3,
 #' @export
 getCountList <- function(sigma.list, nvec = c(500, 500), ngene = NULL, a3 = 3, b3 = 1, a20=2, b20=3, a30=1, b30=10){
   if (is.null(ngene)){
-    print("structure of sigma.list[[1]]"); print(str(sigma.list))
     ngene = ncol(sigma.list[[1]])
   }
   count.list <- list()
