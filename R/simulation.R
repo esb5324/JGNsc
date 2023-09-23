@@ -34,7 +34,7 @@ crt_mat_U <- function(A0, pd){ # orig also had argument mag
       mati1 <- mati1
       break
     } else {
-      mati1 <- mati1 + diag(1, nrow = ni, ncol = ni)
+      mati1 <- mati1 + diag(1, nrow = p, ncol = p)
    }
     }
     } else if (pd=="eigen"){
