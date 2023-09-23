@@ -17,7 +17,7 @@ crt_mat_A1 <- function(A0,U=0){
 }
 
 
-crt_mat_U <- function(A0, edge.rng,pd){ # orig also had argument mag
+crt_mat_U <- function(A0, pd){ # orig also had argument mag
   p <- dim(A0)[1]
   non0.loc <- upper.tri(A0)*(abs(A0)>0)==1 # unique edges
   edge.n <- sum(sum(non0.loc)) # num of unique edges
@@ -203,12 +203,16 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       for (con in 1:length(nivec.list[[1]])){
         for (b in 1:nblk){
+          print("block"); print(b)
           ni <- nivec.list[[1]][b]
           if (con==1){
           blklist[[con]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
+            print("C1")
           } else {
             blklist[[con]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
+            print("C+")
           }
+          print(sum(blklist[[con]][[b]]$Bm!=0))
           temp <- blklist[[con]][[b]]$sigmam
           zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
           zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
