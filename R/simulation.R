@@ -17,7 +17,7 @@ crt_mat_A1 <- function(A0,U=0){
 }
 
 
-crt_mat_U <- function(A0, edge.rng){ # orig also had argument mag
+crt_mat_U <- function(A0, edge.rng,pd){ # orig also had argument mag
   p <- dim(A0)[1]
   non0.loc <- upper.tri(A0)*(abs(A0)>0)==1 # unique edges
   edge.n <- sum(sum(non0.loc)) # num of unique edges
@@ -25,8 +25,33 @@ crt_mat_U <- function(A0, edge.rng){ # orig also had argument mag
   edge.v <- edge.v*sign(runif(edge.n,-1,1))
   U <- matrix(0,nc=p,nr=p)
   U[non0.loc] <- edge.v
-  U <- (U + t(U))
-  return(U)
+    mati0 = U + t(U) - diag(2, nrow = p, ncol = p)
+  mati1 <- mati0 + diag(1, nrow = p, ncol = p)
+  if (pd=="diagplus1"){
+  for (i in 1:20){
+    # cat(i,".. \n")
+    if (matrixcalc::is.positive.definite(mati1)){
+      mati1 <- mati1
+      break
+    } else {
+      mati1 <- mati1 + diag(1, nrow = ni, ncol = ni)
+   }
+    }
+    } else if (pd=="eigen"){
+      mati1 <- crt_mat_A1(mati1)
+      }
+ 
+  binv = solve(mati1)
+  bii <- diag(binv)
+  sigmam <- binv
+  for (i in 1:p){
+    for (j in 1:p){
+      sigmam[i,j] <- binv[i,j]/sqrt(bii[i]*bii[j])
+    }
+  }
+   res <- list(sigmam = sigmam,
+              Bm = mati1)
+  return(res)
 }
 # -------------------------------------
 # simulation functions
@@ -37,7 +62,6 @@ crt_mat_U <- function(A0, edge.rng){ # orig also had argument mag
 #' @export
 generateBlki <- function(ni, ud= c(-100:-60, 60:100)/100, runif_threshold, t_net, pd){
   mati <- matrix(0, ni, ni)
-  print("t_net from generateBlki"); print(t_net)
   if (t_net=="random"){
   for (i in 1:ni){
     for (j in i:ni){
@@ -129,12 +153,11 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       nblk <- length(nivec.list[[1]])
       for (b in 1:nblk){
         ni <- nivec.list[[1]][b]
-        print("block number"); print(b)
-         print("true_net from generateSigmaList"); print(true_net)
         blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
         temp <- blklist[[b]]$sigmam
+        print("S1");print("block");print(b);print("edges");print(sum(blklist[[b]]$Bm!=0))
         sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
       }
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
@@ -143,7 +166,6 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       for(ss in 1:length(nivec.list)){
         sigma.list[[ss]] <- sigma
       }
-          print("S1"); print(sum(sigma[upper.tri(sigma)]!=0))
     } else {
       message("nivec.list and the selected network structure do NOT match ...\n")
       break()
@@ -175,44 +197,26 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
   }
   else if (structure=="Change Weights"){
     print("change weights")
-      blklist <- list()
-      sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
+      blklist <- lapply(1:length(nivec.list[[1]]),c)
+      sigma_list <- lapply(1:length(nivec.list[[1]], function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))))
       nblk <- length(nivec.list[[1]])
-      for (b in 1:nblk){
-        ni <- nivec.list[[1]][b]
-        blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
-        zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
-        zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
-        temp <- blklist[[b]]$sigmam
-        sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
-      }
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
-      rownames(sigma) <- gnames
-      colnames(sigma) <- gnames
-    sigma.list[[1]] <- sigma
-    print("C1"); print(sum(sigma[upper.tri(sigma)]!=0))
-     
-    for(ss in 2:length(nivec.list)){
-    mat <- crt_mat_U(sigma) # original code has mag as an argument for crt_mat_U
-          print("C+"); print(sum(sigma[upper.tri(sigma)]!=0))
-    if (pos_def=="diagplus1"){
-  for (i in 1:20){
-    # cat(i,".. \n")
-    if (matrixcalc::is.positive.definite(mat)){
-      mat <- mat
-      break
-    } else {
-      mat <- mat + diag(1, nrow = sum(nivec.list[[ss]]), ncol = sum(nivec.list[[ss]]))
-   }
-    }
-    } else if (pos_def=="eigen"){
-      mat <- crt_mat_A1(mat)
-      }
-           rownames(mat) <- gnames
-      colnames(mat) <- gnames
-      sigma.list[[ss]] <- mat
+      for (con in 1:length(nivec.list[[1]])){
+        for (b in 1:nblk){
+          ni <- nivec.list[[1]][b]
+          if (con==1){
+          blklist[[con]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
+          } else {
+            blklist[[con]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
+          }
+          temp <- blklist[[con]][[b]]$sigmam
+          zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
+          zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
+          sigma_list[[con]] <- rbind(sigma, cbind(zeroleft, temp, zeroright))
         }
-                                           print("C_"); print(sum(sigma[upper.tri(mat)]!=0))
+        rownames(sigma_list[[con]]) <- gnames
+        colnames(sigma_list[[con]]) <- gnames
+      }
     } else if (structure =="Diff S, Identical W"){
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
