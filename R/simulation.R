@@ -209,7 +209,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
           blklist[[con]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def)
             print("C1")
           } else {
-            if (b<5){
+            if (b<=((nblk/2))){
               blklist[[con]][[b]] <- blklist[[1]][[b]]
               } else {
             blklist[[con]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
