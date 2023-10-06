@@ -144,12 +144,14 @@ check_ident_list <- function(xlist){
 generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
                               structure = "Identical S, Identical W", diffblk = NULL, blk_runif_threshold,true_net,pos_def){
   sigma.list <- list()
+  adj.list <- list()
   # check if identical structure
   checkI <- check_ident_list(nivec.list)
   if (structure =="Identical S, Identical W"){
     if (checkI){ #------------------------------------------- if structures are identical
       blklist <- list()
       sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
+      adj <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
       nblk <- length(nivec.list[[1]])
       for (b in 1:nblk){
         ni <- nivec.list[[1]][b]
@@ -157,13 +159,16 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
         temp <- blklist[[b]]$sigmam
+        temp2 <- blklist[[b]]$Bm
         sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
+        adj <- rbind(adj, cbind(zeroleft, temp2, zeroright))
       }
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       rownames(sigma) <- gnames
       colnames(sigma) <- gnames
       for(ss in 1:length(nivec.list)){
         sigma.list[[ss]] <- sigma
+        adj.list[[ss]] <- adj
       }
     } else {
       message("nivec.list and the selected network structure do NOT match ...\n")
@@ -197,7 +202,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
   else if (structure=="Change Weights"){
     print("change weights")
       blklist <- lapply(1:length(nivec.list[[1]]),c)
-      sigma_list <- lapply(1:length(nivec.list), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
+      sigma.list <- lapply(1:length(nivec.list), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
       nblk <- length(nivec.list[[1]])
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       for (con in 1:length(nivec.list)){
@@ -215,16 +220,14 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
             blklist[[con]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
               }
           }
-          print(sum(blklist[[con]][[b]]$Bm!=0))
           temp <- blklist[[con]][[b]]$sigmam
           zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
           zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
-          sigma_list[[con]] <- rbind(sigma_list[[con]], cbind(zeroleft, temp, zeroright))
+          sigma.list[[con]] <- rbind(sigma.list[[con]], cbind(zeroleft, temp, zeroright))
         }
-        rownames(sigma_list[[con]]) <- gnames
-        colnames(sigma_list[[con]]) <- gnames
+        rownames(sigma.list[[con]]) <- gnames
+        colnames(sigma.list[[con]]) <- gnames
       }
-                           sigma.list <- sigma_list
     } else if (structure =="Diff S, Identical W"){
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
