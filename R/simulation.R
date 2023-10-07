@@ -179,6 +179,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       for(ss in 1:length(nivec.list)){
         blklist <- list()
         sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
+        adj <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
         # sigma <- matrix(0, nrow = ni*nblk, ncol = ni*nblk)
         nblk <- length(nivec.list[[ss]])
         for (b in 1:nblk){
@@ -187,12 +188,15 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
           zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[ss]][0:(b-1)]))
           zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[ss]][(b+1):nblk]),0))
           temp <- blklist[[b]]$sigmam
+          temp2 <- blklist[[b]]$Bm
           sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
+          adj <- rbind(adj, cbind(zeroleft, temp2, zeroright))
         }
         gnames = paste("gene",1:sum(nivec.list[[ss]]), sep = "")
         rownames(sigma) <- gnames
         colnames(sigma) <- gnames
         sigma.list[[ss]] <- sigma
+        adj.list[[ss]] <- adj
       }
     } else {
       message("nivec.list and the selected network structure do NOT match ...\n")
@@ -203,6 +207,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     print("change weights")
       blklist <- lapply(1:length(nivec.list[[1]]),c)
       sigma.list <- lapply(1:length(nivec.list), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
+      adj.list <- lapply(1:length(nivec.list), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
       nblk <- length(nivec.list[[1]])
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       for (con in 1:length(nivec.list)){
@@ -221,9 +226,11 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
               }
           }
           temp <- blklist[[con]][[b]]$sigmam
+          temp2 <- blklist[[con]][[b]]$Bm
           zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
           zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
           sigma.list[[con]] <- rbind(sigma.list[[con]], cbind(zeroleft, temp, zeroright))
+          adj.list[[con]] <- rbind(ad.list[[con]], cbind(zeroleft, temp2, zeroright))
         }
         rownames(sigma.list[[con]]) <- gnames
         colnames(sigma.list[[con]]) <- gnames
@@ -233,6 +240,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     # assume the first ndiff rows have different structure.
     blklist <- list()
     sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
+    adj <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
     nblk <- length(nivec.list[[1]])
     for (b in 1:nblk){
       ni <- nivec.list[[1]][b]
@@ -240,33 +248,43 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
       zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
       temp <- blklist[[b]]$sigmam
+      temp2 <- bklist[[b]]$Bm
       sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
+      adj <- rbind(adj, cbind(zeroleft, temp2, zeroright))
     }
     gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
     rownames(sigma) <- gnames
     colnames(sigma) <- gnames
     sigma.list[[1]] <- sigma
+    adj.list[[1]] <- adj
     for(ss in 2:length(nivec.list)){ # from the second matrix, only change the diffblk[[ss]] block part
       blklist <- list()
       sigma2 <- sigma
+      adj2 <- adj
       nblk <- length(nivec.list[[ss]])
       temps <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
+      temps2 <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
       for (b in diffblk[[ss]]){
         ni <- nivec.list[[ss]][b]
         blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold, t_net=true_net,pd=pos_def)
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[ss]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[ss]][(b+1):nblk]),0))
         temp <- blklist[[b]]$sigmam
+        temp2 <- bklist[[b]]$Bm
         temps <- cbind(zeroleft, temp, zeroright)
+        temps2 <- cbind(zeroleft, temp2, zeroright))
         diffid <- (sum(nivec.list[[ss]][0:(b-1)])+1) : sum(nivec.list[[ss]][0:b])
         sigma2[diffid,] <- temps
+        adj2[diffid,] <- temps2
       }
       sigma.list[[ss]] <- sigma2
+      adj.list[[ss]] <- adj2
     }
   } else if (structure == "Diff S, Diff W"){
     for(ss in 1:length(nivec.list)){
       blklist <- list()
       sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
+      adj <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
       # sigma <- matrix(0, nrow = ni*nblk, ncol = ni*nblk)
       nblk <- length(nivec.list[[ss]])
       for (b in 1:nblk){
@@ -275,12 +293,15 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[ss]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[ss]][(b+1):nblk]),0))
         temp <- blklist[[b]]$sigmam
+        temp2 <- blklist[[b]]$Bm
         sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
+        adj <- rbind(adj, cbind(zeroleft, temp2, zeroright))
       }
       gnames = paste("gene",1:sum(nivec.list[[ss]]), sep = "")
       rownames(sigma) <- gnames
       colnames(sigma) <- gnames
       sigma.list[[ss]] <- sigma
+      adj.list[[ss]] <- adj
     }
   } else {
     message("Please choose the joint network structure from: 'Identical S, Identical W', 'Identical S, Diff W', 'Diff S, Identical W', 'Diff S, Diff W'")
