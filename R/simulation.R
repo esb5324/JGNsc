@@ -230,7 +230,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
           zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
           zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
           sigma.list[[con]] <- rbind(sigma.list[[con]], cbind(zeroleft, temp, zeroright))
-          adj.list[[con]] <- rbind(ad.list[[con]], cbind(zeroleft, temp2, zeroright))
+          adj.list[[con]] <- rbind(adj.list[[con]], cbind(zeroleft, temp2, zeroright))
         }
         rownames(sigma.list[[con]]) <- gnames
         colnames(sigma.list[[con]]) <- gnames
