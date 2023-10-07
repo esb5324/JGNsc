@@ -272,7 +272,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         temp <- blklist[[b]]$sigmam
         temp2 <- bklist[[b]]$Bm
         temps <- cbind(zeroleft, temp, zeroright)
-        temps2 <- cbind(zeroleft, temp2, zeroright))
+        temps2 <- cbind(zeroleft, temp2, zeroright)
         diffid <- (sum(nivec.list[[ss]][0:(b-1)])+1) : sum(nivec.list[[ss]][0:b])
         sigma2[diffid,] <- temps
         adj2[diffid,] <- temps2
