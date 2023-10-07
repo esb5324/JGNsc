@@ -248,7 +248,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
       zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
       temp <- blklist[[b]]$sigmam
-      temp2 <- bklist[[b]]$Bm
+      temp2 <- blklist[[b]]$Bm
       sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
       adj <- rbind(adj, cbind(zeroleft, temp2, zeroright))
     }
@@ -270,7 +270,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[ss]][0:(b-1)]))
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[ss]][(b+1):nblk]),0))
         temp <- blklist[[b]]$sigmam
-        temp2 <- bklist[[b]]$Bm
+        temp2 <- blklist[[b]]$Bm
         temps <- cbind(zeroleft, temp, zeroright)
         temps2 <- cbind(zeroleft, temp2, zeroright)
         diffid <- (sum(nivec.list[[ss]][0:(b-1)])+1) : sum(nivec.list[[ss]][0:b])
