@@ -142,17 +142,19 @@ check_ident_list <- function(xlist){
 #' @return a list of covariance matrices
 #' @export
 generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
-                              structure = "Identical S, Identical W", diffblk = NULL, blk_runif_threshold,true_net,pos_def,add_m){
+                              structure, diffblk = NULL, blk_runif_threshold,true_net,pos_def,add_m){
   sigma.list <- list()
   adj.list <- list()
+  for (cond in 2:length(nivec.list)){
   # check if identical structure
-  checkI <- check_ident_list(nivec.list)
-  if (structure =="Identical S, Identical W"){
+  checkI <- check_ident_list(list(nivec.list[[1]],nivec.list[[cond]]))
+  if (structure[cond-1] =="Identical S, Identical W"){
     if (checkI){ #------------------------------------------- if structures are identical
       blklist <- list()
       sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
       adj <- matrix(0, nrow = 0, ncol = sum(nivec.list[[1]]))
       nblk <- length(nivec.list[[1]])
+      if (cond==2){
       for (b in 1:nblk){
         ni <- nivec.list[[1]][b]
         blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def,m_add=add_m)
@@ -166,76 +168,101 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       rownames(sigma) <- gnames
       colnames(sigma) <- gnames
-      for(ss in 1:length(nivec.list)){
-        sigma.list[[ss]] <- sigma
-        adj.list[[ss]] <- adj
-      }
-    } else {
-      message("nivec.list and the selected network structure do NOT match ...\n")
-      break()
-    }
-  } else if (structure =="Identical S, Diff W"){
-    if (checkI){ #------------------------------------- if structures are identical
-      for(ss in 1:length(nivec.list)){
-        blklist <- list()
-        sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
-        adj <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
-        # sigma <- matrix(0, nrow = ni*nblk, ncol = ni*nblk)
-        nblk <- length(nivec.list[[ss]])
-        for (b in 1:nblk){
-          ni <- nivec.list[[ss]][b]
-          blklist[[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
-          zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[ss]][0:(b-1)]))
-          zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[ss]][(b+1):nblk]),0))
-          temp <- blklist[[b]]$sigmam
-          temp2 <- blklist[[b]]$Bm
-          sigma <- rbind(sigma, cbind(zeroleft, temp, zeroright))
-          adj <- rbind(adj, cbind(zeroleft, temp2, zeroright))
+        sigma.list[[1]] <- sigma
+        adj.list[[1]] <- adj
         }
-        gnames = paste("gene",1:sum(nivec.list[[ss]]), sep = "")
-        rownames(sigma) <- gnames
-        colnames(sigma) <- gnames
-        sigma.list[[ss]] <- sigma
-        adj.list[[ss]] <- adj
-      }
+        sigma.list[[cond]] <- sigma.list[[1]]
+        adj.list[[cond]] <- adj.list[[1]]
     } else {
       message("nivec.list and the selected network structure do NOT match ...\n")
       break()
     }
-  }
-  else if (structure=="Change Weights"){
+  } 
+  else if (structure[cond-1]=="Change Weights"){
     print("change weights")
       blklist <- lapply(1:length(nivec.list[[1]]),c)
       sigma.list <- lapply(1:length(nivec.list), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
       adj.list <- lapply(1:length(nivec.list), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
       nblk <- length(nivec.list[[1]])
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
-      for (con in 1:length(nivec.list)){
-        blklist[[con]] <- lapply(1:nblk,c)
+        blklist[[1]] <- lapply(1:nblk,c)
+        for (cond in 2:length(nivec.list)){
+        if (cond==2){
         for (b in 1:nblk){
           print("block"); print(b)
           ni <- nivec.list[[1]][b]
-          if (con==1){
-          blklist[[con]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
+          blklist[[1]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
             print("C1")
-          } else {
-            if (b<=((nblk/2))){
+          }
+          temp <- blklist[[1]][[b]]$sigmam
+          temp2 <- blklist[[1]][[b]]$Bm
+          zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
+          zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
+          sigma.list[[1]] <- rbind(sigma.list[[1]], cbind(zeroleft, temp, zeroright))
+          adj.list[[1]] <- rbind(adj.list[[1]], cbind(zeroleft, temp2, zeroright))
+          }
+          blklist[[cond]] <- lapply(1:nblk,c)
+          for (b in 1:nblk){
+            if (b<=ceiling(nblk/2)){
               blklist[[con]][[b]] <- blklist[[1]][[b]]
               } else {
             blklist[[con]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
               }
+        
+          temp <- blklist[[cond]][[b]]$sigmam
+          temp2 <- blklist[[cond]][[b]]$Bm
+          zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
+          zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
+          sigma.list[[cond]] <- rbind(sigma.list[[cond]], cbind(zeroleft, temp, zeroright))
+          adj.list[[cond]] <- rbind(adj.list[[cond]], cbind(zeroleft, temp2, zeroright))
+        }
+        rownames(sigma.list[[cond]]) <- gnames
+        colnames(sigma.list[[cond]]) <- gnames
+      }
+      } else if (structure[cond-1] == "Change Weights","3C: Change Weights/Diff S, Identical W"){
+          print("3C: Change Weights/Diff S, Identical W")
+      blklist <- lapply(1:length(nivec.list[[1]]),c)
+      sigma.list <- lapply(1:length(nivec.list), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
+      adj.list <- lapply(1:length(nivec.list), function(m) matrix(0, nrow = 0, ncol = sum(nivec.list[[1]])))
+      nblk <- length(nivec.list[[1]])
+      gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
+      blklist[[1]] <- lapply(1:nblk,c)
+      for (cond in 2:length(nivec.list)){
+        blklist[[cond]] <- lapply(1:nblk,c)
+        for (b in 1:nblk){
+        print("block"); print(b)
+          if (cond==2){
+          ni <- nivec.list[[1]][b]
+          blklist[[1]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
+            temp <- blklist[[1]][[b]]$sigmam
+          temp2 <- blklist[[1]][[b]]$Bm
+          zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
+          zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
+          sigma.list[[1]] <- rbind(sigma.list[[1]], cbind(zeroleft, temp, zeroright))
+          adj.list[[1]] <- rbind(adj.list[[1]], cbind(zeroleft, temp2, zeroright))
           }
+            if (b==1){
+              blklist[[cond]][[b]] <- blklist[[1]][[b]]
+              } else if (b %in% 2:(diffblk[[cond]][1]-1)) {
+            blklist[[cond]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
+              }
+            else if (b %in% diffblk[[cond]]){
+              blklist[[cond]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
+          }
+            else{
+              print("coding error"); q()
+              }
           temp <- blklist[[con]][[b]]$sigmam
           temp2 <- blklist[[con]][[b]]$Bm
           zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
           zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
-          sigma.list[[con]] <- rbind(sigma.list[[con]], cbind(zeroleft, temp, zeroright))
-          adj.list[[con]] <- rbind(adj.list[[con]], cbind(zeroleft, temp2, zeroright))
+          sigma.list[[cond]] <- rbind(sigma.list[[cond]], cbind(zeroleft, temp, zeroright))
+          adj.list[[cond]] <- rbind(adj.list[[cond]], cbind(zeroleft, temp2, zeroright))
         }
-        rownames(sigma.list[[con]]) <- gnames
-        colnames(sigma.list[[con]]) <- gnames
-      }
-    } else if (structure =="Diff S, Identical W"){
+        rownames(sigma.list[[cond]]) <- gnames
+        colnames(sigma.list[[cond]]) <- gnames
+          }
+    } else if (structure[cond] =="Diff S, Identical W"){
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
     blklist <- list()
@@ -257,7 +284,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     colnames(sigma) <- gnames
     sigma.list[[1]] <- sigma
     adj.list[[1]] <- adj
-    for(ss in 2:length(nivec.list)){ # from the second matrix, only change the diffblk[[ss]] block part
+    for(ss in c(cond)){ # from the second matrix, only change the diffblk[[ss]] block part
       blklist <- list()
       sigma2 <- sigma
       adj2 <- adj
@@ -280,7 +307,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       sigma.list[[ss]] <- sigma2
       adj.list[[ss]] <- adj2
     }
-  } else if (structure == "Diff S, Diff W"){
+  } else if (structure[cond] == "Diff S, Diff W"){
     for(ss in 1:length(nivec.list)){
       blklist <- list()
       sigma <- matrix(0, nrow = 0, ncol = sum(nivec.list[[ss]]))
@@ -306,6 +333,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
   } else {
     message("Please choose the joint network structure from: 'Identical S, Identical W', 'Identical S, Diff W', 'Diff S, Identical W', 'Diff S, Diff W'")
   }
+                         }
   return(list(sigma.list=sigma.list,adj.list=adj.list))
 }
 #' Map scRNA-seq counts to a known covariance structure
