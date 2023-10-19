@@ -252,7 +252,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         }
         rownames(sigma.list[[cond]]) <- gnames
         colnames(sigma.list[[cond]]) <- gnames
-    } else if (structure[cond] =="Diff S, Identical W"){
+    } else if (structure[cond-1] =="Diff S, Identical W"){
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
     nblk <- length(nivec.list[[1]])
@@ -291,7 +291,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       }
       sigma.list[[cond]] <- sigma2
       adj.list[[cond]] <- adj2
-  } else if (structure[cond] == "Diff S, Diff W"){
+  } else if (structure[cond-1] == "Diff S, Diff W"){
       if (cond==2){
         ss_list <- c(1,2)
         } else {
