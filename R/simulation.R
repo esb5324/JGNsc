@@ -177,7 +177,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     }
   } 
   else if (structure[cond-1]=="Change Weights"){
-    print("Change Weights")
+    print("change weights")
       nblk <- length(nivec.list[[1]])
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
         if (cond==2){
