@@ -151,6 +151,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
   # check if identical structure
   checkI <- check_ident_list(list(nivec.list[[1]],nivec.list[[cond]]))
   if (structure[cond-1] =="Identical S, Identical W"){
+    print("Identical S, Identical W")
     if (checkI){ #------------------------------------------- if structures are identical
       nblk <- length(nivec.list[[1]])
       if (cond==2){
@@ -238,6 +239,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
             blklist[[cond]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
               }
             else if (b %in% diffblk[[cond-1]]){
+              print("test"); print(str(blklist))
               blklist[[cond]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
           }
          else{
@@ -253,6 +255,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         rownames(sigma.list[[cond]]) <- gnames
         colnames(sigma.list[[cond]]) <- gnames
     } else if (structure[cond-1] =="Diff S, Identical W"){
+    print("Diff S, Identical W")
     # for the part that structures are the same, weights are the same
     # assume the first ndiff rows have different structure.
     nblk <- length(nivec.list[[1]])
@@ -292,6 +295,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       sigma.list[[cond]] <- sigma2
       adj.list[[cond]] <- adj2
   } else if (structure[cond-1] == "Diff S, Diff W"){
+    print("Diff S, Diff W")
       if (cond==2){
         ss_list <- c(1,2)
         } else {
