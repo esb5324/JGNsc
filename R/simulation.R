@@ -234,10 +234,10 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     for (b in 1:nblk){
             if (b==1){
               blklist[[cond]][[b]] <- blklist[[1]][[b]]
-              } else if (b %in% 2:(diffblk[[cond]][1]-1)) {
+              } else if (b %in% 2:(diffblk[[cond-1]][1]-1)) {
             blklist[[cond]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
               }
-            else if (b %in% diffblk[[cond]]){
+            else if (b %in% diffblk[[cond-1]]){
               blklist[[cond]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
           }
          else{
@@ -276,7 +276,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     adj2 <- adj.list[[1]]
       temps <- matrix(0, nrow = 0, ncol = sum(nivec.list[[cond]]))
       temps2 <- matrix(0, nrow = 0, ncol = sum(nivec.list[[cond]]))
-      for (b in diffblk[[cond]]){
+      for (b in diffblk[[cond-1]]){
         ni <- nivec.list[[cond]][b]
         blklist[[cond]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold, t_net=true_net,pd=pos_def, m_add=add_m)
         zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[cond]][0:(b-1)]))
