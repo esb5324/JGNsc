@@ -191,9 +191,9 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
           zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
           sigma.list[[1]] <- rbind(sigma.list[[1]], cbind(zeroleft, temp, zeroright))
           adj.list[[1]] <- rbind(adj.list[[1]], cbind(zeroleft, temp2, zeroright))
-          rownames(sigma.list[[1]]) <- gnames
-          colnames(sigma.list[[1]]) <- gnames
           }
+            rownames(sigma.list[[1]]) <- gnames
+          colnames(sigma.list[[1]]) <- gnames
           }
           blklist[[cond]] <- lapply(1:nblk,c)
           for (b in 1:nblk){
@@ -257,8 +257,8 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     # assume the first ndiff rows have different structure.
     nblk <- length(nivec.list[[1]])
     gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
+          if (cond==2){
     for (b in 1:nblk){
-      if (cond==2){
       ni <- nivec.list[[1]][b]
       blklist[[1]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
       zeroleft <- matrix(0, nrow = ni, ncol = sum(nivec.list[[1]][0:(b-1)]))
@@ -267,9 +267,9 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
       temp2 <- blklist[[1]][[b]]$Bm
       sigma.list[[1]] <- rbind(sigma.list[[1]], cbind(zeroleft, temp, zeroright))
       adj.list[[1]] <- rbind(adj.list[[1]], cbind(zeroleft, temp2, zeroright))
-         rownames(sigma.list[[1]]) <- gnames
-    colnames(sigma.list[[1]]) <- gnames
         }
+                     rownames(sigma.list[[1]]) <- gnames
+    colnames(sigma.list[[1]]) <- gnames
     }
       nblk <- length(nivec.list[[cond]])
     sigma2 <- sigma.list[[1]]
