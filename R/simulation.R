@@ -324,6 +324,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     message("Please choose the joint network structure from: 'Identical S, Identical W', 'Identical S, Diff W', 'Diff S, Identical W', 'Diff S, Diff W'")
   }
                          }
+                         print(warnings())
   return(list(sigma.list=sigma.list,adj.list=adj.list))
 }
 #' Map scRNA-seq counts to a known covariance structure
