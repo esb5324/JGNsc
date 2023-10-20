@@ -274,6 +274,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
                      rownames(sigma.list[[1]]) <- gnames
     colnames(sigma.list[[1]]) <- gnames
     }
+    blklist[[cond]] <- lapply(1:nblk,c)
       nblk <- length(nivec.list[[cond]])
     sigma2 <- sigma.list[[1]]
     adj2 <- adj.list[[1]]
