@@ -235,7 +235,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     for (b in 1:nblk){
             if (b==1){
               blklist[[cond]][[b]] <- blklist[[1]][[b]]
-              } else if (b %in% 2:(diffblk[[cond-1]][1]-1)) {
+              } else if (b <= (diffblk[[cond-1]][1]-1)) {
             blklist[[cond]][[b]] <- crt_mat_U(blklist[[1]][[b]]$Bm,pd=pos_def)   
               }
             else if (b %in% diffblk[[cond-1]]){
