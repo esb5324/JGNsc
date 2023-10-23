@@ -163,8 +163,8 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         zeroright <- matrix(0, nrow = ni, ncol = ifelse(b<nblk,sum(nivec.list[[1]][(b+1):nblk]),0))
         temp <- blklist[[1]][[b]]$sigmam
         temp2 <- blklist[[1]][[b]]$Bm
-        sigma.list[[1]] <- rbind(sigma, cbind(zeroleft, temp, zeroright))
-        adj.list[[1]] <- rbind(adj, cbind(zeroleft, temp2, zeroright))
+        sigma.list[[1]] <- rbind(sigma.list[[1]], cbind(zeroleft, temp, zeroright))
+        adj.list[[1]] <- rbind(adj.list[[1]], cbind(zeroleft, temp2, zeroright))
       }
       gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
       rownames(sigma.list[[1]]) <- gnames
