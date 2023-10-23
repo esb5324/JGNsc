@@ -261,6 +261,7 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
     nblk <- length(nivec.list[[1]])
     gnames = paste("gene",1:sum(nivec.list[[1]]), sep = "")
           if (cond==2){
+            blklist[[1]] <- lapply(1:nblk,c)
     for (b in 1:nblk){
       ni <- nivec.list[[1]][b]
       print("ni - C1"); print(ni)
@@ -305,7 +306,9 @@ generateSigmaList <- function(nivec.list, ud = c(-100:-60, 60:100)/100,
         ss_list <- c(cond)
         }
         for (ss in ss_list){
+          blklist[[ss]] <- lapply(1:nblk,c)
       nblk <- length(nivec.list[[ss]])
+          blk
       for (b in 1:nblk){
         ni <- nivec.list[[ss]][b]
         blklist[[ss]][[b]] <- generateBlki(ni=ni, ud=ud,runif_threshold=blk_runif_threshold,t_net=true_net,pd=pos_def, m_add=add_m)
