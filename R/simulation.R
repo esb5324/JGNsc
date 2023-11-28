@@ -1,4 +1,5 @@
 library(igraph)
+library(matrixcalc)
 crt_net <- function(nodes.n,net.a,net.m){
   # generate scale free net
   nt <- sample_pa(n = nodes.n,power = net.a,m = net.m,directed = FALSE)
